@@ -1,0 +1,16 @@
+# binary_sensor 
+- platform: template 
+  sensors:
+    movement_upstairs:
+      value_template: "{{ states.switch.motionsensor.state == 'on' or states.switch.motionsensor2.state == 'on' }}"
+      device_class: motion
+    main_door:
+      value_template: "{{ states.switch.maindoor.state == 'on' }}" 
+      device_class: opening
+    back_door:
+      value_template: "{{ states.switch.backdoor.state == 'on' }}" 
+      device_class: opening
+    sleeping:
+      value_template: "{{ states.input_boolean.sleeping.state == 'on' }}" 
+
+- platform: aurora

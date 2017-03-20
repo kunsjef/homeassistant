@@ -1,0 +1,18 @@
+- platform: kodi
+  host: 192.168.1.50
+  name: Kodi
+  username: !secret kodi_username
+  password: !secret kodi_password
+  enable_websocket: false
+
+- platform: sonos
+
+- platform: cast
+
+- platform: webostv
+  host: 192.168.1.167
+  name: Living Room TV
+
+- platform: apple_tv
+  host: 192.168.1.173
+  login_id: 00000000-0a39-e426-146d-6f4e724d48e0

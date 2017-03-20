@@ -1,0 +1,10 @@
+# Guestroom
+- platform: generic_thermostat
+  name: Guestroom
+  heater: switch.heatguestroom
+  target_sensor: sensor.guestroom_temperature
+  min_temp: 18
+  max_temp: 24
+  target_temp: 23
+  min_cycle_duration:
+     minutes: 5

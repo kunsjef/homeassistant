@@ -1,0 +1,27 @@
+######################################################
+# Morning lights
+######################################################
+
+- alias: 'Turn on lights in the morning'
+  trigger:
+    platform: state
+    #entity_id: switch.motionsensor
+    entity_id: binary_sensor.movement_upstairs
+    state: 'on'
+  condition:
+    - condition: time
+      after: '05:00:01'
+      before: '10:00:00'
+    - condition: sun
+      before: sunrise
+      before_offset: "+01:00:00"
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.lights'
+

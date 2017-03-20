@@ -1,0 +1,12 @@
+alias: 'Turn on lights and turn off sleeping'
+sequence:
+  # Turn on the lights
+  - execute_service: homeassistant.turn_on
+    service_data:
+      entity_id:
+        - scene.lights_on
+  # Turn off sleeping
+  - execute_service: switch.turn_off
+    service_data:
+      entity_id: input_boolean.sleeping
+

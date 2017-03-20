@@ -1,0 +1,48 @@
+#######################################################
+# Motion before midnight
+#######################################################
+
+- alias: 'Motion upstairs after sleep'
+  trigger:
+    platform: state
+    #entity_id: switch.motionsensor
+    entity_id: binary_sensor.movement_upstairs
+    state: 'on'
+  condition:
+    - condition: time
+      after: '22:00:00'
+      before: '23:59:59'
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.livingroom_nightlight
+
+#######################################################
+# Motion after midnight
+#######################################################
+
+- alias: 'Motion upstairs after sleep after midnight'
+  trigger:
+    platform: state
+    #entity_id: switch.motionsensor
+    entity_id: binary_sensor.movement_upstairs
+    state: 'on'
+  condition:
+    - condition: time
+      after: '00:00:01'
+      before: '05:00:00'
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.livingroom_nightlight
+

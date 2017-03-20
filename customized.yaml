@@ -1,0 +1,246 @@
+# Indoor Climate
+sensor.livingroom_humidity:
+  icon: mdi:water-percent
+  friendly_name: Livingroom Humidity
+sensor.livingroom_temperature:
+  icon: mdi:thermometer
+  friendly_name: Livingroom Temperature
+sensor.bedroom_temperature:
+  icon: mdi:thermometer
+  friendly_name: Bedroom Temperature
+sensor.bedroom_humidity:
+  icon: mdi:water-percent
+  friendly_name: Bedroom Humidity
+sensor.attic_temperature:
+  icon: mdi:thermometer
+  friendly_name: Attic Temperature
+sensor.attic_humidity:
+  icon: mdi:water-percent
+  friendly_name: Attic Humidity
+sensor.guestroom_temperature:
+  icon: mdi:thermometer
+  friendly_name: Guestroom Temperature
+climate.guestroom:
+  icon: mdi:thermometer
+  friendly_name: Guestroom Temperature Target
+
+# Living Room
+light.star:
+  friendly_name: Star
+  icon: mdi:pokeball
+light.diningtable:
+  friendly_name: Diningtable
+  icon: mdi:checkbox-blank-circle
+light.lightballs:
+  friendly_name: Balls
+  icon: mdi:google-circles
+#light.trio:
+#  friendly_name: Triple
+#  icon: mdi:google-circles-extended
+light.heartlights:
+  friendly_name: Heartlights
+  icon: mdi:heart-box-outline
+switch.diningwindow:
+  friendly_name: Diningwindow
+  icon: mdi:lightbulb
+switch.ricelamp:
+  friendly_name: Ricelamp
+  icon: mdi:glass-stange
+switch.bartable:
+  friendly_name: Bar Table
+  icon: mdi:lightbulb
+
+# Office / Mancave
+light.officedesk:
+  friendly_name: Office Desk
+  icon: mdi:black-mesa
+light.mancaveceiling:
+  friendly_name: Office Ceiling
+  icon: mdi:guitar-pick
+switch.barspots:
+  friendly_name: Bar Spotlights
+  icon: mdi:flask
+
+# Heating
+switch.heatteodor:
+  friendly_name: Heat Teodor
+  icon: mdi:radiator
+switch.heatnoahlotta:
+  friendly_name: Heat Lotta and Noah
+  icon: mdi:radiator
+switch.heatguestroom:
+  friendly_name: Heat Guestroom
+  icon: mdi:radiator
+
+# Conditions
+sun.sun:
+  icon: mdi:weather-sunny
+sensor.outside_humidity:
+  icon: mdi:water-percent
+  friendly_name: Humidity
+sensor.outside_temperature:
+  icon: mdi:thermometer
+  friendly_name: Temperature
+
+## Forecast
+#sensor.forecastio_temperature:
+#  icon: mdi:temperature-celsius
+#sensor.forecastio_apparent_temperature:
+#  icon: mdi:thermometer-lines
+#sensor.forecastio_cloud_coverage:
+#  icon: mdi:weather-partlycloudy
+#sensor.forecastio_wind_speed:
+#  icon: mdi:weather-windy
+#sensor.forecastio_precip:
+#  icon: mdi:weather-rainy
+#sensor.forecastio_precip_intensity:
+#  icon: mdi:water
+#sensor.forecastio_precip_probability:
+#  icon: mdi:umbrella
+
+# YR
+sensor.yr_temperature:
+  icon: mdi:temperature-celsius
+  friendly_name: Temperature
+sensor.yr_condition:
+  icon: mdi:weather-rainy
+  friendly_name: Percipitation
+sensor.yr_wind_speed:
+  icon: mdi:weather-windy
+  friendly_name: Wind speed
+sensor.yr_humidity:
+  icon: mdi:water
+  friendly_name: Humidity
+sensor.yr_cloudiness:
+  icon: mdi:weather-partlycloudy
+  friendly_name: Cloudiness
+sensor.yr_symbol:
+  friendly_name: Today
+
+# Booleans
+input_boolean.sleeping:
+  hidden: true
+  #icon: mdi:sleep
+  #friendly_name: Sleeping
+input_boolean.away:
+  icon: mdi:briefcase
+  friendly_name: Away
+
+# Hide switches
+switch.motionsensor:
+  hidden: true
+switch.motionsensor2:
+  hidden: true
+switch.lswlivingroomleft:
+  hidden: true
+switch.lswlivingroomright:
+  hidden: true
+switch.lswblueroomleft:
+  hidden: true
+switch.lswblueroomright:
+  hidden: true
+
+# Hide scripts
+script.livingroom_nightlight:
+  hidden: true
+script.nightlight_timer:
+  hidden: true
+#script.lights_on:
+#  hidden: true
+#script.sunrise:
+#  hidden: true
+#script.goodnight-off:
+#  hidden: true
+#script.goodnight:
+#  hidden: true
+
+
+# Hide scenes
+scene.nightlight:
+   hidden: true
+scene.away_lights_on:
+  hidden: true
+scene.away_lights_off:
+  hidden: true
+scene.sunrise:
+  hidden: true
+
+# Scenes
+scene.lights:
+  icon: mdi:lightbulb
+scene.good_night:
+  icon: mdi:sleep
+scene.romantic:
+  icon: mdi:heart
+scene.disco:
+  icon: mdi:image-filter-tilt-shift
+scene.dinner:
+  icon: mdi:food-variant
+
+# Media players
+media_player.kodi:
+  icon: mdi:kodi
+media_player.sonos:
+  icon: mdi:music-circle
+  friendly_name: Speaker
+
+# Doors and Windows
+switch.maindoor:
+  hidden: true
+switch.backdoor:
+  hidden: true
+binary_sensor.main_door:
+  friendly_name: Main Door
+  icon: mdi:checkbox-blank
+binary_sensor.back_door:
+  friendly_name: Back Door
+  icon: mdi:checkbox-blank
+binary_sensor.movement_upstairs:
+  friendly_name: Movement Upstairs
+  icon: mdi:walk
+binary_sensor.sleeping:
+  friendly_name: Sleeping
+  icon: mdi:sleep
+
+# All devices group
+group.all_devices:
+  friendly_name: Family
+  icon: mdi:home
+
+# TV
+switch.tv:
+  friendly_name: TV On/Off
+  icon: mdi:power
+switch.denon:
+  friendly_name: Receiver On/Off
+  icon: mdi:power
+switch.denonquick12:
+  friendly_name: Kodi/Shield
+  icon: mdi:movie
+switch.denonmute:
+  friendly_name: Mute
+  icon: mdi:volume-off
+
+# A/C
+switch.samsungac:
+  friendly_name: Air Conditioner
+  icon: mdi:air-conditioner
+switch.samsungac20:
+  friendly_name: AC 20 heat
+  icon: mdi:air-conditioner
+switch.samsungac21:
+  friendly_name: AC 21 heat
+  icon: mdi:air-conditioner
+switch.samsungac22:
+  friendly_name: AC 22 heat
+  icon: mdi:air-conditioner
+switch.samsungac23:
+  friendly_name: AC 23 heat
+  icon: mdi:air-conditioner
+switch.samsungac24:
+  friendly_name: AC 24 heat
+  icon: mdi:air-conditioner
+switch.samsungac25:
+  friendly_name: AC 25 heat
+  icon: mdi:air-conditioner
+

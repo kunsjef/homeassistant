@@ -1,0 +1,9 @@
+alias: 'Turn off nightlight after 10 minutes'
+sequence:
+  - delay:
+      minutes: 10
+  - service: scene.turn_on
+    data:
+      entity_id:
+        - scene.good_night
+

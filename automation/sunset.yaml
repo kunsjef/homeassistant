@@ -1,0 +1,57 @@
+#############################################################
+# Sunset -1 hour
+# Conditions:
+# * People are home
+# * Not away
+#############################################################
+
+- alias: 'Turn on light when sun sets -1h'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-01:00:00"
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'off'
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.lights'
+
+#############################################################
+# Sunset -2 hour
+# Conditions:
+# * People are home
+# * Not away
+# * Cloud coverage more than 70%
+#############################################################
+
+- alias: 'Turn on light when sun sets -2h and cloudy'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-02:00:00"
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'off'
+    - condition: numeric_state
+      #entity_id: sensor.forecastio_cloud_coverage
+      entity_id: sensor.yr_cloudiness
+      above: 50
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.lights'
+

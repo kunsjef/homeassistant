@@ -1,0 +1,43 @@
+#############################################################
+# Sunrise +1 hour
+# Conditions:
+# * Not away
+# * Cloud coverage less than 70%
+#############################################################
+
+- alias: 'Turn off light when sun rises +1h and no clouds'
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "+01:00:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+    - condition: numeric_state
+      #entity_id: sensor.forecastio_cloud_coverage
+      entity_id: sensor.yr_cloudiness
+      below: 70
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.sunrise'
+
+#############################################################
+# Sunrise +2 hours
+# Conditions:
+# * Not away
+#############################################################
+
+- alias: 'Turn off light when sun rises +2h'
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "+02:00:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.sunrise'
+

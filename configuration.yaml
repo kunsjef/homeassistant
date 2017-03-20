@@ -1,0 +1,197 @@
+####################################################
+#                                                  #
+#                  Basic Settings                  #
+#                                                  #
+####################################################
+
+###  Global configuration  ###
+homeassistant:
+  name: Ovre Ringveg 10
+#  radius: 60
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 70
+  unit_system: metric
+  time_zone: Europe/Oslo
+  customize: !include customized.yaml
+
+###  Zones  ###
+zone:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 60
+  #icon: social:people
+  icon: mdi:home-variant
+
+zone 2:
+  name: Work
+  latitude: 64.010773
+  longitude: 11.488477
+  radius: 80
+  icon: mdi:city
+
+zone 3:
+  name: School
+  latitude: 64.015326
+  longitude: 11.495851
+  radius: 60
+  icon: mdi:school
+
+zone 4:
+  name: Tulcea
+  latitude: 45.181967
+  longitude: 28.788152
+  radius: 20000
+  icon: mdi:earth
+
+zone 5:
+  name: Vegas
+  latitude: 36.108407
+  longitude: -115.172958
+  radius: 20000
+  icon: mdi:dice-6
+
+## Tellstick ##
+tellstick:
+  signal_repetitions: 2
+
+##  MQTT  ###
+mqtt:
+  broker: m20.cloudmqtt.com
+  port: 22527
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  client_id: Home Assistant
+
+###  HTTP  ###
+#http:
+#  api_password: !secret http_api_password
+
+## Notifications ##
+notify:
+  platform: pushbullet
+  api_key: !secret pushbullet_api_key
+  name: pushbullet
+
+
+####################################################
+#                                                  #
+#                     Includes                     #
+#                                                  #
+####################################################
+
+###  Devices  ###
+device_tracker: !include device_trackers.yaml
+switch: !include switches.yaml
+sensor: !include sensors.yaml
+light: !include lights.yaml
+media_player: !include media_players.yaml
+
+###  Logger  ###
+logger: !include logger.yaml
+
+### Config ###
+config:
+
+###  Groups  ###
+group: !include groups.yaml
+
+###  Scenes  ###
+scene: !include_dir_merge_list scenes/
+
+### Scripts ###
+script: !include scripts.yaml
+
+### Automation ###
+automation: !include_dir_merge_list automation/
+
+### Camera ###
+camera: !include camera.yaml
+
+### Climate ###
+climate: !include climate.yaml
+
+### Binary sensors ###
+binary_sensor: !include binary_sensor.yaml
+
+### Input booleans ###
+input_boolean:
+  sleeping:
+    name: Sleeping
+    initial: off
+    icon: mdi:sleep
+  sleep_now:
+    name: Sleep Now
+    initial: off
+    icon: mdi:hotel
+  extend_night:
+    name: Extend Night
+    initial: off
+    icon: mdi:sleep-off
+  away:
+    name: Away
+    initial: off
+    icon: mdi:briefcase
+  alarm_away:
+    name: Alarm Away
+    initial: off
+    icon: mdi:security
+  alarm_home:
+    name: Alarm Home
+    initial: off
+    icon: mdi:security-home
+  alarm_triggered:
+    name: Alarm Triggered
+    initial: off
+
+####################################################
+#                                                  #
+#                     Enables                      #
+#                                                  #
+####################################################
+
+### Hue emulation ###
+emulated_hue:
+  exposed_domains:
+    - light
+    - switch
+    - input_boolean
+    - scene
+
+###  Sun  ###
+sun:
+
+###  Logbook  ###
+logbook:
+
+###  History  ###
+history:
+  include:
+    domains:
+      - sensor
+      - switch
+
+###  Frontend  ###
+frontend:
+
+# Discover some devices automatically
+discovery:
+
+# Checks for available updates
+updater:
+
+# Allows you to issue voice commands from the frontend
+conversation:
+
+# Custom iframe panels
+panel_iframe:
+  graphs:
+    title: 'Graphs'
+    icon: 'mdi:chart-line'
+    url: 'http://192.168.1.90/stats/'
+  router:
+    title: 'Asus router downstairs'
+    icon: 'mdi:router-wireless'
+    url: 'http://192.168.1.90'
+

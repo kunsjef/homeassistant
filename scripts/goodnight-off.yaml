@@ -1,0 +1,10 @@
+alias: 'Reset goodnight-timer'
+sequence:
+  # Cancel old timers
+  - execute_service: script.turn_off
+    service_data: 
+      entity_id: script.goodnight
+  # Set new timer
+  - execute_service: script.turn_on
+    service_data:
+      entity_id: script.goodnight

@@ -1,0 +1,23 @@
+- name: Nightlight
+  entities:
+    light.star:
+      state: on
+      brightness: 255
+    light.diningtable:
+      state: on
+      brightness: 100
+    light.lightballs: 
+      state: on
+      brightness: 75
+#    light.trio:
+#      state: on
+#      brightness: 167
+    light.heartlights: off
+    switch.bartable: on
+    switch.ricelamp: off
+    light.mancaveceiling:
+      state: on
+      brightness: 100
+    light.officedesk: off
+    switch.barspots: on
+    switch.diningwindow: on

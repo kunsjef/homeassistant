@@ -1,0 +1,29 @@
+- name: Dinner
+  entities:
+    light.star:
+      state: on
+      brightness: 255
+    light.diningtable:
+      state: on
+      brightness: 225
+    light.lightballs:
+      state: on
+      brightness: 175
+#    light.trio: 
+#      state: on
+#      brightness: 167
+    light.heartlights: 
+      state: on
+      brightness: 167
+    switch.bartable: on
+    switch.ricelamp: on
+    switch.diningwindow: on
+    light.mancaveceiling:
+      state: on
+      brightness: 100
+    light.officedesk:
+      state: on
+      brightness: 200
+    switch.barspots: on
+    input_boolean.sleeping: off
+    #switch.lswlivingroomleft: on

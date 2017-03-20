@@ -1,0 +1,15 @@
+- name: Good Night
+  entities:
+    light.star: off
+    light.diningtable: off
+    light.lightballs: off
+#    light.trio: off
+    light.heartlights: off
+    switch.bartable: off
+    switch.ricelamp: off
+    switch.diningwindow: off
+    light.mancaveceiling: off
+    light.officedesk: off
+    switch.barspots: off
+    input_boolean.sleeping: on
+    #switch.lswlivingroomleft: off

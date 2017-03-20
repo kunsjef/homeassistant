@@ -1,0 +1,23 @@
+- name: Away Lights On
+  entities:
+    light.star: off
+    light.diningtable: off
+    light.lightballs:
+      state: on
+      brightness: 100
+#    light.trio: 
+#      state: on
+#      brightness: 167
+    light.heartlights: 
+      state: on
+      brightness: 167
+    switch.bartable: on
+    switch.ricelamp: on
+    switch.diningwindow: on
+    input_boolean.sleeping: off
+    light.mancaveceiling: off
+    light.officedesk:
+      state: on
+      brightness: 255
+    switch.barspots: on
+    input_boolean.away: on

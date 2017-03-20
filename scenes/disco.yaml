@@ -1,0 +1,15 @@
+- name: Disco
+  entities:
+    light.star: on
+    light.diningtable: on
+    light.lightballs: on
+#    light.trio: on
+    light.heartlights: on
+    switch.bartable: on
+    switch.ricelamp: on
+    switch.diningwindow: on
+    light.mancaveceiling: on
+    light.officedesk: on
+    switch.barspots: on
+    input_boolean.sleeping: off
+    #switch.lswlivingroomleft: on

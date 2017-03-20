@@ -1,0 +1,85 @@
+#######################################################
+# Coming home
+#######################################################
+
+- alias: 'Turn on lights when coming home after sunset'
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: 'not_home'
+    to: 'home'
+  condition:
+    - condition: time
+      after: '15:00:00'
+      before: '23:59:00'
+    - condition: sun
+      after: sunset
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+    - condition: state
+      entity_id: group.livingroom
+      state: 'off'
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.lights'
+
+#######################################################
+# Nighttime - lights off
+#######################################################
+
+- alias: 'Turn off lights in the night if no movement'
+  trigger:
+    platform: time
+    minutes: '/30'
+    seconds: 0
+  condition:
+    - condition: time
+      after: '00:01:00'
+    - condition: time
+      before: '05:01:00'
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.extend_night
+      state: 'off'
+    - condition: state
+      #entity_id: switch.motionsensor
+      entity_id: binary_sensor.movement_upstairs
+      state: 'off'
+      for:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.good_night'
+
+#######################################################
+# Sleep now - button
+#######################################################
+
+- alias: 'Sleep now button'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.sleep_now
+      state: 'on'
+  condition:
+    - condition: time
+      after: '20:00:00'
+      before: '23:59:00'
+  action:
+    - delay: 00:05:00
+    - service: 'scene.turn_on'
+      entity_id: 'scene.good_night'
+    - delay: 00:05:00
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.sleep_now
+    

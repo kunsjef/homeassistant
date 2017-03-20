@@ -1,0 +1,15 @@
+# Device tracker
+#  qos: 0
+#  devices:
+#    Thomas: /location/Thomas
+#    Paula: /location/Paula
+
+- platform: nmap_tracker
+  hosts: 192.168.1.100-199
+  #home_interval: 10
+  interval_seconds: 30
+  consider_home: 1800
+  track_new_devices: no
+
+- platform: owntracks
+

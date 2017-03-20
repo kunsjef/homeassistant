@@ -1,0 +1,9 @@
+alias: 'Assume sleeping after 2 hours of no movement'
+sequence:
+  - delay:
+      hours: 2
+  - execute_service: homeassistant.turn_on
+    service_data:
+      entity_id:
+        - scene.good_night
+

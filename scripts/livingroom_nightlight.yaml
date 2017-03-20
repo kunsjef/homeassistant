@@ -1,0 +1,19 @@
+alias: 'Turn on nightlight and set timer'
+sequence:
+  # Cancel old timers
+  #- execute_service: script.turn_off
+  - service: script.turn_off
+    data: 
+      entity_id: script.nightlight_timer
+  # Turn on the lights
+  #- execute_service: homeassistant.turn_on
+  - service: scene.turn_on
+    data:
+      entity_id:
+        - scene.nightlight
+  # Set new timer
+  #- execute_service: script.turn_on
+  - service: script.turn_on
+    data:
+      entity_id: script.nightlight_timer
+

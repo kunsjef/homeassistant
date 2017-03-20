@@ -1,0 +1,63 @@
+# Tellstick sensors
+- platform: tellstick
+  234: Outside
+  225: Livingroom
+  13: Guestroom
+  101: Attic
+  11: Bedroom
+  only_named: True
+  #temperature_scale: "°C"
+  #datatype_mask: 1
+
+# YR
+- platform: yr
+  monitored_conditions:
+    - temperature
+    - symbol
+    - precipitation
+    - windSpeed
+    - humidity
+    - cloudiness
+
+# Moon
+- platform: moon
+
+# History Statistics Sensor
+#- platform: history_stats
+#  name: Movement kitchen/livingroom last 24h
+#  entity_id: switch.motionsensor
+#  state: 'on'
+#  duration: 24:00
+
+# History Statistics Sensor
+#- platform: history_stats
+#  name: Movement office last 24h
+#  entity_id: switch.motionsensor2
+#  state: 'on'
+#  duration: 24:00
+
+
+## Example configuration.yaml entry
+#- platform: forecast
+#  api_key: <redacted>
+#  monitored_conditions:
+#    - icon
+#    - precip_type
+#    - precip_intensity
+#    - precip_probability
+#    - temperature
+#    - apparent_temperature
+#    - wind_speed
+#    - cloud_cover
+
+##- platform: time_date
+##  display_options:
+##      - 'time'
+##      - 'date'
+#- platform: worldclock
+#  time_zone: MST
+#  name: 'Las Vegas'
+#- platform: worldclock
+#  time_zone: Europe/Oslo
+#  name: 'Steinkjer'
+

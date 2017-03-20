@@ -1,0 +1,32 @@
+################################################
+# Away - automatic lights on
+################################################
+
+- alias: 'Away - lights on'
+  trigger:
+    - platform: time
+      after: '17:15:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'on'
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.away_lights_on'
+
+################################################
+# Away - automatic lights off
+################################################
+
+- alias: 'Away - lights off'
+  trigger:
+    - platform: time
+      after: '23:15:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'on'
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.away_lights_off'
+
