@@ -1,7 +1,7 @@
 # home-assistant config
 My current home-assistant configuration. This is a work in progress, and the configs may contain errors.
 
-==Devices controlled by home-assistant==
+** Devices controlled by home-assistant **
 * Raspberry Pi with Tellstick Duo
 * 2x Nexa LMST-606 Door Magnets
 * 2x Nexa LMDT-609 Indoor PIR Sensors
@@ -21,5 +21,8 @@ My current home-assistant configuration. This is a work in progress, and the con
 * Samsung A/C
 * 4x D-Link DCS-932L Cameras
 
-==TODO==
-* Get a Z-Wave USB Controller
+** TODO **
+[ ] Get a Z-Wave USB Controller
+[ ] Add more magnet sensors
+[ ] Add TTS for Sonos
+[ ] Add Outdoor Camera
