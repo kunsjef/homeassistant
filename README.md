@@ -22,7 +22,8 @@ My current home-assistant configuration. This is a work in progress, and the con
 * 4x D-Link DCS-932L Cameras
 
 ## TODO
-- [ ] Get a Z-Wave USB Controller
+- [ ] Get a z-wave USB Controller
+- [ ] Add z-wave sensors
+- [ ] Add z-wave door lock
 - [ ] Add more magnet sensors
 - [ ] Add TTS for Sonos
-- [ ] Add Outdoor Camera
