@@ -1,8 +1,7 @@
 # home-assistant config
 My current home-assistant configuration. This is a work in progress, and the configs may contain errors.
 
-## Devices
-### Controlled by or included in home-assistant
+## Devices controlled by or included in home-assistant
 * Raspberry Pi with Tellstick Duo
 * 2x Nexa LMST-606 Door Magnets
 * 2x Nexa LMDT-609 Indoor PIR Sensors
