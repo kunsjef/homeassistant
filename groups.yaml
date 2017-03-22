@@ -3,6 +3,7 @@ default_view:
   entities:
     - group.scenes
     - group.homestatus
+    - group.actions
     - device_tracker.vyhbzwsp_paula
     - device_tracker.vyhbzwsp_thomas
     - sensor.outside_temperature
@@ -25,6 +26,10 @@ homestatus:
     - binary_sensor.main_door
     - binary_sensor.back_door
     - binary_sensor.sleeping
+
+actions:
+  name: Home Actions
+  entities:
     - input_boolean.sleep_now
     - input_boolean.extend_night
     - input_boolean.away
