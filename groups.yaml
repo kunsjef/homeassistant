@@ -35,6 +35,7 @@ actions:
     - input_boolean.away
     - input_boolean.alarm_away
     - input_boolean.alarm_home
+    - input_boolean.test
 
 climate:
   name: Climate
@@ -149,6 +150,7 @@ security:
 cameras:
   name: Cameras
   entities:
+    - camera.porch
     - camera.guestroom
     - camera.livingroom
     - camera.bedroom

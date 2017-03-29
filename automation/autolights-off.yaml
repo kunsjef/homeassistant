@@ -76,10 +76,16 @@
       after: '20:00:00'
       before: '23:59:00'
   action:
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.sonos
+        volume: 0.3
+        message: 'Good night and sweet dreams. Lights will be out in 5 minutes.'
+        delay: '00:00:10'
     - delay: 00:05:00
     - service: 'scene.turn_on'
       entity_id: 'scene.good_night'
-    - delay: 00:05:00
+    - delay: 00:00:05
     - service: homeassistant.turn_off
       entity_id: input_boolean.sleep_now
     

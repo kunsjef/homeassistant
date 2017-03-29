@@ -581,3 +581,19 @@ a06faa6d6a57:
   picture:
   track: false
   vendor: LG Innotek
+
+b0c55438b8e1:
+  hide_if_away: false
+  mac: B0:C5:54:38:B8:E1
+  name: b0c55438b8e1
+  picture:
+  track: false
+  vendor: D-Link International
+
+404d7f6964da:
+  hide_if_away: false
+  mac: 40:4D:7F:69:64:DA
+  name: 404d7f6964da
+  picture:
+  track: false
+  vendor: Apple, Inc.

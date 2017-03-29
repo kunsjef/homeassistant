@@ -57,7 +57,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.guestroom_temperature
-      below: 22
+      below: 21
   condition:
     - condition: state
       entity_id: input_boolean.away

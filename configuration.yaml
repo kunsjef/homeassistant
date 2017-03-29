@@ -144,6 +144,10 @@ input_boolean:
   alarm_triggered:
     name: Alarm Triggered
     initial: off
+  test:
+    name: TTS Test
+    initial: off
+
 
 ####################################################
 #                                                  #
@@ -194,4 +198,8 @@ panel_iframe:
     title: 'Asus router downstairs'
     icon: 'mdi:router-wireless'
     url: 'http://192.168.1.90'
+
+# TTS
+tts:
+  - platform: google
 
