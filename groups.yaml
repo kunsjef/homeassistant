@@ -1,31 +1,38 @@
 default_view:
   view: yes
   entities:
-    - group.scenes
     - group.homestatus
+    - group.scenes
     - group.actions
     - device_tracker.vyhbzwsp_paula
     - device_tracker.vyhbzwsp_thomas
+    - device_tracker.noahsiniphone
+    - device_tracker.kyloren
     - sensor.outside_temperature
     - sensor.yr_symbol
+
+homestatus:
+  name: Home Status
+  entities:
+    #- group.all_devices
+    - binary_sensor.movement
+    - binary_sensor.movement_upstairs
+    - binary_sensor.door_main
+    - binary_sensor.door_back
+    - binary_sensor.door_ebalcony
+    - binary_sensor.door_wbalcony
+    - binary_sensor.sleeping
+    - binary_sensor.washmachine
+    - sensor.external_ip
 
 scenes:
   name: Scenes
   entities:
     - scene.lights
     - scene.good_night
-    - scene.romantic
-    - scene.dinner
-    - scene.disco
-
-homestatus:
-  name: Home Status
-  entities:
-    - group.all_devices
-    - binary_sensor.movement_upstairs
-    - binary_sensor.main_door
-    - binary_sensor.back_door
-    - binary_sensor.sleeping
+    #- scene.romantic
+    #- scene.dinner
+    #- scene.disco
 
 actions:
   name: Home Actions
@@ -37,13 +44,17 @@ actions:
     - input_boolean.alarm_home
     - input_boolean.test
 
-climate:
-  name: Climate
+details:
+  name: Details
   view: yes
   entities:
     - group.outdoors
-    - group.indoors
-    - group.space
+    - group.livingroom
+    - group.basement
+    - group.hall
+    - group.bedroom
+    - group.ethan
+    - group.attic
     - group.weather
     - group.heating
 
@@ -53,24 +64,54 @@ outdoors:
     - sun.sun
     - sensor.outside_humidity
     - sensor.outside_temperature
+    - binary_sensor.aurora_visibility
+    - sensor.moon
 
-indoors:
-  name: Indoor Climate
+livingroom:
+  name: Livingroom
   entities:
     - sensor.livingroom_temperature
     - sensor.livingroom_humidity
+    - sensor.livingroom_luminance_10_3
+    - sensor.livingroom_temperature_10_1
+    - binary_sensor.movement_upstairs
+    - binary_sensor.door_ebalcony
+    - binary_sensor.door_wbalcony
+    - sensor.tvstereo_power_2_4
+    #- switch.tvstereo_switch_2_0
+
+basement:
+  name: Basement
+  entities:
+    - sensor.basement_luminance_7_3
+    - sensor.basement_temperature_7_1
+    - binary_sensor.washmachine
+    - sensor.washmachine_power_8_4
+    #- switch.washmachine_switch_8_0
+
+hall:
+  name: Entrance Hall
+  entities:
+    - sensor.hall_luminance_6_3
+    - sensor.hall_temperature_6_1
+    - binary_sensor.door_main
+
+ethan:
+  name: Ethan's Room
+  entities:
+    - climate.ethan
+
+bedroom:
+  name: Master Bedroom
+  entities:
     - sensor.bedroom_temperature
     - sensor.bedroom_humidity
+
+attic:
+  name: Attic
+  entities:
     - sensor.attic_temperature
     - sensor.attic_humidity
-    - climate.guestroom
-    #- sensor.guestroom_temperature
-
-space:
-  name: Space
-  entities:
-    - binary_sensor.aurora_visibility
-    - sensor.moon
 
 weather:
   name: Weather
@@ -87,17 +128,17 @@ heating:
   entities:
     - switch.heatteodor
     - switch.heatnoahlotta
-    - switch.heatguestroom
+    - switch.heatethan
 
 lights:
   name: Lights
   view: yes
   entities:
-    - group.livingroom
-    - group.office
+    - group.lights_livingroom
+    - group.lights_office
 
-livingroom:
-  name: Living Room
+lights_livingroom:
+  name: Lights Livingroom
   entities:
     - light.star
     - light.diningtable
@@ -108,8 +149,8 @@ livingroom:
     - switch.ricelamp
     - switch.bartable
 
-office:
-  name: Office
+lights_office:
+  name: Lights Office
   entities:
     - light.mancaveceiling
     - light.officedesk
@@ -151,7 +192,7 @@ cameras:
   name: Cameras
   entities:
     - camera.porch
-    - camera.guestroom
+    - camera.ethan
     - camera.livingroom
     - camera.bedroom
 

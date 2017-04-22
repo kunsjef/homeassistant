@@ -1,0 +1,53 @@
+# What to list here:
+# * List of persons home
+# * Temperature outside + forecast today
+# * When hose fell asleep + when house woke up
+# * When and where movement was last detected
+# * When doors last were opened
+# * Alarm status + on/off
+# * Current public IP (remeber automation for changing...)
+
+default_view:
+  view: yes
+  entities:
+    - group.scenes
+    - group.homestatus
+    - group.actions
+    - device_tracker.vyhbzwsp_paula
+    - device_tracker.vyhbzwsp_thomas
+    - sensor.outside_temperature
+    - sensor.yr_symbol
+
+scenes:
+  name: Scenes
+  entities:
+    - scene.lights
+    - scene.good_night
+    - scene.romantic
+    - scene.dinner
+    - scene.disco
+
+homestatus:
+  name: Home Status
+  entities:
+    - group.all_devices
+    - sensor.movement_upstairs
+    - sensor.last_movement_upstairs
+    - sensor.main_door
+    - sensor.last_main_door
+    - sensor.back_door
+    - sensor.last_back_door
+    - binary_sensor.sleeping
+
+actions:
+  name: Home Actions
+  control: hidden
+  entities:
+    - input_boolean.sleep_now
+    - input_boolean.extend_night
+    - input_boolean.away
+    - input_boolean.alarm_away
+    - input_boolean.alarm_home
+    - input_boolean.test
+    - input_boolean.test2
+

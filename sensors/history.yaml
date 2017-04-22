@@ -1,0 +1,9 @@
+# History Statistics Sensor
+#- platform: history_stats
+#  name: Movement upstairs last 15 minutes
+#  entity_id: sensor.movement_upstairs
+#  state: 'motion'
+#  type: count
+#  end: '{{ now() }}'
+#  duration: 00:15
+

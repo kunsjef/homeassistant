@@ -1,0 +1,12 @@
+- platform: pushbullet
+  name: pushbullet
+  api_key: !secret pushbullet_api_key
+
+- platform: telegram
+  name: telegram
+  api_key: !secret telegram_api_key
+  chat_id: !secret telegram_chat_id
+
+- platform: kodi
+  name: kodi
+  host: 192.168.1.50

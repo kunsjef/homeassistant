@@ -1,0 +1,11 @@
+# Tellstick sensors
+- platform: tellstick
+  234: Outside
+  225: Livingroom
+  13: Guestroom
+  101: Attic
+  11: Bedroom
+  only_named: True
+  #temperature_scale: "°C"
+  #datatype_mask: 1
+

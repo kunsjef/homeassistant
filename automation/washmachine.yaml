@@ -1,0 +1,20 @@
+- alias: 'Washing Machine is done'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.washmachine
+    from: 'on'
+    to: 'off'
+#    for:
+#      minutes: 5
+  action:
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.sonos
+        volume: 0.3
+        message: 'Excuse me, but the washing machine just finished its cycle. Sorry to interrupt.'
+        delay: '00:00:10'
+    - delay: 00:05:00
+    - service: notify.telegram
+      data:
+        message: 'Washing machine is done!'
+

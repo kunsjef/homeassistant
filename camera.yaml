@@ -1,7 +1,7 @@
-# Guestroom
+# Ethans Room
 - platform: mjpeg
   mjpeg_url: http://192.168.1.60/mjpeg.cgi
-  name: Guestroom
+  name: Ethan
   username: admin
   password: !secret camera_password
   authentication: basic

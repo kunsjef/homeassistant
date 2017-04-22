@@ -1,8 +1,8 @@
 # Guestroom
 - platform: generic_thermostat
-  name: Guestroom
-  heater: switch.heatguestroom
-  target_sensor: sensor.guestroom_temperature
+  name: Ethan
+  heater: switch.heatethan
+  target_sensor: sensor.ethan_temperature
   min_temp: 18
   max_temp: 24
   target_temp: 23

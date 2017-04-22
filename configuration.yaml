@@ -7,7 +7,6 @@
 ###  Global configuration  ###
 homeassistant:
   name: Ovre Ringveg 10
-#  radius: 60
   latitude: !secret home_latitude
   longitude: !secret home_longitude
   elevation: 70
@@ -20,7 +19,7 @@ zone:
   name: Home
   latitude: !secret home_latitude
   longitude: !secret home_longitude
-  radius: 60
+  radius: 150
   #icon: social:people
   icon: mdi:home-variant
 
@@ -28,29 +27,29 @@ zone 2:
   name: Work
   latitude: 64.010773
   longitude: 11.488477
-  radius: 80
+  radius: 150
   icon: mdi:city
 
 zone 3:
   name: School
   latitude: 64.015326
   longitude: 11.495851
-  radius: 60
+  radius: 150
   icon: mdi:school
 
-zone 4:
-  name: Tulcea
-  latitude: 45.181967
-  longitude: 28.788152
-  radius: 20000
-  icon: mdi:earth
+#zone 4:
+#  name: Tulcea
+#  latitude: 45.181967
+#  longitude: 28.788152
+#  radius: 20000
+#  icon: mdi:earth
 
-zone 5:
-  name: Vegas
-  latitude: 36.108407
-  longitude: -115.172958
-  radius: 20000
-  icon: mdi:dice-6
+#zone 5:
+#  name: Vegas
+#  latitude: 36.108407
+#  longitude: -115.172958
+#  radius: 20000
+#  icon: mdi:dice-6
 
 ## Tellstick ##
 tellstick:
@@ -64,16 +63,20 @@ mqtt:
   password: !secret mqtt_password
   client_id: Home Assistant
 
-###  HTTP  ###
-#http:
-#  api_password: !secret http_api_password
-
-## Notifications ##
-notify:
-  platform: pushbullet
-  api_key: !secret pushbullet_api_key
-  name: pushbullet
-
+##  HTTP  ###
+http:
+  api_password: !secret http_api_password
+  cors_allowed_origins:
+    - https://google.com
+    - https://home-assistant.io
+  use_x_forwarded_for: True
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.1.0/24
+    - 172.16.1.0/24
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
 
 ####################################################
 #                                                  #
@@ -81,39 +84,26 @@ notify:
 #                                                  #
 ####################################################
 
-###  Devices  ###
+###  Directories ###
+scene: !include_dir_merge_list scenes/
+automation: !include_dir_merge_list automation/
+sensor: !include_dir_merge_list sensors/
+
+###  Files ###
+notify: !include notification.yaml
+logger: !include logger.yaml
 device_tracker: !include device_trackers.yaml
 switch: !include switches.yaml
-sensor: !include sensors.yaml
 light: !include lights.yaml
 media_player: !include media_players.yaml
-
-###  Logger  ###
-logger: !include logger.yaml
+group: !include groups.yaml
+script: !include scripts.yaml
+camera: !include camera.yaml
+climate: !include climate.yaml
+binary_sensor: !include binary_sensor.yaml
 
 ### Config ###
 config:
-
-###  Groups  ###
-group: !include groups.yaml
-
-###  Scenes  ###
-scene: !include_dir_merge_list scenes/
-
-### Scripts ###
-script: !include scripts.yaml
-
-### Automation ###
-automation: !include_dir_merge_list automation/
-
-### Camera ###
-camera: !include camera.yaml
-
-### Climate ###
-climate: !include climate.yaml
-
-### Binary sensors ###
-binary_sensor: !include binary_sensor.yaml
 
 ### Input booleans ###
 input_boolean:
@@ -203,3 +193,6 @@ panel_iframe:
 tts:
   - platform: google
 
+# Zwave
+zwave:
+  usb_path: /dev/ttyACM0

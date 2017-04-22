@@ -1,0 +1,182 @@
+#default_view:
+#  view: yes
+#  entities:
+#    - group.scenes
+#    - group.homestatus
+#    - group.actions
+#    - device_tracker.vyhbzwsp_paula
+#    - device_tracker.vyhbzwsp_thomas
+#    - sensor.outside_temperature
+#    - sensor.yr_symbol
+#
+#scenes:
+#  name: Scenes
+#  entities:
+#    - scene.lights
+#    - scene.good_night
+#    - scene.romantic
+#    - scene.dinner
+#    - scene.disco
+#
+#homestatus:
+#  name: Home Status
+#  entities:
+#    - group.all_devices
+#    - sensor.movement_upstairs
+#    - sensor.last_movement_upstairs
+#    - sensor.main_door
+#    - sensor.last_main_door
+#    - sensor.back_door
+#    - sensor.last_back_door
+#    - binary_sensor.sleeping
+#
+#actions:
+#  name: Home Actions
+#  entities:
+#    - input_boolean.sleep_now
+#    - input_boolean.extend_night
+#    - input_boolean.away
+#    - input_boolean.alarm_away
+#    - input_boolean.alarm_home
+#    - input_boolean.test
+
+climate:
+  name: Climate
+  view: yes
+  entities:
+    - group.outdoors
+    - group.indoors
+    - group.space
+    - group.weather
+    - group.heating
+
+outdoors:
+  name: Outdoors
+  entities:
+    - sun.sun
+    - sensor.outside_humidity
+    - sensor.outside_temperature
+
+indoors:
+  name: Indoor Climate
+  entities:
+    - sensor.livingroom_temperature
+    - sensor.livingroom_humidity
+    - sensor.bedroom_temperature
+    - sensor.bedroom_humidity
+    - sensor.attic_temperature
+    - sensor.attic_humidity
+    - climate.guestroom
+    #- sensor.guestroom_temperature
+
+space:
+  name: Space
+  entities:
+    - binary_sensor.aurora_visibility
+    - sensor.moon
+
+weather:
+  name: Weather
+  entities:
+    - sensor.yr_symbol
+    - sensor.yr_temperature
+    - sensor.yr_condition
+    - sensor.yr_wind_speed
+    - sensor.yr_humidity
+    - sensor.yr_cloudiness
+
+heating:
+  name: Heating
+  entities:
+    - switch.heatteodor
+    - switch.heatnoahlotta
+    - switch.heatguestroom
+
+lights:
+  name: Lights
+  view: yes
+  entities:
+    - group.livingroom
+    - group.office
+
+livingroom:
+  name: Living Room
+  entities:
+    - light.star
+    - light.diningtable
+    - light.lightballs
+    #- light.trio
+    - light.heartlights
+    - switch.diningwindow
+    - switch.ricelamp
+    - switch.bartable
+
+office:
+  name: Office
+  entities:
+    - light.mancaveceiling
+    - light.officedesk
+    - switch.barspots
+
+Peripherals:
+  name: Peripherals
+  view: yes
+  entities:
+    - group.tv
+    - group.ac
+
+tv:
+  name: TV
+  entities:
+    - media_player.living_room_tv
+    - switch.tv
+    - switch.denon
+    - switch.denonquick12
+    - switch.denonmute
+
+ac:
+  name: A/C
+  entities:
+    - switch.samsungac
+    - switch.samsungac20
+    - switch.samsungac21
+    - switch.samsungac22
+    - switch.samsungac23
+    - switch.samsungac24
+
+security:
+  name: Security
+  view: yes
+  entities:
+    - group.cameras
+
+cameras:
+  name: Cameras
+  entities:
+    - camera.porch
+    - camera.guestroom
+    - camera.livingroom
+    - camera.bedroom
+
+other:
+  name: Other Stuff
+  view: yes
+  entities:
+    - group.binaries
+    - group.mediaplayers
+
+binaries:
+  name: Doors, Windows and Movement
+  entities:
+    - binary_sensor.movement_upstairs
+    - binary_sensor.main_door
+    - binary_sensor.back_door
+
+mediaplayers:
+  name: Media Players
+  entities:
+    - media_player.soverommet
+    - media_player.shield
+    - media_player.sonos
+    - media_player.apple_tv
+    - media_player.kodi

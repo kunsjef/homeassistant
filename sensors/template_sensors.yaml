@@ -1,0 +1,43 @@
+- platform: template
+  sensors:
+
+    movement_upstairs:
+      value_template: >-
+        {%- if is_state("switch.motionsensor", "off") and is_state("switch.motionsensor2", "off") -%}
+          none
+        {%- elif is_state("switch.motionsensor", "on") or is_state("switch.motionsensor2", "on") -%}
+          motion
+        {%- else -%}
+          unknown
+        {%- endif -%}
+
+    last_movement_upstairs:
+      value_template: '{{ as_timestamp(states.sensor.movement_upstairs.last_changed) | timestamp_custom("%a %d %b %H:%M") }}'
+
+    main_door:
+      value_template: >-
+        {%- if is_state("switch.maindoor", "off") -%}
+          closed
+        {%- elif is_state("switch.maindoor", "on") -%}
+          open
+        {%- else -%}
+          unknown
+        {%- endif -%}
+
+    last_main_door:
+      value_template: '{{ as_timestamp(states.sensor.main_door.last_changed) | timestamp_custom("%a %d %b %H:%M") }}'
+    #  value_template: '{{ as_timestamp(states.sensor.main_door.attributes.last_triggered)  | timestamp_custom("%H:%M") }}'
+
+    back_door:
+      value_template: >-
+        {%- if is_state("switch.backdoor", "off") -%}
+          closed
+        {%- elif is_state("switch.backdoor", "on") -%}
+          open
+        {%- else -%}
+          unknown
+        {%- endif -%}
+
+    last_back_door:
+      value_template: '{{ as_timestamp(states.sensor.back_door.last_changed) | timestamp_custom("%a %d %b %H:%M") }}'
+    #  value_template: '{{ as_timestamp(states.sensor.back_door.attributes.last_triggered)  | timestamp_custom("%H:%M") }}'

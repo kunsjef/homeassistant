@@ -9,8 +9,11 @@
       data:
         sonos_entity: media_player.sonos
         volume: 0.5
-        message: 'Good morning! This is a test.'
+        message: 'This is a test. Telegram also sent.'
         delay: '00:00:05'
+    - service: notify.telegram
+      data:
+        message: 'This is a test message.'
     - delay: 00:00:10
     - service: homeassistant.turn_off
       entity_id: input_boolean.test

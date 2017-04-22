@@ -17,14 +17,14 @@ sensor.attic_temperature:
 sensor.attic_humidity:
   icon: mdi:water-percent
   friendly_name: Attic Humidity
-sensor.guestroom_temperature:
+sensor.ethan_temperature:
   icon: mdi:thermometer
-  friendly_name: Guestroom Temperature
-climate.guestroom:
+  friendly_name: Ethan's Room Temperature
+climate.ethan:
   icon: mdi:thermometer
-  friendly_name: Guestroom Temperature Target
+  friendly_name: Ethan's Room Temperature Target
 
-# Living Room
+# Living Room Lights
 light.star:
   friendly_name: Star
   icon: mdi:pokeball
@@ -50,7 +50,7 @@ switch.bartable:
   friendly_name: Bar Table
   icon: mdi:lightbulb
 
-# Office / Mancave
+# Office / Mancave Lights
 light.officedesk:
   friendly_name: Office Desk
   icon: mdi:black-mesa
@@ -68,11 +68,11 @@ switch.heatteodor:
 switch.heatnoahlotta:
   friendly_name: Heat Lotta and Noah
   icon: mdi:radiator
-switch.heatguestroom:
-  friendly_name: Heat Guestroom
+switch.heatethan:
+  friendly_name: Heat Ethan's Room
   icon: mdi:radiator
 
-# Conditions
+# Conditions / Outside
 sun.sun:
   icon: mdi:weather-sunny
 sensor.outside_humidity:
@@ -116,6 +116,11 @@ sensor.yr_cloudiness:
   friendly_name: Cloudiness
 sensor.yr_symbol:
   friendly_name: Today
+
+# External IP
+sensor.external_ip:
+  icon: mdi:earth
+  friendly_name: External IP
 
 # Booleans
 input_boolean.sleeping:
@@ -189,18 +194,34 @@ switch.maindoor:
   hidden: true
 switch.backdoor:
   hidden: true
-binary_sensor.main_door:
+binary_sensor.door_main:
   friendly_name: Main Door
   icon: mdi:checkbox-blank
-binary_sensor.back_door:
+binary_sensor.door_back:
   friendly_name: Back Door
   icon: mdi:checkbox-blank
+binary_sensor.door_ebalcony:
+  friendly_name: East Balcony Door
+  icon: mdi:glassdoor
+binary_sensor.door_wbalcony:
+  friendly_name: West Balcony Door
+  icon: mdi:glassdoor
+
+# Misc Binary sensors
+binary_sensor.movement:
+  friendly_name: Movement
+  icon: mdi:walk
 binary_sensor.movement_upstairs:
   friendly_name: Movement Upstairs
   icon: mdi:walk
+
 binary_sensor.sleeping:
   friendly_name: Sleeping
   icon: mdi:sleep
+
+binary_sensor.washmachine:
+  friendly_name: Washing Machine
+  icon: mdi:washing-machine
 
 # All devices group
 group.all_devices:
