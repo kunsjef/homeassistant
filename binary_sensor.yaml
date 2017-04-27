@@ -46,7 +46,7 @@
       value_template: "{{ states.input_boolean.sleeping.state == 'on' }}"
 
     washmachine:
-      value_template: "{{ states.sensor.washmachine_power_8_4.state | int > 1 }}"
+      value_template: "{{ states.sensor.washmachine_power_8_4.state | int > 2 }}"
 
 
 - platform: aurora

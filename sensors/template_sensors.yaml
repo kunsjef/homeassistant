@@ -26,6 +26,10 @@
 
     last_main_door:
       value_template: '{{ as_timestamp(states.sensor.main_door.last_changed) | timestamp_custom("%a %d %b %H:%M") }}'
+
+    # {{ (as_timestamp(now()) - as_timestamp(states.sensor.inngangsdor.last_changed)) }}
+    # {{ (as_timestamp(trigger.to_state.last_changed) - as_timestamp(trigger.from_state.last_changed)) }}
+
     #  value_template: '{{ as_timestamp(states.sensor.main_door.attributes.last_triggered)  | timestamp_custom("%H:%M") }}'
 
     back_door:
@@ -41,3 +45,9 @@
     last_back_door:
       value_template: '{{ as_timestamp(states.sensor.back_door.last_changed) | timestamp_custom("%a %d %b %H:%M") }}'
     #  value_template: '{{ as_timestamp(states.sensor.back_door.attributes.last_triggered)  | timestamp_custom("%H:%M") }}'
+
+#    last_sleeping:
+#      value_template: '{{ as_timastamp(states.binary_sensor.sleeping.state == 'on') | timestamp_custom("%a %H:%M") }}'
+#    last_awake:
+#      value_template: '{{ as_timastamp(states.binary_sensor.sleeping.state == 'on') | timestamp_custom("%a %H:%M") }}'
+
