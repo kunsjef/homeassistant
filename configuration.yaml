@@ -19,9 +19,10 @@ zone:
   name: Home
   latitude: !secret home_latitude
   longitude: !secret home_longitude
-  radius: 150
+  radius: 200
   #icon: social:people
   icon: mdi:home-variant
+  #track_ios: true
 
 zone 2:
   name: Work
@@ -29,6 +30,7 @@ zone 2:
   longitude: 11.488477
   radius: 150
   icon: mdi:city
+  #track_ios: true
 
 zone 3:
   name: School
@@ -36,15 +38,23 @@ zone 3:
   longitude: 11.495851
   radius: 150
   icon: mdi:school
+  #track_ios: true
 
-#zone 4:
+zone 4:
+  name: Apen Barnehage
+  latitude: 64.010999
+  longitude: 11.502315
+  radius: 150
+  icon: mdi:human-child
+
+#zone 5:
 #  name: Tulcea
 #  latitude: 45.181967
 #  longitude: 28.788152
 #  radius: 20000
 #  icon: mdi:earth
 
-#zone 5:
+#zone 6:
 #  name: Vegas
 #  latitude: 36.108407
 #  longitude: -115.172958
@@ -66,17 +76,20 @@ mqtt:
 ##  HTTP  ###
 http:
   api_password: !secret http_api_password
-  cors_allowed_origins:
-    - https://google.com
-    - https://home-assistant.io
-  use_x_forwarded_for: True
+  base_url: !secret http_url
+  #ssl_certificate: /etc/letsencrypt/live/fellowship.no/fullchain.pem
+  #ssl_key: /etc/letsencrypt/live/fellowship.no/privkey.pem
+  #cors_allowed_origins:
+  #  - https://google.com
+  #  - https://home-assistant.io
+  #use_x_forwarded_for: True
   trusted_networks:
     - 127.0.0.1
     - ::1
     - 192.168.1.0/24
     - 172.16.1.0/24
-  ip_ban_enabled: True
-  login_attempts_threshold: 3
+  #ip_ban_enabled: True
+  #login_attempts_threshold: 3
 
 ####################################################
 #                                                  #
@@ -134,6 +147,12 @@ input_boolean:
   alarm_triggered:
     name: Alarm Triggered
     initial: off
+  notifications:
+    name: Notifications
+    initial: on
+  tts:
+    name: TTS announcements
+    initial: on
   test:
     name: TTS Test
     initial: off
@@ -192,6 +211,9 @@ panel_iframe:
 # TTS
 tts:
   - platform: google
+
+# IOS
+ios:
 
 # Zwave
 zwave:

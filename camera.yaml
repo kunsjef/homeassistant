@@ -7,8 +7,8 @@
   authentication: basic
 
 # Porch
-- platform: mjpeg
-  mjpeg_url: http://192.168.1.65/video1.mjpg
+- platform: generic
+  still_image_url: http://192.168.1.65/image/jpeg.cgi
   name: Porch
   username: admin
   password: !secret camera_password

@@ -2,7 +2,7 @@
 - platform: tellstick
   234: Outside
   225: Livingroom
-  13: Guestroom
+  13: Ethan
   101: Attic
   11: Bedroom
   only_named: True
