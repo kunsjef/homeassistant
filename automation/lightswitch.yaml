@@ -1,0 +1,59 @@
+# 17-04-24 02:30:57 INFO (MainThread) [homeassistant.core] Bus:Handling
+# <Event state_changed[L]:
+# old_state=<state switch.lswethanleft=off;
+# friendly_name=lsw-ethan-left,
+# assumed_state=True @ 2017-04-24T02:26:00.488626+02:00>,
+# entity_id=switch.lswethanleft,
+# new_state=<state switch.lswethanleft=on;
+# friendly_name=lsw-ethan-left,
+# assumed_state=True @ 2017-04-24T02:30:57.137193+02:00>>
+# light.ethanceiling_level_13_0
+# switch.ethancity_switch_14_0
+
+- alias: 'Ethan left lightswitch turned on'
+  trigger:
+    platform: state
+    entity_id: switch.lswethanleft
+    state: 'on'
+  action:
+    - service: 'switch.turn_on'
+      entity_id: 'switch.ethancity_switch_14_0'
+    #- service: notify.telegram
+    #  data_template:
+    #    message: "Ethan left lightswitch turned '{{ states.switch.lswethanleft.state }}'"
+
+- alias: 'Ethan left lightswitch turned off'
+  trigger:
+    platform: state
+    entity_id: switch.lswethanleft
+    state: 'off'
+  action:
+    - service: 'switch.turn_off'
+      entity_id: 'switch.ethancity_switch_14_0'
+    #- service: notify.telegram
+    #  data_template:
+    #    message: "Ethan left lightswitch turned '{{ states.switch.lswethanleft.state }}'"
+
+- alias: 'Ethan right lightswitch turned on'
+  trigger:
+    platform: state
+    entity_id: switch.lswethanright
+    state: 'on'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'light.ethanceiling_level_13_0'
+    #- service: notify.telegram
+    #  data_template:
+    #    message: "Ethan right lightswitch turned '{{ states.switch.lswethanright.state }}'"
+
+- alias: 'Ethan right lightswitch turned off'
+  trigger:
+    platform: state
+    entity_id: switch.lswethanright
+    state: 'off'
+  action:
+    - service: 'light.turn_off'
+      entity_id: 'light.ethanceiling_level_13_0'
+    #- service: notify.telegram
+    #  data_template:
+    #    message: "Ethan right lightswitch turned '{{ states.switch.lswethanright.state }}'"
