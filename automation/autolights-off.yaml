@@ -1,44 +1,15 @@
 #######################################################
-# Coming home
-#######################################################
-
-- alias: 'Turn on lights when coming home after sunset'
-  trigger:
-    platform: state
-    entity_id: group.all_devices
-    from: 'not_home'
-    to: 'home'
-  condition:
-    - condition: time
-      after: '15:00:00'
-      before: '23:59:00'
-    - condition: sun
-      after: sunset
-    - condition: state
-      entity_id: input_boolean.sleeping
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.away
-      state: 'off'
-    - condition: state
-      entity_id: group.livingroom
-      state: 'off'
-  action:
-    service: 'scene.turn_on'
-    entity_id: 'scene.lights'
-
-#######################################################
 # Nighttime - lights off
 #######################################################
 
 - alias: 'Turn off lights in the night if no movement'
   trigger:
     platform: time
-    minutes: '/30'
+    minutes: '/10'
     seconds: 0
   condition:
     - condition: time
-      after: '00:01:00'
+      after: '00:22:00'
     - condition: time
       before: '05:01:00'
     - condition: state
@@ -62,6 +33,41 @@
     service: 'scene.turn_on'
     entity_id: 'scene.good_night'
 
+- alias: 'Notify that lights will be turned off'
+  trigger:
+    platform: time
+    minutes: '/10'
+    seconds: 0
+  condition:
+    - condition: time
+      after: '00:22:00'
+    - condition: time
+      before: '05:01:00'
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.extend_night
+      state: 'off'
+    - condition: state
+      #entity_id: switch.motionsensor
+      entity_id: binary_sensor.movement_upstairs
+      state: 'off'
+      for:
+        hours: 0
+        minutes: 25
+        seconds: 0
+  action:
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.living_room
+        volume: 0.3
+        message: 'Excuse me, but the lights will be turned off in 5 minutes if there is no more movement upstairs. Sorry to interrupt.'
+        delay: '00:00:15'
+
 #######################################################
 # Sleep now - button
 #######################################################
@@ -78,7 +84,7 @@
   action:
     - service: script.sonos_say
       data:
-        sonos_entity: media_player.sonos
+        sonos_entity: media_player.living_room
         volume: 0.3
         message: 'Good night and sweet dreams. Lights will be out in 5 minutes.'
         delay: '00:00:10'
