@@ -15,8 +15,8 @@ My current home-assistant configuration. This is a work in progress, and the con
 * 4x D-Link DCS-932L Cameras
 * QNAP NAS
 
-### 433Mhzz
-* Tellstick Duo
+### 433Mhz
+* Tellstick Duo with extra antenna
 * 2x Nexa LMST-606 Door Magnets
 * 2x Nexa LMDT-609 Indoor PIR Sensors
 * 5x Nexa CMR-101 Built-in Dimmers
@@ -24,6 +24,7 @@ My current home-assistant configuration. This is a work in progress, and the con
 * 4x Nexa EYCR-201 Dimmer Switches
 * 2x Nexa LWST-605 Lightswitches
 * 4x Oregon Scientific Temperature/Hygrometer Sensors
+* 2x Nexa IPT-1502 double lightswitches
 
 ### Z-wave
 * Aeon Labs ZW090 Z-Stick Gen5
