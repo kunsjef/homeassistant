@@ -29,16 +29,16 @@
 # Notification when doors open
 #####################################################
 
-- alias: 'Send notification when a door is opened'
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.main_door
-      state: 'on'
-    - platform: state
-      entity_id: binary_sensor.back_door
-      state: 'on'
-  action:
-    service: notify.pushbullet
-    data:
-      message: 'Door is open!'
+#- alias: 'Send notification when a door is opened'
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.main_door
+#      state: 'on'
+#    - platform: state
+#      entity_id: binary_sensor.back_door
+#      state: 'on'
+#  action:
+#    service: notify.pushbullet
+#    data:
+#      message: 'Door is open!'
 
