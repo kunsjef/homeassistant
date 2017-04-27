@@ -2,15 +2,23 @@
   trigger:
     platform: state
     entity_id: binary_sensor.washmachine
-    from: 'on'
-    to: 'off'
+    from: 'off'
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+#  condition:
+#    condition: template
+#    value_template: '{{ states.sensor.washmachine_power_8_4.state | int < 2 }}'
 #    for:
+#      hours: 0
 #      minutes: 5
   action:
     - service: script.sonos_say
       data:
-        sonos_entity: media_player.sonos
-        volume: 0.3
+        sonos_entity: media_player.living_room
+        volume: 0.5
         message: 'Excuse me, but the washing machine just finished its cycle. Sorry to interrupt.'
         delay: '00:00:10'
     - delay: 00:05:00
