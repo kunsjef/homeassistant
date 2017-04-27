@@ -20,9 +20,9 @@ sensor.attic_humidity:
 sensor.ethan_temperature:
   icon: mdi:thermometer
   friendly_name: Ethan's Room Temperature
-climate.ethan:
-  icon: mdi:thermometer
-  friendly_name: Ethan's Room Temperature Target
+#climate.ethan:
+#  icon: mdi:thermometer
+#  friendly_name: Ethan's Room Temperature Target
 
 # Living Room Lights
 light.star:
@@ -61,6 +61,20 @@ switch.barspots:
   friendly_name: Bar Spotlights
   icon: mdi:flask
 
+# Ethan's Room Lights
+switch.ethancity_switch_14_0:
+  friendly_name: Ethan City Light
+  icon: mdi:city
+light.ethanceiling_level_13_0:
+  friendly_name: Ethan Ceiling Light
+  icon: mdi:lightbulb
+
+# Kitchen Lights
+switch.KitchenSpot:
+  friendly_name: Kitchen Spot
+  icon: mdi:spotlight
+
+
 # Heating
 switch.heatteodor:
   friendly_name: Heat Teodor
@@ -68,8 +82,8 @@ switch.heatteodor:
 switch.heatnoahlotta:
   friendly_name: Heat Lotta and Noah
   icon: mdi:radiator
-switch.heatethan:
-  friendly_name: Heat Ethan's Room
+switch.heatguestroom:
+  friendly_name: Heat Guestroom
   icon: mdi:radiator
 
 # Conditions / Outside
@@ -122,6 +136,20 @@ sensor.external_ip:
   icon: mdi:earth
   friendly_name: External IP
 
+# Zwave sensors
+sensor.tvstereo_power_2_4:
+  icon: mdi:power-plug
+  friendly_name: TV/Stereo Power Usage
+sensor.washmachine_power_8_4:
+  icon: mdi:power-plug
+  friendly_name: Washing Machine Power Usage
+binary_sensor.hall_sensor_6_0:
+  icon: mdi:walk
+  friendly_name: Hall Movement
+binary_sensor.basement_sensor_7_0:
+  icon: mdi:walk
+  friendly_name: Basement Movement
+
 # Booleans
 input_boolean.sleeping:
   hidden: true
@@ -130,6 +158,12 @@ input_boolean.sleeping:
 input_boolean.away:
   icon: mdi:briefcase
   friendly_name: Away
+input_boolean.tts:
+  icon: mdi:message-bulleted
+  friendly_name: TTS notifications
+input_boolean.notifications:
+  icon: mdi:speaker-wireless
+  friendly_name: Telegram Notifications
 
 # Hide switches
 switch.motionsensor:
@@ -185,7 +219,7 @@ scene.dinner:
 # Media players
 media_player.kodi:
   icon: mdi:kodi
-media_player.sonos:
+media_player.living_room:
   icon: mdi:music-circle
   friendly_name: Speaker
 
@@ -213,6 +247,12 @@ binary_sensor.movement:
   icon: mdi:walk
 binary_sensor.movement_upstairs:
   friendly_name: Movement Upstairs
+  icon: mdi:walk
+binary_sensor.movement_stair1:
+  friendly_name: Movement Main Stairs
+  icon: mdi:walk
+binary_sensor.movement_stair2:
+  friendly_name: Movement Office/Stairs
   icon: mdi:walk
 
 binary_sensor.sleeping:

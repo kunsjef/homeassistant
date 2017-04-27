@@ -36,13 +36,16 @@ scenes:
 
 actions:
   name: Home Actions
+  control: hidden
   entities:
     - input_boolean.sleep_now
     - input_boolean.extend_night
     - input_boolean.away
     - input_boolean.alarm_away
     - input_boolean.alarm_home
-    - input_boolean.test
+    - input_boolean.tts
+    - input_boolean.notifications
+    - script.status
 
 details:
   name: Details
@@ -55,8 +58,10 @@ details:
     - group.bedroom
     - group.ethan
     - group.attic
-    - group.weather
+    - group.weather_yr
+    - group.weather_darksky
     - group.heating
+    - group.stairs
 
 outdoors:
   name: Outdoors
@@ -87,6 +92,7 @@ basement:
     - sensor.basement_temperature_7_1
     - binary_sensor.washmachine
     - sensor.washmachine_power_8_4
+    - binary_sensor.basement_sensor_7_0
     #- switch.washmachine_switch_8_0
 
 hall:
@@ -94,12 +100,13 @@ hall:
   entities:
     - sensor.hall_luminance_6_3
     - sensor.hall_temperature_6_1
+    - binary_sensor.hall_sensor_6_0
     - binary_sensor.door_main
 
 ethan:
   name: Ethan's Room
   entities:
-    - climate.ethan
+    - sensor.ethan_temperature
 
 bedroom:
   name: Master Bedroom
@@ -113,8 +120,8 @@ attic:
     - sensor.attic_temperature
     - sensor.attic_humidity
 
-weather:
-  name: Weather
+weather_yr:
+  name: Weather YR
   entities:
     - sensor.yr_symbol
     - sensor.yr_temperature
@@ -123,12 +130,26 @@ weather:
     - sensor.yr_humidity
     - sensor.yr_cloudiness
 
+weather_darksky:
+  name: Forecast Darksky
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_daily_high_temperature
+
+stairs:
+  name: Stairs
+  entities:
+    - binary_sensor.movement_stair1
+    - binary_sensor.movement_stair2
+
 heating:
   name: Heating
   entities:
     - switch.heatteodor
     - switch.heatnoahlotta
-    - switch.heatethan
+    - switch.heatguestroom
 
 lights:
   name: Lights
@@ -136,6 +157,8 @@ lights:
   entities:
     - group.lights_livingroom
     - group.lights_office
+    - group.lights_ethan
+    - group.lights_kitchen
 
 lights_livingroom:
   name: Lights Livingroom
@@ -155,6 +178,18 @@ lights_office:
     - light.mancaveceiling
     - light.officedesk
     - switch.barspots
+
+lights_ethan:
+  name: Lights Ethan's Room
+  control: hidden
+  entities:
+    - switch.ethancity_switch_14_0
+    - light.ethanceiling_level_13_0
+
+lights_kitchen:
+  name: Lights Kitchen
+  entities:
+    - switch.KitchenSpot
 
 Peripherals:
   name: Peripherals
@@ -215,6 +250,6 @@ mediaplayers:
   entities:
     - media_player.soverommet
     - media_player.shield
-    - media_player.sonos
+    - media_player.living_room
     - media_player.apple_tv
     - media_player.kodi
