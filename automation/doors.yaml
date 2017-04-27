@@ -1,0 +1,53 @@
+# Alert when doors open and close
+  - alias: NOTIFY (OPEN CLOSE) Door
+    #initial_state: False # start disabled to avoid false positives on HA restart
+    hide_entity: True
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.door_main
+          - binary_sensor.door_back
+          - binary_sensor.door_ebalcony
+          - binary_sensor.door_wbalcony
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: input_boolean.notifications
+        state: 'on'
+    action:
+      - service: notify.telegram
+        data_template:
+          message: "{{ trigger.to_state.attributes.friendly_name }} is open."
+          #message: "{{ trigger.to_state.attributes.friendly_name }} {{ trigger.to_state.state }}"
+#          title: >-
+#            {%- if is_state("alarm_control_panel.alarm", "armed_away") or
+#              is_state("alarm_control_panel.alarm", "armed_home") -%}
+#              ALARM TRIGGERED -
+#            {%- else -%}
+#            {%- endif %}
+
+# Alert when a door has been open for more than 5 minutes
+  - alias: NOTIFY (OPEN 5 MIN) Door
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.door_main
+          - binary_sensor.door_back
+          - binary_sensor.door_ebalcony
+          - binary_sensor.door_wbalcony
+        from: 'off'
+        to: 'on'
+        for:
+          hours: 0
+          minutes: 5
+          seconds: 0
+    condition:
+      - condition: state
+        entity_id: input_boolean.notifications
+        state: 'on'
+    action:
+      - service: notify.telegram
+        data:
+          message: "{{ trigger.to_state.attributes.friendly_name }} open for 5 minutes!"
+          title: ""
+
