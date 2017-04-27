@@ -31,10 +31,5 @@ My current home-assistant configuration. This is a work in progress, and the con
 * Nexa AD147 Plug-in Dimmer Module
 * Nexa AN180 Plug-in ON/OFF Module
 
-
 ## TODO
-- [*] Get a z-wave USB Controller
-- [ ] Add z-wave sensors
 - [ ] Add z-wave door lock
-- [ ] Add more magnet sensors
-- [ ] Add TTS for Sonos
