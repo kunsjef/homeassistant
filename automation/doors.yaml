@@ -47,7 +47,6 @@
         state: 'on'
     action:
       - service: notify.telegram
-        data:
+        data_template:
           message: "{{ trigger.to_state.attributes.friendly_name }} open for 5 minutes!"
-          title: ""
 

@@ -2,18 +2,12 @@
   trigger:
     platform: state
     entity_id: binary_sensor.washmachine
-    from: 'off'
-    to: 'on'
+    from: 'on'
+    to: 'off'
     for:
       hours: 0
       minutes: 5
       seconds: 0
-#  condition:
-#    condition: template
-#    value_template: '{{ states.sensor.washmachine_power_8_4.state | int < 2 }}'
-#    for:
-#      hours: 0
-#      minutes: 5
   action:
     - service: script.sonos_say
       data:
