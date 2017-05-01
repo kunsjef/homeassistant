@@ -4,6 +4,7 @@ default_view:
     - group.homestatus
     - group.scenes
     - group.actions
+    - group.alarm
     - device_tracker.vyhbzwsp_paula
     - device_tracker.vyhbzwsp_thomas
     - device_tracker.noahsiniphone
@@ -24,6 +25,8 @@ homestatus:
     - binary_sensor.sleeping
     - binary_sensor.washmachine
     - sensor.external_ip
+    - sensor.house_asleep_timestamp
+    - sensor.house_awake_timestamp
 
 scenes:
   name: Scenes
@@ -41,11 +44,16 @@ actions:
     - input_boolean.sleep_now
     - input_boolean.extend_night
     - input_boolean.away
-    - input_boolean.alarm_away
-    - input_boolean.alarm_home
     - input_boolean.tts
     - input_boolean.notifications
     - script.status
+
+alarm:
+  name: Alarm
+  control: hidden
+  entities:
+    - input_boolean.alarm_away
+    - input_boolean.alarm_home
 
 details:
   name: Details
@@ -62,6 +70,7 @@ details:
     - group.weather_darksky
     - group.heating
     - group.stairs
+    - group.battery
 
 outdoors:
   name: Outdoors
@@ -143,6 +152,17 @@ stairs:
   entities:
     - binary_sensor.movement_stair1
     - binary_sensor.movement_stair2
+
+battery:
+  name: Battery percentages
+  entities:
+    - sensor.livingroom_battery
+    - sensor.basement_battery
+    - sensor.ebalcony_battery
+    - sensor.hall_battery
+    - sensor.wbalcony_battery
+    - sensor.thomas_iphone_battery
+    - sensor.paula_iphone_battery
 
 heating:
   name: Heating

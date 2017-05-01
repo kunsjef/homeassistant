@@ -36,3 +36,4 @@ My current home-assistant configuration. This is a work in progress, and the con
 
 ## TODO
 - [ ] Add z-wave door lock
+

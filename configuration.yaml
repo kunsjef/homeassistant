@@ -122,6 +122,10 @@ input_boolean:
     name: Sleeping
     initial: off
     icon: mdi:sleep
+  house_asleep:
+    initial: off
+  house_awake:
+    initial: on
   sleep_now:
     name: Sleep Now
     initial: off
@@ -169,6 +173,7 @@ emulated_hue:
     - switch
     - input_boolean
     - scene
+    - script
 
 ###  Sun  ###
 sun:

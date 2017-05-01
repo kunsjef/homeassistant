@@ -13,3 +13,4 @@
     switch.barspots: off
     input_boolean.sleeping: on
     #switch.lswlivingroomleft: off
+    input_boolean.house_asleep: on

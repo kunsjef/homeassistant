@@ -45,6 +45,9 @@
     sleeping:
       value_template: "{{ states.input_boolean.sleeping.state == 'on' }}"
 
+    awake:
+      value_template: "{{ states.input_boolean.sleeping.state == 'off' }}"
+
     washmachine:
       value_template: "{{ states.sensor.washmachine_power_8_4.state | int > 2 }}"
 

@@ -51,3 +51,106 @@
 #    last_awake:
 #      value_template: '{{ as_timastamp(states.binary_sensor.sleeping.state == 'on') | timestamp_custom("%a %H:%M") }}'
 
+    house_asleep_timestamp:
+      value_template: '{{ as_timestamp(states.input_boolean.house_asleep.last_updated) | timestamp_custom("%H:%M") }}'
+    house_awake_timestamp:
+      value_template: '{{ as_timestamp(states.input_boolean.house_awake.last_updated) | timestamp_custom("%H:%M") }}'
+
+    livingroom_battery:
+      value_template: '{{ states.zwave.livingroom_10.attributes["battery_level"] }}'
+      icon_template: >-
+         {% if states.zwave.livingroom_10.attributes["battery_level"] > 90 %}mdi:battery
+         {% elif states.zwave.livingroom_10.attributes["battery_level"] > 80 %}mdi:battery-90
+         {% elif states.zwave.livingroom_10.attributes["battery_level"] > 70 %}mdi:battery-80
+         {% elif states.zwave.livingroom_10.attributes["battery_level"] > 60 %}mdi:battery-70
+         {% elif states.zwave.livingroom_10.attributes["battery_level"] > 50 %}mdi:battery-60
+         {% elif states.zwave.livingroom_10.attributes["battery_level"] > 40 %}mdi:battery-50
+         {% elif states.zwave.livingroom_10.attributes["battery_level"] > 30 %}mdi:battery-40
+         {% elif states.zwave.livingroom_10.attributes["battery_level"] > 20 %}mdi:battery-30
+         {% elif states.zwave.livingroom_10.attributes["battery_level"] > 10 %}mdi:battery-20
+         {% else %}mdi:mdi:battery-10
+         {% endif %}
+    basement_battery:
+      value_template: '{{ states.zwave.basement_7.attributes["battery_level"] }}'
+      icon_template: >-
+         {% if states.zwave.basement_7.attributes["battery_level"] > 90 %}mdi:battery
+         {% elif states.zwave.basement_7.attributes["battery_level"] > 80 %}mdi:battery-90
+         {% elif states.zwave.basement_7.attributes["battery_level"] > 70 %}mdi:battery-80
+         {% elif states.zwave.basement_7.attributes["battery_level"] > 60 %}mdi:battery-70
+         {% elif states.zwave.basement_7.attributes["battery_level"] > 50 %}mdi:battery-60
+         {% elif states.zwave.basement_7.attributes["battery_level"] > 40 %}mdi:battery-50
+         {% elif states.zwave.basement_7.attributes["battery_level"] > 30 %}mdi:battery-40
+         {% elif states.zwave.basement_7.attributes["battery_level"] > 20 %}mdi:battery-30
+         {% elif states.zwave.basement_7.attributes["battery_level"] > 10 %}mdi:battery-20
+         {% else %}mdi:mdi:battery-10
+         {% endif %}
+    ebalcony_battery:
+      value_template: '{{ states.zwave.eastbalcony_11.attributes["battery_level"] }}'
+      icon_template: >-
+         {% if states.zwave.eastbalcony_11.attributes["battery_level"] > 90 %}mdi:battery
+         {% elif states.zwave.eastbalcony_11.attributes["battery_level"] > 80 %}mdi:battery-90
+         {% elif states.zwave.eastbalcony_11.attributes["battery_level"] > 70 %}mdi:battery-80
+         {% elif states.zwave.eastbalcony_11.attributes["battery_level"] > 60 %}mdi:battery-70
+         {% elif states.zwave.eastbalcony_11.attributes["battery_level"] > 50 %}mdi:battery-60
+         {% elif states.zwave.eastbalcony_11.attributes["battery_level"] > 40 %}mdi:battery-50
+         {% elif states.zwave.eastbalcony_11.attributes["battery_level"] > 30 %}mdi:battery-40
+         {% elif states.zwave.eastbalcony_11.attributes["battery_level"] > 20 %}mdi:battery-30
+         {% elif states.zwave.eastbalcony_11.attributes["battery_level"] > 10 %}mdi:battery-20
+         {% else %}mdi:mdi:battery-10
+         {% endif %}
+    hall_battery:
+      value_template: '{{ states.zwave.hall_6.attributes["battery_level"] }}'
+      icon_template: >-
+         {% if states.zwave.hall_6.attributes["battery_level"] > 90 %}mdi:battery
+         {% elif states.zwave.hall_6.attributes["battery_level"] > 80 %}mdi:battery-90
+         {% elif states.zwave.hall_6.attributes["battery_level"] > 70 %}mdi:battery-80
+         {% elif states.zwave.hall_6.attributes["battery_level"] > 60 %}mdi:battery-70
+         {% elif states.zwave.hall_6.attributes["battery_level"] > 50 %}mdi:battery-60
+         {% elif states.zwave.hall_6.attributes["battery_level"] > 40 %}mdi:battery-50
+         {% elif states.zwave.hall_6.attributes["battery_level"] > 30 %}mdi:battery-40
+         {% elif states.zwave.hall_6.attributes["battery_level"] > 20 %}mdi:battery-30
+         {% elif states.zwave.hall_6.attributes["battery_level"] > 10 %}mdi:battery-20
+         {% else %}mdi:mdi:battery-10
+         {% endif %}
+    wbalcony_battery:
+      value_template: '{{ states.zwave.westbalcony_12.attributes["battery_level"] }}'
+      icon_template: >-
+         {% if states.zwave.westbalcony_12.attributes["battery_level"] > 90 %}mdi:battery
+         {% elif states.zwave.westbalcony_12.attributes["battery_level"] > 80 %}mdi:battery-90
+         {% elif states.zwave.westbalcony_12.attributes["battery_level"] > 70 %}mdi:battery-80
+         {% elif states.zwave.westbalcony_12.attributes["battery_level"] > 60 %}mdi:battery-70
+         {% elif states.zwave.westbalcony_12.attributes["battery_level"] > 50 %}mdi:battery-60
+         {% elif states.zwave.westbalcony_12.attributes["battery_level"] > 40 %}mdi:battery-50
+         {% elif states.zwave.westbalcony_12.attributes["battery_level"] > 30 %}mdi:battery-40
+         {% elif states.zwave.westbalcony_12.attributes["battery_level"] > 20 %}mdi:battery-30
+         {% elif states.zwave.westbalcony_12.attributes["battery_level"] > 10 %}mdi:battery-20
+         {% else %}mdi:mdi:battery-10
+         {% endif %}
+    thomas_iphone_battery:
+      value_template: '{{ states.device_tracker.vyhbzwsp_thomas.attributes["battery"] }}'
+      icon_template: >-
+         {% if states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 90 %}mdi:battery
+         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 80 %}mdi:battery-90
+         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 70 %}mdi:battery-80
+         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 60 %}mdi:battery-70
+         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 50 %}mdi:battery-60
+         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 40 %}mdi:battery-50
+         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 30 %}mdi:battery-40
+         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 20 %}mdi:battery-30
+         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 10 %}mdi:battery-20
+         {% else %}mdi:mdi:battery-10
+         {% endif %}
+    paula_iphone_battery:
+      value_template: '{{ states.device_tracker.vyhbzwsp_paula.attributes["battery"] }}'
+      icon_template: >-
+         {% if states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 90 %}mdi:battery
+         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 80 %}mdi:battery-90
+         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 70 %}mdi:battery-80
+         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 60 %}mdi:battery-70
+         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 50 %}mdi:battery-60
+         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 40 %}mdi:battery-50
+         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 30 %}mdi:battery-40
+         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 20 %}mdi:battery-30
+         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 10 %}mdi:battery-20
+         {% else %}mdi:mdi:battery-10
+         {% endif %}

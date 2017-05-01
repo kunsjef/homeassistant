@@ -155,6 +155,10 @@ input_boolean.sleeping:
   hidden: true
   #icon: mdi:sleep
   #friendly_name: Sleeping
+input_boolean.house_asleep:
+  hidden: true
+input_boolean.house_awake:
+  hidden: true
 input_boolean.away:
   icon: mdi:briefcase
   friendly_name: Away
@@ -304,4 +308,28 @@ switch.samsungac24:
 switch.samsungac25:
   friendly_name: AC 25 heat
   icon: mdi:air-conditioner
+
+# Battery
+sensor.livingroom_battery:
+  friendly_name: Sensor Livingroom Battery
+sensor.basement_battery:
+  friendly_name: Sensor Basement Battery
+sensor.ebalcony_battery:
+  friendly_name: Sensor East Balcony Door Battery
+sensor.hall_battery:
+  friendly_name: Sensor Hall Battery
+sensor.wbalcony_battery:
+  friendly_name: Sensor West Balcony Door Battery
+sensor.thomas_iphone_battery:
+  friendly_name: Sensor Thomas iPhone Battery
+sensor.paula_iphone_battery:
+  friendly_name: Sensor Paula iPhone Battery
+
+# House state
+sensor.house_asleep_timestamp:
+  friendly_name: House fell alseep
+  icon: mdi:sleep
+sensor.house_awake_timestamp:
+  friendly_name: House awoke
+  icon: mdi:sleep-off
 

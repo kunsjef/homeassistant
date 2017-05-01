@@ -7,11 +7,11 @@
 #  action:
 #    - service: media_player.volume_set
 #      data:
-#        entity_id: media_player.sonos
+#        entity_id: media_player.living_room
 #        volume_level: 0.25
 #    - service: media_player.play_media
 #      data:
-#        entity_id: media_player.sonos
+#        entity_id: media_player.living_room
 #        media_content_id: http://192.168.1.90/buss.mp3
 #        media_content_type: audio/mp3
 
@@ -44,11 +44,11 @@
       entity_id:  input_boolean.alarm_triggered    
     - service: media_player.volume_set
       data:
-        entity_id: media_player.sonos
+        entity_id: media_player.living_room
         volume_level: 0.25
     - service: media_player.play_media
       data:
-        entity_id: media_player.sonos
+        entity_id: media_player.living_room
         media_content_id: http://192.168.1.90/sounds/beep.mp3
         media_content_type: audio/mp3
     - service: notify.pushbullet
@@ -60,7 +60,7 @@
       state: 'on'
     - service: media_player.play_media
       data:
-        entity_id: media_player.sonos
+        entity_id: media_player.living_room
         media_content_id: http://192.168.1.90/sounds/siren.mp3
         media_content_type: audio/mp3
     - service: notify.pushbullet
