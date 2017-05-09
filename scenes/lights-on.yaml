@@ -25,5 +25,5 @@
       state: on
       brightness: 200
     switch.barspots: on
-    input_boolean.sleeping: off
+    #input_boolean.sleeping: off
     #switch.lswlivingroomleft: on

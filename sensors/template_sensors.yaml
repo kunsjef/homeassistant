@@ -52,9 +52,9 @@
 #      value_template: '{{ as_timastamp(states.binary_sensor.sleeping.state == 'on') | timestamp_custom("%a %H:%M") }}'
 
     house_asleep_timestamp:
-      value_template: '{{ as_timestamp(states.input_boolean.house_asleep.last_updated) | timestamp_custom("%H:%M") }}'
+      value_template: '{{ as_timestamp(states.input_boolean.house_asleep.last_changed) | timestamp_custom("%H:%M") }}'
     house_awake_timestamp:
-      value_template: '{{ as_timestamp(states.input_boolean.house_awake.last_updated) | timestamp_custom("%H:%M") }}'
+      value_template: '{{ as_timestamp(states.input_boolean.house_awake.last_changed) | timestamp_custom("%H:%M") }}'
 
     livingroom_battery:
       value_template: '{{ states.zwave.livingroom_10.attributes["battery_level"] }}'

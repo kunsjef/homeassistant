@@ -37,3 +37,13 @@ My current home-assistant configuration. This is a work in progress, and the con
 ## TODO
 - [ ] Add z-wave door lock
 
+## Notes
+### OZWCP
+```
+service hassd stop
+cd ~/open-zwave-control-panel
+./ozwcp -p 8888
+Device: /dev/ttyACM0
+cp zwcfg_0xc930bed8.xml /var/opt/homeassistant/
+service hassd start
+```

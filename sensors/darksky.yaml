@@ -1,9 +1,11 @@
 #darksky_api_key
 
 - platform: darksky
-  api_key: !secret darksky_api_key 
+  api_key: !secret darksky_api_key
   monitored_conditions:
     - summary
     - temperature
     - hourly_summary
     - temperature_max
+    - apparent_temperature_max
+    - wind_speed

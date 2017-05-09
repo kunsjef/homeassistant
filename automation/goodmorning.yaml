@@ -7,16 +7,16 @@
     - condition: time
       after: '05:00:01'
     - condition: state
-      entity_id: input_boolean.sleeping
+      entity_id: 'input_boolean.sleeping'
       state: 'on'
     - condition: state
-      entity_id: input_boolean.away
+      entity_id: 'input_boolean.away'
       state: 'off'
   action:
     - service: homeassistant.turn_on
-      entity_id:  input_boolean.house_awake
+      entity_id: 'input_boolean.house_awake'
     - service: homeassistant.turn_off
-      entity_id:  input_boolean.sleeping
+      entity_id: 'input_boolean.sleeping'
 
 #    - service: media_player.volume_set
 #      data:
