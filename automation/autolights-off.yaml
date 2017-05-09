@@ -30,8 +30,16 @@
         minutes: 30
         seconds: 0
   action:
-    service: 'scene.turn_on'
-    entity_id: 'scene.good_night'
+    - service: 'scene.turn_on'
+      entity_id: 'scene.good_night'
+    - service: homeassistant.turn_off
+      entity_id: 'input_boolean.house_asleep'
+    - delay: 00:00:02
+    - service: homeassistant.turn_on
+      entity_id: 'input_boolean.house_asleep'
+    - delay: 00:00:02
+    - service: homeassistant.turn_on
+      entity_id: 'input_boolean.sleeping'
 
 - alias: 'Notify that lights will be turned off'
   trigger:
@@ -91,7 +99,14 @@
     - delay: 00:05:00
     - service: 'scene.turn_on'
       entity_id: 'scene.good_night'
+    - service: homeassistant.turn_off
+      entity_id: 'input_boolean.house_asleep'
+    - delay: 00:00:02
+    - service: homeassistant.turn_on
+      entity_id: 'input_boolean.house_asleep'
+    - delay: 00:00:02
+    - service: homeassistant.turn_on
+      entity_id: 'input_boolean.sleeping'
     - delay: 00:00:05
     - service: homeassistant.turn_off
       entity_id: input_boolean.sleep_now
-    
