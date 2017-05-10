@@ -27,13 +27,13 @@ homestatus:
     - sensor.external_ip
     - sensor.house_asleep_timestamp
     - sensor.house_awake_timestamp
-    - sensor.cert_expiry
+    #- sensor.cert_expiry
 
 scenes:
   name: Scenes
   entities:
     - scene.lights
-    - scene.good_night
+    #- scene.good_night
     #- scene.romantic
     #- scene.dinner
     #- scene.disco
