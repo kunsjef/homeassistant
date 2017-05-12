@@ -258,14 +258,21 @@ binary_sensor.movement_stair1:
 binary_sensor.movement_stair2:
   friendly_name: Movement Office/Stairs
   icon: mdi:walk
-
 binary_sensor.sleeping:
   friendly_name: Sleeping
   icon: mdi:sleep
-
 binary_sensor.washmachine:
   friendly_name: Washing Machine
   icon: mdi:washing-machine
+sensor.last_back_door:
+  friendly_name: Back door last opened
+  icon: mdi:checkbox-blank
+sensor.last_main_door:
+  friendly_name: Main door last opened
+  icon: mdi:checkbox-blank
+sensor.last_movement_upstairs:
+  friendly_name: Last movement upstairs
+  icon: mdi:walk
 
 # All devices group
 group.all_devices:

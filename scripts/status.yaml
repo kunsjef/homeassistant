@@ -17,8 +17,7 @@ sequence:
         {% endif %}
         It's currently {{states.sensor.dark_sky_summary.state}} and {{states.sensor.outside_temperature.state|round}} degrees. 
         Today will be {{states.sensor.dark_sky_hourly_summary.state|replace(".", "")}}, 
-        with a high of {{states.sensor.dark_sky_daily_high_temperature.state|round}} degrees 
-        which will feel like {{states.sensor.dark_sky_apparent_temperature_max.state|round}} degrees.
+        with a high of {{states.sensor.dark_sky_daily_high_temperature.state|round}} degrees.
         Wind speed is currently {{states.sensor.dark_sky_wind_speed.state|round}} meters per second.
         {% if is_state('sensor.input_boolean.alarm_home', 'on') %}
         The alarm is turned on. Remember to turn it off before opening any doors.

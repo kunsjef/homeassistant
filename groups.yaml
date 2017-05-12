@@ -4,6 +4,7 @@ default_view:
     - group.homestatus
     - group.scenes
     - group.actions
+    - group.timestamps
     - group.alarm
     - device_tracker.vyhbzwsp_paula
     - device_tracker.vyhbzwsp_thomas
@@ -25,8 +26,6 @@ homestatus:
     - binary_sensor.sleeping
     - binary_sensor.washmachine
     - sensor.external_ip
-    - sensor.house_asleep_timestamp
-    - sensor.house_awake_timestamp
     #- sensor.cert_expiry
 
 scenes:
@@ -55,6 +54,16 @@ alarm:
   entities:
     - input_boolean.alarm_away
     - input_boolean.alarm_home
+
+timestamps:
+  name: Timestamps
+  control: hidden
+  entities:
+    - sensor.house_asleep_timestamp
+    - sensor.house_awake_timestamp
+    - sensor.last_back_door
+    - sensor.last_main_door
+    - sensor.last_movement_upstairs
 
 details:
   name: Details
@@ -147,6 +156,7 @@ weather_darksky:
     - sensor.dark_sky_hourly_summary
     - sensor.dark_sky_temperature
     - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_wind_speed
 
 stairs:
   name: Stairs
