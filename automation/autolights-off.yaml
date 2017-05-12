@@ -9,7 +9,7 @@
     seconds: 0
   condition:
     - condition: time
-      after: '00:22:00'
+      after: '00:00:01'
     - condition: time
       before: '05:01:00'
     - condition: state
@@ -48,7 +48,7 @@
     seconds: 0
   condition:
     - condition: time
-      after: '00:22:00'
+      after: '00:00:00'
     - condition: time
       before: '05:01:00'
     - condition: state
@@ -66,7 +66,7 @@
       state: 'off'
       for:
         hours: 0
-        minutes: 25
+        minutes: 20
         seconds: 0
   action:
     - service: script.sonos_say
@@ -86,9 +86,14 @@
       entity_id: input_boolean.sleep_now
       state: 'on'
   condition:
+    condition: or
+    conditions:
     - condition: time
       after: '20:00:00'
       before: '23:59:00'
+    - condition: time
+      after: '00:00:00'
+      before: '04:00:00'
   action:
     - service: script.sonos_say
       data:

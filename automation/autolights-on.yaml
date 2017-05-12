@@ -2,6 +2,26 @@
 # Morning lights
 ######################################################
 
+- alias: 'Turn on lights in the morning'
+  trigger:
+    platform: state
+    entity_id: 'input_boolean.house_awake'
+    state: 'off'
+  condition:
+    - condition: time
+      after: '05:00:01'
+      before: '12:00:00'
+    - condition: sun
+      before: sunrise
+      before_offset: "+01:00:00"
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+  action:
+    - service: 'scene.turn_on'
+      entity_id: 'scene.lights'
+
+
 - alias: 'Good morning'
   trigger:
     platform: state
@@ -11,21 +31,12 @@
     - condition: time
       after: '05:00:01'
       before: '12:00:00'
-    - condition: sun
-      before: sunrise
-      before_offset: "+01:00:00"
     - condition: state
-      entity_id: input_boolean.sleeping
+      entity_id: 'input_boolean.sleeping'
       state: 'on'
-    - condition: state
-      entity_id: input_boolean.away
-      state: 'off'
   action:
-    - service: 'scene.turn_on'
-      entity_id: 'scene.lights'
     - service: homeassistant.turn_off
       entity_id: 'input_boolean.sleeping'
-    - delay: 00:00:02
     - service: homeassistant.turn_off
       entity_id: 'input_boolean.house_awake'
     - delay: 00:00:02
