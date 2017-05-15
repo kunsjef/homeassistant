@@ -81,13 +81,17 @@ details:
     - group.heating
     - group.stairs
     - group.battery
+    - group.kitchen
 
 outdoors:
   name: Outdoors
+  control: hidden
   entities:
     - sun.sun
     - sensor.outside_humidity
     - sensor.outside_temperature
+    - switch.shed_switch_15_0
+    - sensor.shed_power_15_4
     - binary_sensor.aurora_visibility
     - sensor.moon
 
@@ -138,6 +142,14 @@ attic:
   entities:
     - sensor.attic_temperature
     - sensor.attic_humidity
+
+kitchen:
+  name: Kitchen
+  control: hidden
+  entities:
+    - switch.kitchensafetey_switch_16_0
+    - sensor.kitchensafetey_power_16_4
+    - switch.kitchenspot
 
 weather_yr:
   name: Weather YR
@@ -190,6 +202,7 @@ lights:
     - group.lights_office
     - group.lights_ethan
     - group.lights_kitchen
+    - group.lights_outdoor
 
 lights_livingroom:
   name: Lights Livingroom
@@ -221,6 +234,11 @@ lights_kitchen:
   name: Lights Kitchen
   entities:
     - switch.KitchenSpot
+
+lights_outdoor:
+  name: Lights Outdoor
+  entities:
+    - switch.shed_switch_15_0
 
 Peripherals:
   name: Peripherals

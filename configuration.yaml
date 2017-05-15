@@ -112,6 +112,7 @@ script: !include scripts.yaml
 camera: !include camera.yaml
 climate: !include climate.yaml
 binary_sensor: !include binary_sensor.yaml
+#image_processing: !include image_processing.yaml
 
 ### Config ###
 config:

@@ -1,0 +1,8 @@
+alias: "Telegram Notification script"
+sequence:
+  - condition: state
+    entity_id: input_boolean.notifications
+    state: 'on'
+  - service: notify.telegram
+    data_template:
+      message: "{{ message }}"

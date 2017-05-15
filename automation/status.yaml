@@ -6,7 +6,7 @@
       to: "on"
   action:
     - service: script.sonos_say
-      data:
+      data_template:
         sonos_entity: media_player.living_room
         volume: 0.5
 #        message: "This is a simple test"

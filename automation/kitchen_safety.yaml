@@ -1,0 +1,20 @@
+- alias: 'Kitchen Safety Plug'
+  trigger:
+    platform: state
+    entity_id: switch.kitchensafetey_switch_16_0
+    from: 'off'
+    to: 'on'
+  action:
+    - delay: 01:00:00
+    - service: 'switch.turn_off'
+      entity_id: 'switch.kitchensafetey_switch_16_0'
+    - service: script.telegram
+      data:
+        message: 'Kitchen safety switch was turned off'
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.living_room
+        volume: 0.5
+        message: 'Excuse me, but I just turned off the kitchen safety switch.'
+        delay: '00:00:10'
+

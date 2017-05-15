@@ -1,0 +1,11 @@
+- platform: dlib_face_identify
+  source:
+   - entity_id: camera.porch
+  faces:
+    Thomas: /var/opt/homeassistant/pics/thomas1.jpg
+
+- platform: dlib_face_detect
+  source:
+    - entity_id: camera.porch
+
+#    Bob: /home/hass/bob.jpg

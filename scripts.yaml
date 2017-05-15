@@ -2,5 +2,6 @@ livingroom_nightlight: !include scripts/livingroom_nightlight.yaml
 nightlight_timer: !include scripts/nightlight_timer.yaml
 sonos_say: !include scripts/sonos_say.yaml
 status: !include scripts/status.yaml
+telegram: !include scripts/telegram.yaml
 #lights_on: !include scripts/lights_on.yaml
 #sunrise: !include scripts/sunrise.yaml

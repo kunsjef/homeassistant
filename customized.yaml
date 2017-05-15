@@ -149,6 +149,20 @@ binary_sensor.hall_sensor_6_0:
 binary_sensor.basement_sensor_7_0:
   icon: mdi:walk
   friendly_name: Basement Movement
+switch.shed_switch_15_0:
+  icon: mdi:white-balance-incandescent
+  friendly_name: Shed Outdoor Lights
+sensor.shed_power_15_4:
+  icon: mdi:power-plug
+  friendly_name: Shed Outdoor Lights Power Usage
+switch.kitchensafetey_switch_16_0:
+  icon: mdi:kettle
+  friendly_name: Kitchen Safety Switch
+sensor.kitchensafetey_power_16_4:
+  icon: mdi:power-plug
+  friendly_name: Kitchen Appliances Power Usage
+
+
 
 # Booleans
 input_boolean.sleeping:

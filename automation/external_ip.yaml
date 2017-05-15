@@ -3,6 +3,6 @@
     - platform: state
       entity_id: sensor.external_ip
   action:
-    - service: notify.telegram
+    - service: script.telegram
       data_template:
-        message: "External IP changed to '{{ states.sensor.external_ip.state }}'"
+        message: "External IP changed to {{ states.sensor.external_ip.state }}"

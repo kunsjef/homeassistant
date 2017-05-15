@@ -6,17 +6,16 @@
     to: 'off'
     for:
       hours: 0
-      minutes: 5
+      minutes: 7
       seconds: 0
   action:
+    - service: script.telegram
+      data:
+        message: 'Washing machine is done!'
     - service: script.sonos_say
       data:
         sonos_entity: media_player.living_room
         volume: 0.5
         message: 'Excuse me, but the washing machine just finished its cycle. Sorry to interrupt.'
         delay: '00:00:10'
-    - delay: 00:05:00
-    - service: notify.telegram
-      data:
-        message: 'Washing machine is done!'
 
