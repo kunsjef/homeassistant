@@ -39,10 +39,10 @@ My current home-assistant configuration. This is a work in progress, and the con
 - [ ] Add z-wave door lock
 - [ ] Bluetooth tracker on raspberry Pi
 - [ ] Facial recognition porch
-- [ ] Unlock door if both bluetooth tracker detecter and facial recognition positive
-- [ ] Add Lux automation in living room. If lux under threshold - turn on lights and disable other light automations
-- [ ] TTS if front door has been open for more than 1 hour
-- [ ] Email from porch cam if movement detected when nobody home
+- [ ] Unlock door if both bluetooth tracker detected and facial recognition positive
+- [ ] Add Lux automation in living room. If lux under threshold, turn on lights and disable other light automations
+- [ ] TTS if front door has been open for more than 1 hour
+- [ ] Email from porch cam if movement detected when nobody home
 
 
 ## Notes
