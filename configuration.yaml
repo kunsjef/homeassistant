@@ -182,6 +182,10 @@ sun:
 ###  Logbook  ###
 logbook:
 
+# Recorder qith MySQL
+recorder:
+  db_url: !secret mysql_url
+
 ###  History  ###
 history:
   include:
@@ -219,6 +223,14 @@ tts:
 # IOS
 ios:
 
+# Telegram bot (for some reason)
+telegram_bot:
+  platform: polling
+  api_key: !secret telegram_api_key
+  allowed_chat_ids:
+    - !secret telegram_chat_id
+
 # Zwave
 zwave:
   usb_path: /dev/ttyACM0
+  config_path: /root/open-zwave/config

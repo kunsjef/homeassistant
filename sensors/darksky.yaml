@@ -9,3 +9,11 @@
     - temperature_max
     - apparent_temperature_max
     - wind_speed
+    - humidity
+    - precip_probability
+    - precip_intensity
+    - pressure
+    - wind_bearing
+    - apparent_temperature
+    - icon
+

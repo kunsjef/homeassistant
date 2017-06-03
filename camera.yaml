@@ -8,7 +8,7 @@
 
 # Porch
 - platform: generic
-  still_image_url: http://192.168.1.65/image/jpeg.cgi
+  still_image_url: !secret porch_camera_url
   name: Porch
   username: admin
   password: !secret camera_password
