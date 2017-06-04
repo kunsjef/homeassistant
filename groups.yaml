@@ -82,6 +82,7 @@ details:
     - group.stairs
     - group.battery
     - group.kitchen
+    - group.sensor_node_1
 
 outdoors:
   name: Outdoors
@@ -150,6 +151,15 @@ kitchen:
     - switch.kitchensafetey_switch_16_0
     - sensor.kitchensafetey_power_16_4
     - switch.kitchenspot
+
+sensor_node_1:
+  name: Sensor Node 1  
+  entities:  
+    - sensor.sn1_temperature  
+    - sensor.sn1_humidity  
+    - sensor.sn1_ldr  
+    - sensor.sn1_pir  
+    - light.sn1_led
 
 weather_yr:
   name: Weather YR

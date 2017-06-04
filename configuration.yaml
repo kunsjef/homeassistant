@@ -67,11 +67,20 @@ tellstick:
 
 ##  MQTT  ###
 mqtt:
-  broker: m20.cloudmqtt.com
-  port: 22527
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-  client_id: Home Assistant
+  #broker: m20.cloudmqtt.com
+  #port: 22527
+  #username: !secret mqtt_username
+  #password: !secret mqtt_password
+  #client_id: Home Assistant
+  broker: 127.0.0.1
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret local_mqtt_username
+  password: !secret local_mqtt_password
+  protocol: 3.1
+  #tls_insecure: True
+  #tls_version: 1.2
 
 ##  HTTP  ###
 http:

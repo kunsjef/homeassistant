@@ -5,10 +5,10 @@
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.door_main
+          #- binary_sensor.door_main
           - binary_sensor.door_back
-          - binary_sensor.door_ebalcony
-          - binary_sensor.door_wbalcony
+          #- binary_sensor.door_ebalcony
+          #- binary_sensor.door_wbalcony
         to: 'on'
     condition:
       - condition: state
@@ -43,8 +43,8 @@
         entity_id:
           - binary_sensor.door_main
           - binary_sensor.door_back
-          - binary_sensor.door_ebalcony
-          - binary_sensor.door_wbalcony
+          #- binary_sensor.door_ebalcony
+          #- binary_sensor.door_wbalcony
         from: 'off'
         to: 'on'
         for:
