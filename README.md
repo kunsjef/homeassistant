@@ -14,6 +14,7 @@ My current home-assistant configuration. This is a work in progress, and the con
 * Samsung A/C
 * 4x D-Link DCS-932L Cameras
 * QNAP NAS
+* DIY Multisensor (BRUH edition: https://www.youtube.com/watch?v=jpjfVc-9IrQ&t=2s)
 
 ### 433Mhz
 * Tellstick Duo with extra antenna
