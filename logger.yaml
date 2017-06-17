@@ -1,1 +1,10 @@
-default: info
+default: warn
+logs:
+    homeassistant.components.mqtt: info
+    homeassistant.components.automation: info
+    homeassistant.components.light: info
+    homeassistant.components.switch: info
+    homeassistant.components.sensor: info
+    homeassistant.components.tts: info
+    homeassistant.components.zwave: info
+    homeassistant.components.telegram_bot: info

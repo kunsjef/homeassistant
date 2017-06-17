@@ -6,7 +6,8 @@
   trigger:
     platform: state
     entity_id: 'input_boolean.house_awake'
-    state: 'off'
+    from: 'off'
+    to: 'on'
   condition:
     - condition: time
       after: '05:00:01'
@@ -14,15 +15,12 @@
     - condition: sun
       before: sunrise
       before_offset: "+01:00:00"
-    - condition: state
-      entity_id: input_boolean.away
-      state: 'off'
   action:
     - service: 'scene.turn_on'
       entity_id: 'scene.lights'
 
 
-- alias: 'Good morning'
+- alias: 'House awakens'
   trigger:
     platform: state
     entity_id: binary_sensor.movement_upstairs
@@ -39,37 +37,7 @@
       entity_id: 'input_boolean.sleeping'
     - service: homeassistant.turn_off
       entity_id: 'input_boolean.house_awake'
-    - delay: 00:00:02
+    - delay: 00:00:01
+      # All this to get a proper timestamp
     - service: homeassistant.turn_on
       entity_id: 'input_boolean.house_awake'
-
-
-#######################################################
-# Coming home
-#######################################################
-
-- alias: 'Turn on lights when coming home after sunset'
-  trigger:
-    platform: state
-    entity_id: group.all_devices
-    from: 'not_home'
-    to: 'home'
-  condition:
-    - condition: time
-      after: '15:00:00'
-      before: '23:59:00'
-    - condition: sun
-      after: sunset
-    - condition: state
-      entity_id: input_boolean.sleeping
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.away
-      state: 'off'
-    - condition: state
-      entity_id: group.lights_livingroom
-      state: 'off'
-  action:
-    service: 'scene.turn_on'
-    entity_id: 'scene.lights'
-

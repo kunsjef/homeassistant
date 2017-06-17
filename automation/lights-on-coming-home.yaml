@@ -1,0 +1,30 @@
+#######################################################
+# Coming home after being away
+#######################################################
+
+- alias: 'Turn on lights when coming home after sunset'
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: 'not_home'
+    to: 'home'
+  condition:
+    - condition: time
+      after: '15:00:00'
+      before: '23:59:00'
+    - condition: sun
+      after: sunset
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'on'
+    - condition: state
+      entity_id: group.lights_livingroom
+      state: 'off'
+  action:
+    - service: 'scene.turn_on'
+      entity_id: 'scene.lights'
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.away

@@ -178,6 +178,9 @@ input_boolean:
 
 ### Hue emulation ###
 emulated_hue:
+  type: alexa
+  host_ip: 192.168.1.90
+  listen_port: 8300
   exposed_domains:
     - light
     - switch

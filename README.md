@@ -35,12 +35,12 @@ My current home-assistant configuration. This is a work in progress, and the con
 * Nexa AN180 Plug-in ON/OFF Module
 
 ## TODO
-- [ ] Reconfigure hue-emulator
+- [x] Reconfigure hue-emulator
 - [ ] Add z-wave door lock
 - [ ] Bluetooth tracker on raspberry Pi
 - [ ] Facial recognition porch
 - [ ] Unlock door if both bluetooth tracker detected and facial recognition positive
-- [ ] Add Lux automation in living room. If lux under threshold, turn on lights and disable other light automations
+- [x] Add Lux automation in living room. If lux under 20, turn on lights and disable other light automations
 - [ ] TTS if front door has been open for more than 1 hour
 - [ ] Email from porch cam if movement detected when nobody home
 
@@ -55,3 +55,8 @@ Device: /dev/ttyACM0
 cp zwcfg_0xc930bed8.xml /var/opt/homeassistant/
 service hassd start
 ```
+
+### Aeon Labs DSB29
+Had some problems with these as they kept falling asleep without waking up again. 
+The fix was to set the report type to 16 (for some reason). Now they are working like a charm.
+

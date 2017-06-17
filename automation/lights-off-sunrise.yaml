@@ -1,8 +1,8 @@
 #############################################################
 # Sunrise +1 hour
 # Conditions:
-# * Not away
-# * Cloud coverage less than 70%
+# * Lights on
+# * Cloud coverage less than 50%
 #############################################################
 
 - alias: 'Turn off light when sun rises +1h and no clouds'
@@ -11,13 +11,12 @@
     event: sunrise
     offset: "+01:00:00"
   condition:
-    - condition: state
-      entity_id: input_boolean.away
-      state: 'off'
     - condition: numeric_state
-      #entity_id: sensor.forecastio_cloud_coverage
       entity_id: sensor.yr_cloudiness
-      below: 70
+      below: 50
+    - condition: state
+      entity_id: group.lights_livingroom
+      state: 'on'
   action:
     service: 'scene.turn_on'
     entity_id: 'scene.sunrise'
@@ -25,7 +24,7 @@
 #############################################################
 # Sunrise +2 hours
 # Conditions:
-# * Not away
+# * Lights on
 #############################################################
 
 - alias: 'Turn off light when sun rises +2h'
@@ -35,8 +34,8 @@
     offset: "+02:00:00"
   condition:
     - condition: state
-      entity_id: input_boolean.away
-      state: 'off'
+      entity_id: group.lights_livingroom
+      state: 'on'
   action:
     service: 'scene.turn_on'
     entity_id: 'scene.sunrise'

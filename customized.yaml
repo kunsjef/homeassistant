@@ -162,8 +162,6 @@ sensor.kitchensafetey_power_16_4:
   icon: mdi:power-plug
   friendly_name: Kitchen Appliances Power Usage
 
-
-
 # Booleans
 input_boolean.sleeping:
   hidden: true
@@ -271,6 +269,9 @@ binary_sensor.movement_stair1:
   icon: mdi:walk
 binary_sensor.movement_stair2:
   friendly_name: Movement Office/Stairs
+  icon: mdi:walk
+binary_sensor.movement_porch:
+  friendly_name: Movement Porch
   icon: mdi:walk
 binary_sensor.sleeping:
   friendly_name: Sleeping

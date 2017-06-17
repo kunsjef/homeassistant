@@ -22,7 +22,6 @@
       entity_id: input_boolean.extend_night
       state: 'off'
     - condition: state
-      #entity_id: switch.motionsensor
       entity_id: binary_sensor.movement_upstairs
       state: 'off'
       for:
@@ -32,49 +31,48 @@
   action:
     - service: 'scene.turn_on'
       entity_id: 'scene.good_night'
-    - service: homeassistant.turn_off
-      entity_id: 'input_boolean.house_asleep'
-    - delay: 00:00:02
-    - service: homeassistant.turn_on
-      entity_id: 'input_boolean.house_asleep'
-    - delay: 00:00:02
     - service: homeassistant.turn_on
       entity_id: 'input_boolean.sleeping'
+    - service: homeassistant.turn_off
+      entity_id: 'input_boolean.house_asleep'
+    - delay: 00:00:01
+    - service: homeassistant.turn_on
+      entity_id: 'input_boolean.house_asleep'
 
-- alias: 'Notify that lights will be turned off'
-  trigger:
-    platform: time
-    minutes: '/10'
-    seconds: 0
-  condition:
-    - condition: time
-      after: '00:00:00'
-    - condition: time
-      before: '05:01:00'
-    - condition: state
-      entity_id: input_boolean.sleeping
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.away
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.extend_night
-      state: 'off'
-    - condition: state
-      #entity_id: switch.motionsensor
-      entity_id: binary_sensor.movement_upstairs
-      state: 'off'
-      for:
-        hours: 0
-        minutes: 20
-        seconds: 0
-  action:
-    - service: script.sonos_say
-      data:
-        sonos_entity: media_player.living_room
-        volume: 0.3
-        message: 'Excuse me, but the lights will be turned off in 5 minutes if there is no more movement upstairs. Sorry to interrupt.'
-        delay: '00:00:15'
+#- alias: 'Notify that lights will be turned off'
+#  trigger:
+#    platform: time
+#    minutes: '/10'
+#    seconds: 0
+#  condition:
+#    - condition: time
+#      after: '00:00:00'
+#    - condition: time
+#      before: '05:01:00'
+#    - condition: state
+#      entity_id: input_boolean.sleeping
+#      state: 'off'
+#    - condition: state
+#      entity_id: input_boolean.away
+#      state: 'off'
+#    - condition: state
+#      entity_id: input_boolean.extend_night
+#      state: 'off'
+#    - condition: state
+#      #entity_id: switch.motionsensor
+#      entity_id: binary_sensor.movement_upstairs
+#      state: 'off'
+#      for:
+#        hours: 0
+#        minutes: 20
+#        seconds: 0
+#  action:
+#    - service: script.sonos_say
+#      data:
+#        sonos_entity: media_player.living_room
+#        volume: 0.3
+#        message: 'Excuse me, but the lights will be turned off in 5 minutes if there is no more movement upstairs. Sorry to interrupt.'
+#        delay: '00:00:15'
 
 #######################################################
 # Sleep now - button
@@ -93,7 +91,7 @@
       before: '23:59:00'
     - condition: time
       after: '00:00:00'
-      before: '04:00:00'
+      before: '04:45:00'
   action:
     - service: script.sonos_say
       data:
@@ -104,14 +102,13 @@
     - delay: 00:05:00
     - service: 'scene.turn_on'
       entity_id: 'scene.good_night'
-    - service: homeassistant.turn_off
-      entity_id: 'input_boolean.house_asleep'
-    - delay: 00:00:02
-    - service: homeassistant.turn_on
-      entity_id: 'input_boolean.house_asleep'
-    - delay: 00:00:02
     - service: homeassistant.turn_on
       entity_id: 'input_boolean.sleeping'
-    - delay: 00:00:05
+    - service: homeassistant.turn_off
+      entity_id: 'input_boolean.house_asleep'
+    - delay: 00:00:01
+    - service: homeassistant.turn_on
+      entity_id: 'input_boolean.house_asleep'
+    - delay: 00:00:02
     - service: homeassistant.turn_off
       entity_id: input_boolean.sleep_now

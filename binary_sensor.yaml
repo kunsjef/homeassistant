@@ -20,6 +20,9 @@
     movement_basement:
       value_template: "{{ states.binary_sensor.basement_sensor_7_0.state == 'on' }}"
       device_class: motion
+    movement_porch:
+      value_template: "{{ states.sensor.motion_porch.state == 'on' }}"
+      device_class: motion
 
     movement:
       value_template: "{{ states.binary_sensor.movement_stair1.state == 'on' or states.binary_sensor.movement_stair2.state == 'on' or states.binary_sensor.movement_hall.state == 'on' or states.binary_sensor.movement_livingroom.state == 'on' or states.binary_sensor.movement_basement.state == 'on' }}"

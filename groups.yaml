@@ -95,6 +95,8 @@ outdoors:
     - sensor.shed_power_15_4
     - binary_sensor.aurora_visibility
     - sensor.moon
+    - binary_sensor.movement_porch
+    #- sensor.motion_porch
 
 livingroom:
   name: Livingroom

@@ -20,6 +20,9 @@
     - condition: state
       entity_id: input_boolean.sleeping
       state: 'off'
+    - condition: state
+      entity_id: group.lights_livingroom
+      state: 'off'
   action:
     service: 'scene.turn_on'
     entity_id: 'scene.lights'
@@ -29,7 +32,7 @@
 # Conditions:
 # * People are home
 # * Not away
-# * Cloud coverage more than 70%
+# * Cloud coverage more than 50%
 #############################################################
 
 - alias: 'Turn on light when sun sets -2h and cloudy'
@@ -48,10 +51,44 @@
       entity_id: input_boolean.sleeping
       state: 'off'
     - condition: numeric_state
-      #entity_id: sensor.forecastio_cloud_coverage
       entity_id: sensor.yr_cloudiness
       above: 50
+    - condition: state
+      entity_id: group.lights_livingroom
+      state: 'off'
   action:
     service: 'scene.turn_on'
     entity_id: 'scene.lights'
 
+#############################################################
+# Lux in livingroom under 20
+# Conditions:
+# * People are home
+# * Not away
+# * After midday - before midnight
+#############################################################
+
+- alias: 'Turn on lights if just gets too damn dark'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.livingroom_luminance_10_3
+    below: 20
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.sleeping
+      state: 'off'
+    - condition: state
+      entity_id: group.lights_livingroom
+      state: 'off'
+    - condition: time
+      after: '13:00:00'
+      before: '23:59:00'
+  action:
+    service: 'scene.turn_on'
+    entity_id: 'scene.lights'

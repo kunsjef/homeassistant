@@ -1,0 +1,9 @@
+#- platform: mqtt  
+#  state_topic: "bruh/sensornode1"  
+#  name: "SN1 PIR"  
+#  value_template: '{{ value_json.motion }}'  
+
+- platform: mqtt
+  state_topic: "homeassistant/porch/motion_sensor"
+  name: "Motion Porch"
+#  value_template: '{{ value_json.motion }}'
