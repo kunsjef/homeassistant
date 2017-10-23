@@ -16,6 +16,6 @@
       data:
         sonos_entity: media_player.living_room
         volume: 0.5
-        message: 'Excuse me, but the washing machine just finished its cycle. Sorry to interrupt.'
+        message: 'Excuse me, but the washing machine just finished its cycle.'
         delay: '00:00:10'
 

@@ -10,7 +10,7 @@ default_view:
     - device_tracker.vyhbzwsp_thomas
     - device_tracker.noahsiniphone
     - device_tracker.kyloren
-    - sensor.outside_temperature
+    - sensor.netatmo_outdoor_temperature
     - sensor.yr_symbol
 
 homestatus:
@@ -65,6 +65,21 @@ timestamps:
     - sensor.last_main_door
     - sensor.last_movement_upstairs
 
+alarmclock:
+  name: Alarm clocks
+  view: yes
+  entities:
+    - group.alarmbedroom
+
+alarmbedroom:
+  name: Alarm Clock Bedroom
+  entities:
+    - input_boolean.alarm_clock_status
+    - sensor.alarm_clock_time
+    - input_number.alarm_clock_hour
+    - input_number.alarm_clock_minute
+    - input_number.alarm_clock_fade_in_minutes
+
 details:
   name: Details
   view: yes
@@ -73,6 +88,7 @@ details:
     - group.livingroom
     - group.basement
     - group.hall
+    - group.hall2
     - group.bedroom
     - group.ethan
     - group.attic
@@ -83,51 +99,80 @@ details:
     - group.battery
     - group.kitchen
     - group.sensor_node_1
+    - group.network
+    - group.facedetect
+
+facedetect:
+  name: Face Detection
+  entities:
+    - image_processing.dlib_face_kitchen
+    - camera.kitchen
 
 outdoors:
   name: Outdoors
   control: hidden
   entities:
     - sun.sun
-    - sensor.outside_humidity
-    - sensor.outside_temperature
-    - switch.shed_switch_15_0
-    - sensor.shed_power_15_4
+    - sensor.netatmo_outdoor_battery
+    - sensor.netatmo_outdoor_humidity
+    - sensor.netatmo_outdoor_radio
+    - sensor.netatmo_outdoor_temperature
+    - switch.shed_switch
+    - sensor.shed_power
     - binary_sensor.aurora_visibility
     - sensor.moon
     - binary_sensor.movement_porch
-    #- sensor.motion_porch
+    - sensor.motion_porch
 
 livingroom:
   name: Livingroom
   entities:
+    - sensor.livingroom_mean
+    - sensor.netatmo_indoor_co2
+    - sensor.netatmo_indoor_humidity
+    - sensor.netatmo_indoor_noise
+    - sensor.netatmo_indoor_pressure
+    - sensor.netatmo_indoor_temperature
+    - sensor.livingroom_luminance
     - sensor.livingroom_temperature
-    - sensor.livingroom_humidity
-    - sensor.livingroom_luminance_10_3
-    - sensor.livingroom_temperature_10_1
     - binary_sensor.movement_upstairs
     - binary_sensor.door_ebalcony
     - binary_sensor.door_wbalcony
-    - sensor.tvstereo_power_2_4
-    #- switch.tvstereo_switch_2_0
+    - sensor.tvstereo_power
+    #- switch.tvstereo_switch
 
 basement:
   name: Basement
   entities:
-    - sensor.basement_luminance_7_3
-    - sensor.basement_temperature_7_1
+    - sensor.basement_luminance
+    - sensor.basement_temperature
     - binary_sensor.washmachine
-    - sensor.washmachine_power_8_4
-    - binary_sensor.basement_sensor_7_0
-    #- switch.washmachine_switch_8_0
+    - sensor.washmachine_power
+    - binary_sensor.basement_sensor
+    #- switch.washmachine_switch
+
+network:
+  name: Network
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
 
 hall:
   name: Entrance Hall
   entities:
-    - sensor.hall_luminance_6_3
-    - sensor.hall_temperature_6_1
-    - binary_sensor.hall_sensor_6_0
+    - sensor.hall_luminance
+    - sensor.hall_temperature
+    - binary_sensor.hall_sensor
     - binary_sensor.door_main
+
+hall2:
+  name: Other Hall
+  entities:
+    - sensor.hall2_luminance
+    - sensor.hall2_temperature
+    - binary_sensor.hall2_sensor
+    - binary_sensor.door_back
 
 ethan:
   name: Ethan's Room
@@ -139,6 +184,8 @@ bedroom:
   entities:
     - sensor.bedroom_temperature
     - sensor.bedroom_humidity
+    - light.nightlightpaula
+    - light.nightlightthomas
 
 attic:
   name: Attic
@@ -150,9 +197,10 @@ kitchen:
   name: Kitchen
   control: hidden
   entities:
-    - switch.kitchensafetey_switch_16_0
-    - sensor.kitchensafetey_power_16_4
-    - switch.kitchenspot
+    - switch.kitchensafetey_switch
+    - sensor.kitchensafetey_power
+    - sensor.kitchen_temperature
+    - sensor.kitchen_humidity
 
 sensor_node_1:
   name: Sensor Node 1  
@@ -195,7 +243,9 @@ battery:
     - sensor.basement_battery
     - sensor.ebalcony_battery
     - sensor.hall_battery
+    - sensor.hall2_battery
     - sensor.wbalcony_battery
+    - sensor.main_door_battery
     - sensor.thomas_iphone_battery
     - sensor.paula_iphone_battery
 
@@ -213,6 +263,7 @@ lights:
     - group.lights_livingroom
     - group.lights_office
     - group.lights_ethan
+    - group.lights_bedroom
     - group.lights_kitchen
     - group.lights_outdoor
 
@@ -239,8 +290,15 @@ lights_ethan:
   name: Lights Ethan's Room
   control: hidden
   entities:
-    - switch.ethancity_switch_14_0
-    - light.ethanceiling_level_13_0
+    - switch.ethancity_switch
+    - light.ethanceiling_level
+
+lights_bedroom:
+  name: Lights Bedroom
+  control: hidden
+  entities:
+    - light.nightlightpaula
+    - light.nightlightthomas
 
 lights_kitchen:
   name: Lights Kitchen
@@ -250,7 +308,7 @@ lights_kitchen:
 lights_outdoor:
   name: Lights Outdoor
   entities:
-    - switch.shed_switch_15_0
+    - switch.shed_switch
 
 Peripherals:
   name: Peripherals
@@ -288,9 +346,11 @@ cameras:
   name: Cameras
   entities:
     - camera.porch
+    - camera.kitchen
     - camera.ethan
     - camera.livingroom
     - camera.bedroom
+    - camera.office
 
 other:
   name: Other Stuff

@@ -24,7 +24,7 @@
   trigger:
     platform: state
     entity_id: binary_sensor.movement_upstairs
-    state: 'on'
+    to: 'on'
   condition:
     - condition: time
       after: '05:00:01'

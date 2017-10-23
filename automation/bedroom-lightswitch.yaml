@@ -1,0 +1,51 @@
+# switch.ethancity_switch
+
+- alias: 'Bedroom left lightswitch turned on'
+  trigger:
+    platform: state
+    entity_id: switch.lswbedroomleft
+    to: 'on'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'light.nightlightthomas'
+      data:
+        brightness: 200
+
+- alias: 'Bedroom left lightswitch turned off'
+  trigger:
+    platform: state
+    entity_id: switch.lswbedroomleft
+    to: 'off'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'light.nightlightthomas'
+      data:
+        brightness: 1
+    - delay: 00:00:02
+    - service: 'light.turn_off'
+      entity_id: 'light.nightlightthomas'
+
+- alias: 'Bedroom right lightswitch turned on'
+  trigger:
+    platform: state
+    entity_id: switch.lswbedroomright
+    to: 'on'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'light.nightlightpaula'
+      data:
+        brightness: 200
+
+- alias: 'Bedroom right lightswitch turned off'
+  trigger:
+    platform: state
+    entity_id: switch.lswbedroomright
+    to: 'off'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'light.nightlightpaula'
+      data:
+        brightness: 1
+    - delay: 00:00:02
+    - service: 'light.turn_off'
+      entity_id: 'light.nightlightpaula'

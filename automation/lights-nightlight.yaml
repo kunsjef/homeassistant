@@ -7,7 +7,7 @@
     platform: state
     #entity_id: switch.motionsensor
     entity_id: binary_sensor.movement_upstairs
-    state: 'on'
+    to: 'on'
   condition:
     - condition: time
       after: '22:00:00'
@@ -31,7 +31,7 @@
     platform: state
     #entity_id: switch.motionsensor
     entity_id: binary_sensor.movement_upstairs
-    state: 'on'
+    to: 'on'
   condition:
     - condition: time
       after: '00:00:01'

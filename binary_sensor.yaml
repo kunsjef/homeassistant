@@ -3,7 +3,10 @@
   sensors:
 
     movement_upstairs:
-      value_template: "{{ states.switch.motionsensor.state == 'on' or states.switch.motionsensor2.state == 'on' or states.binary_sensor.livingroom_sensor_10_0.state == 'on' }}"
+      value_template: "{{ states.switch.motionsensor.state == 'on' or states.switch.motionsensor2.state == 'on' or states.binary_sensor.livingroom_sensor.state == 'on' }}"
+      device_class: motion
+    movement_downstairs:
+      value_template: "{{ states.binary_sensor.hall2_sensor.state == 'on' or states.binary_sensor.hall_sensor.state == 'on' }}"
       device_class: motion
     movement_stair1:
       value_template: "{{ states.switch.motionsensor.state == 'on' }}"
@@ -12,20 +15,23 @@
       value_template: "{{ states.switch.motionsensor2.state == 'on' }}"
       device_class: motion
     movement_hall:
-      value_template: "{{ states.binary_sensor.hall_sensor_6_0.state == 'on' }}"
+      value_template: "{{ states.binary_sensor.hall_sensor.state == 'on' }}"
+      device_class: motion
+    movement_hall2:
+      value_template: "{{ states.binary_sensor.hall2_sensor.state == 'on' }}"
       device_class: motion
     movement_livingroom:
-      value_template: "{{ states.binary_sensor.livingroom_sensor_10_0.state == 'on' }}"
+      value_template: "{{ states.binary_sensor.livingroom_sensor.state == 'on' }}"
       device_class: motion
     movement_basement:
-      value_template: "{{ states.binary_sensor.basement_sensor_7_0.state == 'on' }}"
+      value_template: "{{ states.binary_sensor.basement_sensor.state == 'on' }}"
       device_class: motion
     movement_porch:
-      value_template: "{{ states.sensor.motion_porch.state == 'on' }}"
+      value_template: "{{ states.sensor.motion_porch.state == 'detected' }}"
       device_class: motion
 
     movement:
-      value_template: "{{ states.binary_sensor.movement_stair1.state == 'on' or states.binary_sensor.movement_stair2.state == 'on' or states.binary_sensor.movement_hall.state == 'on' or states.binary_sensor.movement_livingroom.state == 'on' or states.binary_sensor.movement_basement.state == 'on' }}"
+      value_template: "{{ states.switch.motionsensor.state == 'on' or states.switch.motionsensor2.state == 'on' or states.binary_sensor.livingroom_sensor.state == 'on' or states.binary_sensor.hall2_sensor.state == 'on' or states.binary_sensor.hall_sensor.state == 'on' }}"
       device_class: motion
 
     door_main:
@@ -35,10 +41,10 @@
       value_template: "{{ states.switch.backdoor.state == 'on' }}"
       device_class: opening
     door_ebalcony:
-      value_template: "{{ states.binary_sensor.eastbalcony_sensor_11_0.state == 'on' }}"
+      value_template: "{{ states.binary_sensor.eastbalcony_sensor.state == 'on' }}"
       device_class: opening
     door_wbalcony:
-      value_template: "{{ states.binary_sensor.westbalcony_sensor_12_0.state == 'on' }}"
+      value_template: "{{ states.binary_sensor.westbalcony_sensor.state == 'on' }}"
       device_class: opening
 
     doors:
@@ -52,7 +58,7 @@
       value_template: "{{ states.input_boolean.sleeping.state == 'off' }}"
 
     washmachine:
-      value_template: "{{ states.sensor.washmachine_power_8_4.state | int > 2 }}"
+      value_template: "{{ states.sensor.washmachine_power.state | int > 2 }}"
 
 
 - platform: aurora

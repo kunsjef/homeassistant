@@ -1,0 +1,21 @@
+- alias: Thomas detected
+  trigger:
+    platform: event
+    event_type: image_processing.detect_face
+    event_data:
+      entity_id: image_processing.identify_thomas
+      name: thomas
+  action:
+    - service: script.telegram
+      data:
+        message: 'Thomas is in the kitchen!'
+
+#- alias: Face detected
+#  trigger:
+#    platform: event
+#    event_type: image_processing.detect_face
+#  action:
+#    - service: script.telegram
+#      data:
+#        message: 'Face detected in the kitchen!'
+

@@ -7,17 +7,17 @@
 # new_state=<state switch.lswethanleft=on;
 # friendly_name=lsw-ethan-left,
 # assumed_state=True @ 2017-04-24T02:30:57.137193+02:00>>
-# light.ethanceiling_level_13_0
-# switch.ethancity_switch_14_0
+# light.ethanceiling_level
+# switch.ethancity_switch
 
 - alias: 'Ethan left lightswitch turned on'
   trigger:
     platform: state
     entity_id: switch.lswethanleft
-    state: 'on'
+    to: 'on'
   action:
     - service: 'switch.turn_on'
-      entity_id: 'switch.ethancity_switch_14_0'
+      entity_id: 'switch.ethancity_switch'
     #- service: notify.telegram
     #  data_template:
     #    message: "Ethan left lightswitch turned '{{ states.switch.lswethanleft.state }}'"
@@ -26,10 +26,10 @@
   trigger:
     platform: state
     entity_id: switch.lswethanleft
-    state: 'off'
+    to: 'off'
   action:
     - service: 'switch.turn_off'
-      entity_id: 'switch.ethancity_switch_14_0'
+      entity_id: 'switch.ethancity_switch'
     #- service: notify.telegram
     #  data_template:
     #    message: "Ethan left lightswitch turned '{{ states.switch.lswethanleft.state }}'"
@@ -38,10 +38,10 @@
   trigger:
     platform: state
     entity_id: switch.lswethanright
-    state: 'on'
+    to: 'on'
   action:
     - service: 'light.turn_on'
-      entity_id: 'light.ethanceiling_level_13_0'
+      entity_id: 'light.ethanceiling_level'
     #- service: notify.telegram
     #  data_template:
     #    message: "Ethan right lightswitch turned '{{ states.switch.lswethanright.state }}'"
@@ -50,10 +50,10 @@
   trigger:
     platform: state
     entity_id: switch.lswethanright
-    state: 'off'
+    to: 'off'
   action:
     - service: 'light.turn_off'
-      entity_id: 'light.ethanceiling_level_13_0'
+      entity_id: 'light.ethanceiling_level'
     #- service: notify.telegram
     #  data_template:
     #    message: "Ethan right lightswitch turned '{{ states.switch.lswethanright.state }}'"

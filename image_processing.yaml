@@ -1,11 +1,14 @@
-- platform: dlib_face_identify
-  source:
-   - entity_id: camera.porch
-  faces:
-    Thomas: /var/opt/homeassistant/pics/thomas1.jpg
-
 - platform: dlib_face_detect
+  keep_faces: True
+  keep_no_faces: True
   source:
-    - entity_id: camera.porch
+    - entity_id: camera.kitchen
 
-#    Bob: /home/hass/bob.jpg
+- platform: dlib_face_identify
+  keep_known_faces: True
+  keep_unknown_faces: True
+  source:
+   - entity_id: camera.kitchen
+     name: "Identify thomas"
+  faces:
+    thomas: /var/opt/homeassistant/pics/thomas1.jpg

@@ -5,7 +5,7 @@
 - alias: 'Away - lights on'
   trigger:
     - platform: time
-      after: '17:15:00'
+      at: '17:15:00'
   condition:
     - condition: state
       entity_id: input_boolean.away
@@ -21,7 +21,7 @@
 - alias: 'Away - lights off'
   trigger:
     - platform: time
-      after: '23:15:00'
+      at: '23:15:00'
   condition:
     - condition: state
       entity_id: input_boolean.away

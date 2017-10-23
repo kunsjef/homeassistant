@@ -5,16 +5,19 @@ My current home-assistant configuration. This is a work in progress, and the con
 * Raspberry Pi
 * Broadlink RM Mini 3 Universal IR Controller
 * Sonos Play:5
-* 2x Amazon Echo
+* Amazon Echo
 * Amazon Echo Dot
+* Amazon Tap
 * NVIDIA Shield with Kodi
 * 1st Gen Chromecast
 * 2nd Gen Apple TV
 * LG TV
 * Samsung A/C
 * 4x D-Link DCS-932L Cameras
+* 2x TP-Link NC250 Cameras
 * QNAP NAS
 * DIY Multisensor (BRUH edition: https://www.youtube.com/watch?v=jpjfVc-9IrQ&t=2s)
+* Netatmo Weather Station
 
 ### 433Mhz
 * Tellstick Duo with extra antenna
@@ -22,7 +25,7 @@ My current home-assistant configuration. This is a work in progress, and the con
 * 2x Nexa LMDT-609 Indoor PIR Sensors
 * 5x Nexa CMR-101 Built-in Dimmers
 * 4x Nexa EYCR-2300 On/Off Switches
-* 4x Nexa EYCR-201 Dimmer Switches
+* 6x Nexa EYCR-201 Dimmer Switches
 * 2x Nexa LWST-605 Lightswitches
 * 4x Oregon Scientific Temperature/Hygrometer Sensors
 * 2x Nexa IPT-1502 double lightswitches
@@ -61,3 +64,7 @@ service hassd start
 Had some problems with these as they kept falling asleep without waking up again. 
 The fix was to set the report type to 16 (for some reason). Now they are working like a charm.
 
+### Useful links i need to check out
+https://community.home-assistant.io/t/presence-detection-with-multiple-devices-multiple-trackers/4335
+https://community.home-assistant.io/t/alarm-clock-with-sonos-philips-hue/23421
+https://community.home-assistant.io/t/follow-me-lights-automation-implementation/29139

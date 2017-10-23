@@ -1,6 +1,8 @@
 default: warn
 logs:
-    homeassistant.components.mqtt: info
+    homeassistant.components.mqtt: debug
+    homeassistant.components.image_processing: debug
+    homeassistant.components.camera: debug
     homeassistant.components.automation: info
     homeassistant.components.light: info
     homeassistant.components.switch: info
@@ -8,3 +10,4 @@ logs:
     homeassistant.components.tts: info
     homeassistant.components.zwave: info
     homeassistant.components.telegram_bot: info
+

@@ -6,7 +6,7 @@
   trigger:
     platform: state
     entity_id: media_player.kodi
-    state: 'playing'
+    to: 'playing'
   action:
     service: 'light.turn_off'
     entity_id: 'light.star'

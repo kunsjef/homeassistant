@@ -3,7 +3,7 @@
 
 # Broadlink RM Switch
 - platform: broadlink
-  host: 192.168.1.162
+  host: 192.168.1.165
   mac: 'B4:43:0D:FC:0A:0E'
   switches:
     tv:

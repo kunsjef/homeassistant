@@ -1,7 +1,7 @@
 # Tellstick sensors
 - platform: tellstick
-  234: Outside
-  225: Livingroom
+  #234: Outside
+  225: Kitchen
   13: Ethan
   101: Attic
   11: Bedroom

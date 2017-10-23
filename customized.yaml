@@ -1,10 +1,10 @@
 # Indoor Climate
-sensor.livingroom_humidity:
+sensor.kitchen_humidity:
   icon: mdi:water-percent
-  friendly_name: Livingroom Humidity
-sensor.livingroom_temperature:
+  friendly_name: Kitchen Humidity
+sensor.kitchen_temperature:
   icon: mdi:thermometer
-  friendly_name: Livingroom Temperature
+  friendly_name: Kitchen Temperature
 sensor.bedroom_temperature:
   icon: mdi:thermometer
   friendly_name: Bedroom Temperature
@@ -20,6 +20,10 @@ sensor.attic_humidity:
 sensor.ethan_temperature:
   icon: mdi:thermometer
   friendly_name: Ethan's Room Temperature
+sensor.livingroom_mean:
+  icon: mdi:thermometer
+  friendly_name: Livingroom Mean Temperature
+
 #climate.ethan:
 #  icon: mdi:thermometer
 #  friendly_name: Ethan's Room Temperature Target
@@ -50,6 +54,14 @@ switch.bartable:
   friendly_name: Bar Table
   icon: mdi:lightbulb
 
+# Bedroom lights
+light.nightlightpaula:   
+  friendly_name: Nightlight Paula
+  icon: mdi:lamp
+light.nightlightthomas:   
+  friendly_name: Nightlight Thomas
+  icon: mdi:lamp
+
 # Office / Mancave Lights
 light.officedesk:
   friendly_name: Office Desk
@@ -62,10 +74,10 @@ switch.barspots:
   icon: mdi:flask
 
 # Ethan's Room Lights
-switch.ethancity_switch_14_0:
+switch.ethancity_switch:
   friendly_name: Ethan City Light
   icon: mdi:city
-light.ethanceiling_level_13_0:
+light.ethanceiling_level:
   friendly_name: Ethan Ceiling Light
   icon: mdi:lightbulb
 
@@ -89,12 +101,13 @@ switch.heatguestroom:
 # Conditions / Outside
 sun.sun:
   icon: mdi:weather-sunny
+
 sensor.outside_humidity:
   icon: mdi:water-percent
-  friendly_name: Humidity
+  friendly_name: Outside Humidity
 sensor.outside_temperature:
   icon: mdi:thermometer
-  friendly_name: Temperature
+  friendly_name: Outside Temperature
 
 ## Forecast
 #sensor.forecastio_temperature:
@@ -137,28 +150,31 @@ sensor.external_ip:
   friendly_name: External IP
 
 # Zwave sensors
-sensor.tvstereo_power_2_4:
+sensor.tvstereo_power:
   icon: mdi:power-plug
   friendly_name: TV/Stereo Power Usage
-sensor.washmachine_power_8_4:
+sensor.washmachine_power:
   icon: mdi:power-plug
   friendly_name: Washing Machine Power Usage
-binary_sensor.hall_sensor_6_0:
+binary_sensor.hall_sensor:
   icon: mdi:walk
   friendly_name: Hall Movement
-binary_sensor.basement_sensor_7_0:
+binary_sensor.hall2_sensor:
+  icon: mdi:walk
+  friendly_name: Hall2 Movement
+binary_sensor.basement_sensor:
   icon: mdi:walk
   friendly_name: Basement Movement
-switch.shed_switch_15_0:
+switch.shed_switch:
   icon: mdi:white-balance-incandescent
   friendly_name: Shed Outdoor Lights
-sensor.shed_power_15_4:
+sensor.shed_power:
   icon: mdi:power-plug
   friendly_name: Shed Outdoor Lights Power Usage
-switch.kitchensafetey_switch_16_0:
+switch.kitchensafetey_switch:
   icon: mdi:kettle
   friendly_name: Kitchen Safety Switch
-sensor.kitchensafetey_power_16_4:
+sensor.kitchensafetey_power:
   icon: mdi:power-plug
   friendly_name: Kitchen Appliances Power Usage
 
@@ -340,6 +356,8 @@ sensor.ebalcony_battery:
   friendly_name: Sensor East Balcony Door Battery
 sensor.hall_battery:
   friendly_name: Sensor Hall Battery
+sensor.hall2_battery:
+  friendly_name: Sensor Hall2 Battery
 sensor.wbalcony_battery:
   friendly_name: Sensor West Balcony Door Battery
 sensor.thomas_iphone_battery:

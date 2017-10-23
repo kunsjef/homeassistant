@@ -1,0 +1,14 @@
+- alias: Fade in Lights in Bedroom
+  trigger:
+    platform: time
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.alarm_clock_status
+        state: 'on'
+      - condition: template
+        value_template: '{{ (utcnow().strftime("%s") | int + states.sensor.alarm_clock_fade_in_minutes.state | int * 60) | timestamp_custom("%H:%M") == states.sensor.alarm_clock_time.state }}'
+  action:
+    service: script.bedroom_light_fade_in

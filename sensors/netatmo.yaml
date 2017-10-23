@@ -1,0 +1,22 @@
+- platform: netatmo
+  modules:
+    indoor:
+      - temperature
+      - co2
+      - pressure
+      - noise
+      - humidity  
+    outdoor:
+      - temperature
+      - co2
+      - pressure
+      - humidity  
+      - rain
+      - sum_rain_1
+      - sum_rain_24
+      - windangle
+      - windstrength
+      - gustangle
+      - guststrength
+      - min_temp
+      - max_temp

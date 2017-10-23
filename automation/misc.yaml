@@ -5,7 +5,7 @@
 - alias: 'Turn off sleeping at daytime'
   trigger:
     - platform: time
-      after: '13:00:00'
+      at: '13:00:00'
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.sleeping

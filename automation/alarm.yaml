@@ -24,14 +24,11 @@
 - alias: 'Alarm away'
   trigger:
     - platform: state
-      entity_id: binary_sensor.movement_upstairs
-      state: 'on'
+      entity_id: binary_sensor.movement
+      to: 'on'
     - platform: state
-      entity_id: binary_sensor.main_door
-      state: 'on'
-    - platform: state
-      entity_id: binary_sensor.back_door
-      state: 'on'
+      entity_id: binary_sensor.doors
+      to: 'on'
   condition:
     - condition: state
       entity_id: input_boolean.alarm_away
@@ -45,11 +42,11 @@
     - service: media_player.volume_set
       data:
         entity_id: media_player.living_room
-        volume_level: 0.25
+        volume_level: 0.75
     - service: media_player.play_media
       data:
         entity_id: media_player.living_room
-        media_content_id: http://192.168.1.90/sounds/beep.mp3
+        media_content_id: http://localhost/sounds/beep.mp3
         media_content_type: audio/mp3
     - service: notify.pushbullet
       data:
@@ -61,7 +58,7 @@
     - service: media_player.play_media
       data:
         entity_id: media_player.living_room
-        media_content_id: http://192.168.1.90/sounds/siren.mp3
+        media_content_id: http://localhost/sounds/siren.mp3
         media_content_type: audio/mp3
     - service: notify.pushbullet
       data:

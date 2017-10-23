@@ -1,0 +1,9 @@
+- alias: Notify When Home-Assistant Has An Update
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    - service: script.telegram
+      data:
+        message: 'Home-Assistant has an update.'
+

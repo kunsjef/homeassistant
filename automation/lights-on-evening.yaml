@@ -71,7 +71,7 @@
 - alias: 'Turn on lights if just gets too damn dark'
   trigger:
     platform: numeric_state
-    entity_id: sensor.livingroom_luminance_10_3
+    entity_id: sensor.livingroom_luminance
     below: 20
   condition:
     - condition: state
