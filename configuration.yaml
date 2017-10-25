@@ -98,10 +98,6 @@ http:
   #ip_ban_enabled: True
   #login_attempts_threshold: 3
 
-## Config and maps ##
-config:
-map:
-
 ####################################################
 #                                                  #
 #                     Includes                     #
@@ -127,8 +123,9 @@ climate: !include climate.yaml
 binary_sensor: !include binary_sensor.yaml
 image_processing: !include image_processing.yaml
 
-### Config ###
+### Config and maps###
 config:
+map:
 
 ### Input booleans ###
 input_boolean:

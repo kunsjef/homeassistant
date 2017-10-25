@@ -47,6 +47,8 @@ My current home-assistant configuration. This is a work in progress, and the con
 - [x] Add Lux automation in living room. If lux under 20, turn on lights and disable other light automations
 - [ ] TTS if front door has been open for more than 1 hour
 - [ ] Email from porch cam if movement detected when nobody home
+- [ ] Turn off TV and stereo (if on) when sleep now button is pressed
+- [ ] Put the house in standby mode if nobody is home (at least turn off TV and dim some lights if on)
 
 
 ## Notes

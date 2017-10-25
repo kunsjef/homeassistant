@@ -7,3 +7,11 @@
   state_topic: "homeassistant/porch/motion_sensor"
   name: "Motion Porch"
 #  value_template: '{{ value_json.motion }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/kids/motion_sensor"
+  name: "Motion Kids"
+
+- platform: mqtt
+  state_topic: "homeassistant/kitchen/motion_sensor"
+  name: "Motion Kitchen"

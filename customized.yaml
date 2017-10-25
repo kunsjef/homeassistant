@@ -86,7 +86,6 @@ switch.KitchenSpot:
   friendly_name: Kitchen Spot
   icon: mdi:spotlight
 
-
 # Heating
 switch.heatteodor:
   friendly_name: Heat Teodor
@@ -108,22 +107,6 @@ sensor.outside_humidity:
 sensor.outside_temperature:
   icon: mdi:thermometer
   friendly_name: Outside Temperature
-
-## Forecast
-#sensor.forecastio_temperature:
-#  icon: mdi:temperature-celsius
-#sensor.forecastio_apparent_temperature:
-#  icon: mdi:thermometer-lines
-#sensor.forecastio_cloud_coverage:
-#  icon: mdi:weather-partlycloudy
-#sensor.forecastio_wind_speed:
-#  icon: mdi:weather-windy
-#sensor.forecastio_precip:
-#  icon: mdi:weather-rainy
-#sensor.forecastio_precip_intensity:
-#  icon: mdi:water
-#sensor.forecastio_precip_probability:
-#  icon: mdi:umbrella
 
 # YR
 sensor.yr_temperature:
@@ -289,6 +272,13 @@ binary_sensor.movement_stair2:
 binary_sensor.movement_porch:
   friendly_name: Movement Porch
   icon: mdi:walk
+sensor.motion_porch:
+  icon: mdi:walk
+sensor.motion_kids:
+  icon: mdi:walk
+sensor.motion_kitchen:
+  icon: mdi:walk
+
 binary_sensor.sleeping:
   friendly_name: Sleeping
   icon: mdi:sleep

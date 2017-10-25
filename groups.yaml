@@ -12,6 +12,7 @@ default_view:
     - device_tracker.kyloren
     - sensor.netatmo_outdoor_temperature
     - sensor.yr_symbol
+    - binary_sensor.people_home
 
 homestatus:
   name: Home Status
@@ -91,6 +92,7 @@ details:
     - group.hall2
     - group.bedroom
     - group.ethan
+    - group.kids
     - group.attic
     - group.weather_yr
     - group.weather_darksky
@@ -179,6 +181,11 @@ ethan:
   entities:
     - sensor.ethan_temperature
 
+kids:
+  name: Kids Room
+  entities:
+    - sensor.motion_kids
+
 bedroom:
   name: Master Bedroom
   entities:
@@ -201,6 +208,8 @@ kitchen:
     - sensor.kitchensafetey_power
     - sensor.kitchen_temperature
     - sensor.kitchen_humidity
+    - sensor.motion_kitchen
+
 
 sensor_node_1:
   name: Sensor Node 1  
