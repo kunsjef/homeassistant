@@ -39,17 +39,17 @@ My current home-assistant configuration. This is a work in progress, and the con
 * Nexa AN180 Plug-in ON/OFF Module
 
 ## TODO
-- [x] Reconfigure hue-emulator
-- [ ] Add z-wave door lock
 - [ ] Bluetooth tracker on raspberry Pi
 - [ ] Facial recognition porch
-- [ ] Unlock door if both bluetooth tracker detected and facial recognition positive
-- [x] Add Lux automation in living room. If lux under 20, turn on lights and disable other light automations
 - [ ] TTS if front door has been open for more than 1 hour
 - [ ] Email from porch cam if movement detected when nobody home
-- [ ] Turn off TV and stereo (if on) when sleep now button is pressed
+- [x] Turn off TV and stereo (if on) when sleep now button is pressed
 - [ ] Put the house in standby mode if nobody is home (at least turn off TV and dim some lights if on)
+- [ ] Add "Away"-button. If pressed, house will go to stand-by mode
 
+## Future
+- [ ] Add z-wave door lock
+- [ ] Unlock door if both bluetooth tracker detected and facial recognition positive
 
 ## Notes
 ### OZWCP

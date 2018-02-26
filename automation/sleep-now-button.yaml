@@ -13,13 +13,17 @@
       after: '00:00:00'
       before: '04:45:00'
   action:
-    #- service: script.turn_off_tv
     - service: script.sonos_say
       data:
         sonos_entity: media_player.living_room
         volume: 0.3
         message: 'Good night and sweet dreams. Lights will be out in 5 minutes.'
         delay: '00:00:10'
+    - service: media_player.turn_off
+      entity_id: "media_player.lgtv"
+    - service: media_player.turn_off
+      entity_id: "media_player.pioneer"
+    #- service: script.turn_off_tv
     - delay: 00:05:00
     - service: 'scene.turn_on'
       entity_id: 'scene.good_night'
