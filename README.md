@@ -12,12 +12,17 @@ My current home-assistant configuration. This is a work in progress, and the con
 * 1st Gen Chromecast
 * 2nd Gen Apple TV
 * LG TV
+* Pioneer Receiver
 * Samsung A/C
 * 4x D-Link DCS-932L Cameras
 * 2x TP-Link NC250 Cameras
+* D-Link DCS-4602EV Camera
 * QNAP NAS
 * DIY Multisensor (BRUH edition: https://www.youtube.com/watch?v=jpjfVc-9IrQ&t=2s)
 * Netatmo Weather Station
+* MiLight Wifi Bridge
+ * 4 Milight RGBWW bulbs
+ * 1 Milight RGBW led strip controller
 
 ### 433Mhz
 * Tellstick Duo with extra antenna
