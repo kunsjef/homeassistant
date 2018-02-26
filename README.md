@@ -40,7 +40,7 @@ My current home-assistant configuration. This is a work in progress, and the con
 
 ## TODO
 - [ ] Bluetooth tracker on raspberry Pi
-- [ ] Facial recognition porch
+- [x] Facial recognition porch
 - [ ] TTS if front door has been open for more than 1 hour
 - [ ] Email from porch cam if movement detected when nobody home
 - [x] Turn off TV and stereo (if on) when sleep now button is pressed

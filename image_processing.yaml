@@ -3,12 +3,16 @@
   keep_no_faces: True
   source:
     - entity_id: camera.kitchen
+    - entity_id: camera.porch
 
 - platform: dlib_face_identify
   keep_known_faces: True
   keep_unknown_faces: True
   source:
    - entity_id: camera.kitchen
-     name: "Identify thomas"
+     name: "Identify Thomas Kitchen"
+   - entity_id: camera.porch
+     name: "Identify Thomas Porch"
   faces:
     thomas: /var/opt/homeassistant/pics/thomas1.jpg
+

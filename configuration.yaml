@@ -20,32 +20,32 @@ zone:
   latitude: !secret home_latitude
   longitude: !secret home_longitude
   radius: 200
-  #icon: social:people
   icon: mdi:home-variant
-  #track_ios: true
+  track_ios: true
 
 zone 2:
   name: Work
   latitude: 64.010773
   longitude: 11.488477
-  radius: 150
+  radius: 200
   icon: mdi:city
-  #track_ios: true
+  track_ios: true
 
 zone 3:
-  name: School
-  latitude: 64.015326
-  longitude: 11.495851
-  radius: 150
+  name: Campus
+  latitude: 64.020935
+  longitude: 11.509432
+  radius: 200
   icon: mdi:school
-  #track_ios: true
+  track_ios: true
 
 zone 4:
-  name: Apen Barnehage
-  latitude: 64.010999
-  longitude: 11.502315
+  name: Bestemor
+  latitude: 64.005122
+  longitude: 11.506884
   radius: 150
-  icon: mdi:human-child
+  icon: mdi:home
+  track_ios: true
 
 #zone 5:
 #  name: Tulcea
@@ -249,15 +249,15 @@ updater:
 conversation:
 
 # Custom iframe panels
-panel_iframe:
-  graphs:
-    title: 'Graphs'
-    icon: 'mdi:chart-line'
-    url: 'http://192.168.1.90/stats/'
+#panel_iframe:
+#  graphs:
+#    title: 'Graphs'
+#    icon: 'mdi:chart-line'
+#    url: 'http://192.168.1.90/stats/'
   router:
-    title: 'Asus router downstairs'
+    title: 'EdgeRouter'
     icon: 'mdi:router-wireless'
-    url: 'http://192.168.1.90'
+    url: 'https://192.168.1.1'
 
 # TTS
 tts:

@@ -38,6 +38,9 @@ light.diningtable:
 light.lightballs:
   friendly_name: Balls
   icon: mdi:google-circles
+light.bridge1:
+  friendly_name: Bridge No1
+  icon: mdi:alarm-light
 #light.trio:
 #  friendly_name: Triple
 #  icon: mdi:google-circles-extended
@@ -47,7 +50,7 @@ light.heartlights:
 switch.diningwindow:
   friendly_name: Diningwindow
   icon: mdi:lightbulb
-switch.ricelamp:
+light.ricelamp:
   friendly_name: Ricelamp
   icon: mdi:glass-stange
 switch.bartable:
@@ -86,11 +89,16 @@ switch.KitchenSpot:
   friendly_name: Kitchen Spot
   icon: mdi:spotlight
 
+# Garage Lights
+#switch.garagelights:
+#  friendly_name: Garage Lights
+#  icon: mdi:spotlight
+
 # Heating
-switch.heatteodor:
+switch.heatteodor_switch:
   friendly_name: Heat Teodor
   icon: mdi:radiator
-switch.heatnoahlotta:
+switch.heatnoahlotta_switch:
   friendly_name: Heat Lotta and Noah
   icon: mdi:radiator
 switch.heatguestroom:

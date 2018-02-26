@@ -1,8 +1,9 @@
-default: warn
+default: warning
 logs:
-    homeassistant.components.mqtt: debug
+    requests.packages.urllib3.connectionpool: critical
+    homeassistant.components.mqtt: info
     homeassistant.components.image_processing: debug
-    homeassistant.components.camera: debug
+    homeassistant.components.camera: info
     homeassistant.components.automation: info
     homeassistant.components.light: info
     homeassistant.components.switch: info
