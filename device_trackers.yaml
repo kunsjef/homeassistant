@@ -11,5 +11,11 @@
   consider_home: 1800
   track_new_devices: no
 
-- platform: owntracks
+#- platform: owntracks
 
+- platform: unifi
+  host: 192.168.1.90
+  port: 8443
+  verify_ssl: False
+  username: !secret unifi_username
+  password: !secret unifi_password

@@ -63,17 +63,17 @@
 
     people_home:
       entity_id:
-        - device_tracker.vyhbzwsp_paula
-        - device_tracker.vyhbzwsp_thomas
-        - device_tracker.noahsiniphone
-        - device_tracker.kyloren
+        - device_tracker.paulaiphone
+        - device_tracker.thomasiphone
+        - device_tracker.noahiphone
+        - device_tracker.teodoriphone
       delay_off:
         minutes: 5
       value_template: >-
-        {{ is_state('device_tracker.vyhbzwsp_paula', 'home')
-           or is_state('device_tracker.vyhbzwsp_thomas', 'home')
-           or is_state('device_tracker.noahsiniphone', 'home')
-           or is_state('device_tracker.kyloren', 'home')
+        {{ is_state('device_tracker.paulaiphone', 'home')
+           or is_state('device_tracker.thomasiphone', 'home')
+           or is_state('device_tracker.noahiphone', 'home')
+           or is_state('device_tracker.teodoriphone', 'home')
            or is_state('binary_sensor.movement', 'on') }}
 
 - platform: aurora

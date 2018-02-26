@@ -164,30 +164,41 @@
          {% else %}mdi:mdi:battery-10
          {% endif %}
     thomas_iphone_battery:
-      value_template: '{{ states.device_tracker.vyhbzwsp_thomas.attributes["battery"] }}'
+      value_template: '{{ states.device_tracker.thomasiphone.attributes["battery"] }}'
       icon_template: >-
-         {% if states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 90 %}mdi:battery
-         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 80 %}mdi:battery-90
-         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 70 %}mdi:battery-80
-         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 60 %}mdi:battery-70
-         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 50 %}mdi:battery-60
-         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 40 %}mdi:battery-50
-         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 30 %}mdi:battery-40
-         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 20 %}mdi:battery-30
-         {% elif states.device_tracker.vyhbzwsp_thomas.attributes["battery"] > 10 %}mdi:battery-20
+         {% if states.device_tracker.thomasiphone.attributes["battery"] > 90 %}mdi:battery
+         {% elif states.device_tracker.thomasiphone.attributes["battery"] > 80 %}mdi:battery-90
+         {% elif states.device_tracker.thomasiphone.attributes["battery"] > 70 %}mdi:battery-80
+         {% elif states.device_tracker.thomasiphone.attributes["battery"] > 60 %}mdi:battery-70
+         {% elif states.device_tracker.thomasiphone.attributes["battery"] > 50 %}mdi:battery-60
+         {% elif states.device_tracker.thomasiphone.attributes["battery"] > 40 %}mdi:battery-50
+         {% elif states.device_tracker.thomasiphone.attributes["battery"] > 30 %}mdi:battery-40
+         {% elif states.device_tracker.thomasiphone.attributes["battery"] > 20 %}mdi:battery-30
+         {% elif states.device_tracker.thomasiphone.attributes["battery"] > 10 %}mdi:battery-20
          {% else %}mdi:mdi:battery-10
          {% endif %}
     paula_iphone_battery:
-      value_template: '{{ states.device_tracker.vyhbzwsp_paula.attributes["battery"] }}'
+      value_template: '{{ states.device_tracker.paulaiphone.attributes["battery"] }}'
       icon_template: >-
-         {% if states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 90 %}mdi:battery
-         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 80 %}mdi:battery-90
-         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 70 %}mdi:battery-80
-         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 60 %}mdi:battery-70
-         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 50 %}mdi:battery-60
-         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 40 %}mdi:battery-50
-         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 30 %}mdi:battery-40
-         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 20 %}mdi:battery-30
-         {% elif states.device_tracker.vyhbzwsp_paula.attributes["battery"] > 10 %}mdi:battery-20
+         {% if states.device_tracker.paulaiphone.attributes["battery"] > 90 %}mdi:battery
+         {% elif states.device_tracker.paulaiphone.attributes["battery"] > 80 %}mdi:battery-90
+         {% elif states.device_tracker.paulaiphone.attributes["battery"] > 70 %}mdi:battery-80
+         {% elif states.device_tracker.paulaiphone.attributes["battery"] > 60 %}mdi:battery-70
+         {% elif states.device_tracker.paulaiphone.attributes["battery"] > 50 %}mdi:battery-60
+         {% elif states.device_tracker.paulaiphone.attributes["battery"] > 40 %}mdi:battery-50
+         {% elif states.device_tracker.paulaiphone.attributes["battery"] > 30 %}mdi:battery-40
+         {% elif states.device_tracker.paulaiphone.attributes["battery"] > 20 %}mdi:battery-30
+         {% elif states.device_tracker.paulaiphone.attributes["battery"] > 10 %}mdi:battery-20
          {% else %}mdi:mdi:battery-10
          {% endif %}
+
+#    low_battery:
+#      friendly_name: "Low Battery"
+#      value_template: >
+#        {%- set threshold = 40 -%}
+#        {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock'] -%}
+#        {%- for domain in domains -%}
+#        {%- for item in states[domain] if ((item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) or ("battery" in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == "low" or item.state | lower == "unknown"))) -%}
+#            {{ item.attributes.friendly_name }}{%- if not loop.last %}, {% endif -%}
+#        {%- endfor -%}
+#        {%- endfor -%}

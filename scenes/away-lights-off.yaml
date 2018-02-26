@@ -3,13 +3,13 @@
     light.star: off
     light.diningtable: off
     light.lightballs: off
-#    light.trio: off
+    light.bridge1: off
     light.heartlights: off
-    switch.bartable: off
-    switch.ricelamp: off
-    switch.diningwindow: off
-    input_boolean.sleeping: off
+    light.ricelamp: off
     light.mancaveceiling: off
     light.officedesk: off
+    switch.diningwindow: off
     switch.barspots: off
+    switch.bartable: off
+    input_boolean.sleeping: off
     input_boolean.away: on

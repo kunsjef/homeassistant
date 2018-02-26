@@ -2,7 +2,7 @@
 - platform: tellstick
 
 - platform: mqtt_json  
-  name: "SN1 LED"  
+  name: "Gym LED"  
   state_topic: "bruh/sensornode1"  
   command_topic: "bruh/sensornode1/set"  
   brightness: true  
@@ -10,4 +10,21 @@
   rgb: true  
   optimistic: false  
   qos: 0  
+
+- platform: limitlessled
+  bridges: 
+    - host: 192.168.1.189
+      groups:
+      - number: 1
+        name: bridge1
+        type: bridge-led
+      - number: 1
+        name: Lightballs
+        type: rgbww
+        fade: on
+      - number: 2
+        type: rgbww
+        name: Ricelamp
+        fade: on
+
 

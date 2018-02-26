@@ -9,14 +9,19 @@
     light.lightballs:
       state: on
       brightness: 175
-#    light.trio:
-#      state: on
-#      brightness: 167
+      color_name: white
     light.heartlights:
       state: on
       brightness: 167
     switch.bartable: on
-    switch.ricelamp: on
+    light.bridge1:
+      state: on
+      brightness: 255
+      color_name: orangered
+    light.ricelamp:
+      state: on
+      brightness: 255
+      color_name: white
     switch.diningwindow: on
     light.mancaveceiling:
       state: on
@@ -25,5 +30,3 @@
       state: on
       brightness: 200
     switch.barspots: on
-    #input_boolean.sleeping: off
-    #switch.lswlivingroomleft: on

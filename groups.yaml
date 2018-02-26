@@ -6,10 +6,10 @@ default_view:
     - group.actions
     - group.timestamps
     - group.alarm
-    - device_tracker.vyhbzwsp_paula
-    - device_tracker.vyhbzwsp_thomas
-    - device_tracker.noahsiniphone
-    - device_tracker.kyloren
+    - device_tracker.paulaiphone
+    - device_tracker.thomasiphone
+    - device_tracker.noahiphone
+    - device_tracker.teodoriphone
     - sensor.netatmo_outdoor_temperature
     - sensor.yr_symbol
     - binary_sensor.people_home
@@ -100,7 +100,7 @@ details:
     - group.stairs
     - group.battery
     - group.kitchen
-    - group.sensor_node_1
+    - group.gym
     - group.network
     - group.facedetect
 
@@ -211,14 +211,15 @@ kitchen:
     - sensor.motion_kitchen
 
 
-sensor_node_1:
-  name: Sensor Node 1  
+gym:
+  name: Gym
   entities:  
-    - sensor.sn1_temperature  
-    - sensor.sn1_humidity  
-    - sensor.sn1_ldr  
-    - sensor.sn1_pir  
-    - light.sn1_led
+    #- switch.garagelights
+    - sensor.gym_temperature  
+    - sensor.gym_humidity  
+    - sensor.gym_ldr  
+    - sensor.gym_pir  
+    - light.gym_led
 
 weather_yr:
   name: Weather YR
@@ -254,15 +255,17 @@ battery:
     - sensor.hall_battery
     - sensor.hall2_battery
     - sensor.wbalcony_battery
-    - sensor.main_door_battery
+    #- sensor.main_door_battery
     - sensor.thomas_iphone_battery
     - sensor.paula_iphone_battery
 
 heating:
   name: Heating
   entities:
-    - switch.heatteodor
-    - switch.heatnoahlotta
+    - switch.heatteodor_switch
+    - sensor.heatteodor_power
+    - switch.heatnoahlotta_switch
+    - sensor.heatnoahlotta_power
     - switch.heatguestroom
 
 lights:
@@ -282,10 +285,11 @@ lights_livingroom:
     - light.star
     - light.diningtable
     - light.lightballs
+    - light.bridge1
     #- light.trio
     - light.heartlights
     - switch.diningwindow
-    - switch.ricelamp
+    - light.ricelamp
     - switch.bartable
 
 lights_office:
@@ -378,8 +382,11 @@ binaries:
 mediaplayers:
   name: Media Players
   entities:
+    - media_player.lgtv
+    - media_player.pioneer
+    - media_player.kodi
     - media_player.soverommet
     - media_player.shield
     - media_player.living_room
     - media_player.apple_tv
-    - media_player.kodi
+

@@ -32,3 +32,39 @@
     service: 'light.turn_on'
     entity_id: 'light.star'
 
+# media_player.shield
+
+#- alias: 'Shield Playing'
+#  trigger:
+#    platform: state
+#    entity_id: media_player.shield
+#    to: 'playing'
+#  action:
+#    - service: 'light.turn_off'
+#      entity_id: 'light.star'
+#    - service: 'light.turn_on'
+#      entity_id: 'light.ricelamp'
+#      data:
+#        brightness: 150
+#        color_name: yellow
+
+#- alias: 'Shield not playing'
+#  trigger:
+#    platform: state
+#    entity_id: media_player.shield
+#    from: 'playing'
+#  condition:
+#    - condition: sun
+#      after: sunset
+#    - condition: state
+#      entity_id: input_boolean.sleeping
+#      state: 'off'
+#  action:
+#    - service: 'light.turn_on'
+#      entity_id: 'light.star'
+#    - service: 'light.turn_on'
+#      entity_id: 'light.ricelamp'
+#      data:
+#        brightness: 255
+#        color_name: white
+

@@ -10,9 +10,13 @@
 - platform: cast
 
 - platform: webostv
-  host: 192.168.1.167
-  name: Living Room TV
+  host: 192.168.1.201
+  name: LGTV
+
+- platform: onkyo
+  host: 192.168.1.202
+  name: Pioneer
 
 - platform: apple_tv
-  host: 192.168.1.173
+  host: 192.168.1.203
   login_id: 00000000-0a39-e426-146d-6f4e724d48e0

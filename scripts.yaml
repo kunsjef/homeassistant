@@ -197,6 +197,7 @@ bedroom_light_fade_in:
 livingroom_nightlight: !include scripts/livingroom_nightlight.yaml
 nightlight_timer: !include scripts/nightlight_timer.yaml
 sonos_say: !include scripts/sonos_say.yaml
+#turn_off_tv: !include scripts/turn_off_tv.yaml
 status: !include scripts/status.yaml
 telegram: !include scripts/telegram.yaml
 #lights_on: !include scripts/lights_on.yaml

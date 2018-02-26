@@ -1,29 +1,31 @@
 - name: Romantic
   entities:
-    light.star: 
-      state: on
-      brightness: 150
+    light.star: off 
     light.diningtable:
       state: on
       brightness: 100
     light.lightballs: 
       state: on
-      brightness: 50
-#    light.trio: 
-#      state: on
-#      brightness: 167
+      brightness: 150
+      color_name: red
     light.heartlights: 
       state: on
       brightness: 225
-    switch.bartable: on
-    switch.ricelamp: off
-    switch.diningwindow: on
+    light.ricelamp:
+      state: on
+      brightness: 150
+      color_name: red
+    light.bridge1:
+      state: on
+      brightness: 255
+      color_name: red
     light.mancaveceiling:
       state: on
       brightness: 100
     light.officedesk:
       state: on
       brightness: 200
+    switch.diningwindow: on
     switch.barspots: on
+    switch.bartable: on
     input_boolean.sleeping: off
-    #switch.lswlivingroomleft: on
