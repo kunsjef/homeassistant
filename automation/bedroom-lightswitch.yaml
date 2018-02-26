@@ -1,4 +1,5 @@
-# switch.ethancity_switch
+# light.nightlightpaula
+# light.nightlightthomas
 
 - alias: 'Bedroom left lightswitch turned on'
   trigger:
@@ -25,14 +26,14 @@
     - service: 'light.turn_off'
       entity_id: 'light.nightlightthomas'
 
-- alias: 'Bedroom right lightswitch turned on'
+- alias: 'Bedroom rught lightswitch turned on'
   trigger:
     platform: state
     entity_id: switch.lswbedroomright
     to: 'on'
   action:
     - service: 'light.turn_on'
-      entity_id: 'light.nightlightpaula'
+      entity_id: 'light.nightlightpauls'
       data:
         brightness: 200
 
@@ -49,3 +50,43 @@
     - delay: 00:00:02
     - service: 'light.turn_off'
       entity_id: 'light.nightlightpaula'
+
+
+#- alias: 'Bedroom right lightswitch turned on'
+#  trigger:
+#    platform: state
+#    entity_id: switch.lswbedroomright
+#    to: 'on'
+#  action:
+#    - service: 'light.turn_on'
+#      entity_id: 'light.nightlightpaula'
+#      data:
+#        # brightness: 200
+#        brightness: >-
+#          {% if state.light.nightlightpaula.attributes.brightness | int > 100 %}
+#            ['{{10|int}}']
+#          {% else %}
+#            ['{{200|int}}']
+#          {% endif %}
+
+#        {% if now().hour | int > 8 and now().hour | int < 20 %}
+#          ['{{180|int}}', '{{180|int}}', '{{255|int}}']
+#        {% else %}
+#          ['{{255|int}}', '{{180|int}}', '{{180|int}}']
+#        {% endif %}
+
+#- alias: 'Bedroom right lightswitch adjust brightness'
+#  trigger:
+#    platform: state
+#    entity_id: switch.lswbedroomright
+#    to: 'on'
+#  condition: numeric_state
+#    entity_id: 'light.nightlightpaula'
+#    value_template: '{{ state.attributes.brightness }}'
+#    above: 100
+#  action:
+#    - service: 'light.turn_on'
+#      entity_id: 'light.nightlightpaula'
+#      data:
+#        brightness: 1
+
