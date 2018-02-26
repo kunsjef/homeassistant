@@ -1,0 +1,42 @@
+- alias: 'Gym - Light Red on Motion'
+  trigger:
+    - platform: state
+      entity_id: sensor.sn1_pir
+      to: 'motion detected'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'light.sn1_led'
+      data:
+        brightness: 255
+        color_name: red
+    - delay: 00:00:03
+    - service: 'light.turn_on'
+      entity_id: 'light.sn1_led'
+      data:
+        brightness: 150
+        color_name: green
+
+#- alias: 'Gym - Turn off ceiling lights'
+#  trigger:
+#    - platform: state
+#      entity_id: sensor.sn1_pir
+#      to: 'standby'
+#      for:
+#        hours: 0
+#        minutes: 5
+#        seconds: 0
+#  action:
+#    - service: 'switch.turn_off'
+#      entity_id: 'switch.garagelights'
+
+- alias: 'Gym - Turn on LED and set to Green'
+  trigger:
+    - platform: time
+      at: '10:15:00'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'light.sn1_led'
+      data:
+        brightness: 150
+        color_name: green
+
