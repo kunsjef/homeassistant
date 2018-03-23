@@ -3,77 +3,146 @@
   sensors:
 
     movement_upstairs:
-      value_template: "{{ states.switch.motionsensor.state == 'on' or states.switch.motionsensor2.state == 'on' or states.binary_sensor.livingroom_sensor.state == 'on' or states.sensor.motion_kitchen.state == 'detected' }}"
+      value_template: "{{ states.switch.motionsensor.state == 'on' or states.switch.motionsensor2.state == 'on' or states.binary_sensor.livingroom_sensor.state == 'on' or states.sensor.motion_kitchen.state == 'on' or states.sensor.motion_kitchen.state == 'on' }}"
       device_class: motion
+      friendly_name: Movement Upstairs
+      icon_template: mdi:walk
     movement_downstairs:
-      value_template: "{{ states.binary_sensor.hall2_sensor.state == 'on' or states.binary_sensor.hall_sensor.state == 'on' or states.sensor.motion_kids.state == 'detected' }}"
+      value_template: "{{ states.binary_sensor.hall2_sensor.state == 'on' or states.binary_sensor.hall_sensor.state == 'on' or states.sensor.motion_kids.state == 'on' or states.binary_sensor.movement_wic.state == 'on' or states.sensor.motion_ethan.state == 'on' }}"
       device_class: motion
+      friendly_name: Movement Downstairs
+      icon_template: mdi:walk
+    movement_basement:
+      value_template: "{{ states.binary_sensor.movement_gym.state == 'on' }}"
+      device_class: motion
+      friendly_name: Movement Basement
+      icon_template: mdi:walk
     movement_stair1:
       value_template: "{{ states.switch.motionsensor.state == 'on' }}"
       device_class: motion
+      friendly_name: Movement Main Stairs
+      icon_template: mdi:stairs
+    movement_allkitchen:
+      value_template: "{{ states.switch.motionsensor.state == 'on' or states.sensor.motion_kitchen.state == 'on' }}"
+      device_class: motion
+      friendly_name: Movement All Kitchen
+      icon_template: mdi:transit-transfer
     movement_stair2:
       value_template: "{{ states.switch.motionsensor2.state == 'on' }}"
       device_class: motion
+      friendly_name: Movement Inner Stairs
+      icon_template: mdi:stairs
     movement_hall:
       value_template: "{{ states.binary_sensor.hall_sensor.state == 'on' }}"
       device_class: motion
+      friendly_name: Movement Main Hall
+      icon_template: mdi:transit-transfer
     movement_hall2:
       value_template: "{{ states.binary_sensor.hall2_sensor.state == 'on' }}"
       device_class: motion
+      friendly_name: Movement Inner Hall
+      icon_template: mdi:transit-transfer
+    movement_wic:
+      value_template: "{{ states.sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_3.state == '8' }}"
+      device_class: motion
+      friendly_name: Movement Walk-In Closet
+      icon_template: mdi:locker-multiple
     movement_livingroom:
       value_template: "{{ states.binary_sensor.livingroom_sensor.state == 'on' }}"
       device_class: motion
-    movement_basement:
-      value_template: "{{ states.binary_sensor.basement_sensor.state == 'on' }}"
-      device_class: motion
+      friendly_name: Movement Livingroom
+      icon_template: mdi:sofa
     movement_porch:
-      value_template: "{{ states.sensor.motion_porch.state == 'detected' }}"
+      value_template: "{{ states.sensor.motion_porch.state == 'on' }}"
       device_class: motion
+      friendly_name: Movement Porch
+      icon_template: mdi:home
+    movement_kitchen:
+      value_template: "{{ states.sensor.motion_kitchen.state == 'on' }}"
+      device_class: motion
+      friendly_name: Movement Kitchen
+      icon_template: mdi:stove
+    movement_kids:
+      value_template: "{{ states.sensor.motion_kids.state == 'on' }}"
+      device_class: motion
+      friendly_name: Movement Kids Room
+      icon_template: mdi:hotel
+    movement_diningroom:
+      value_template: "{{ states.sensor.motion_diningroom.state == 'on' }}"
+      device_class: motion
+      friendly_name: Movement Diningroom
+      icon_template: mdi:silverware
+    movement_ethan:
+      value_template: "{{ states.sensor.motion_ethan.state == 'on' }}"
+      device_class: sound
+      friendly_name: Sound Ethans Room
+      icon_template: mdi:voice
+    movement_gym:
+      value_template: "{{ states.sensor.gym_pir.state == 'motion detected' }}"
+      device_class: motion
+      friendly_name: Movement Gym
+      icon_template: mdi:dumbbell
 
     movement:
-      value_template: "{{ states.binary_sensor.movement_upstairs.state == 'on' or states.binary_sensor.movement_downstairs.state == 'on' }}"
-      #value_template: "{{ states.switch.motionsensor.state == 'on' or states.switch.motionsensor2.state == 'on' or states.binary_sensor.livingroom_sensor.state == 'on' or states.binary_sensor.hall2_sensor.state == 'on' or states.binary_sensor.hall_sensor.state == 'on' }}"
+      value_template: "{{ states.binary_sensor.movement_upstairs.state == 'on' or states.binary_sensor.movement_downstairs.state == 'on' or states.binary_sensor.movement_basement.state == 'on' }}"
       device_class: motion
+      delay_off:
+        minutes: 5
+      friendly_name: Movement Inside House
+      icon_template: mdi:home-account
 
     door_main:
       value_template: "{{ states.switch.maindoor.state == 'on' }}"
       device_class: opening
+      friendly_name: Main Door
+      icon_template: mdi:door
     door_back:
       value_template: "{{ states.switch.backdoor.state == 'on' }}"
       device_class: opening
+      friendly_name: Back Door
+      icon_template: mdi:door
     door_ebalcony:
       value_template: "{{ states.binary_sensor.eastbalcony_sensor.state == 'on' }}"
       device_class: opening
+      friendly_name: East Balcony Door
+      icon_template: mdi:door
     door_wbalcony:
       value_template: "{{ states.binary_sensor.westbalcony_sensor.state == 'on' }}"
       device_class: opening
+      friendly_name: West Balcony Door
+      icon_template: mdi:door
 
     doors:
       value_template: "{{ states.binary_sensor.door_main.state == 'on' or states.binary_sensor.door_back.state == 'on' or states.binary_sensor.door_ebalcony.state == 'on' or states.binary_sensor.door_wbalcony.state == 'on' }}"
       device_class: opening
+      friendly_name: Any Door
+      icon_template: mdi:door
 
     sleeping:
       value_template: "{{ states.input_boolean.sleeping.state == 'on' }}"
+      friendly_name: Sleeping
+      icon_template: mdi:sleep
 
     awake:
       value_template: "{{ states.input_boolean.sleeping.state == 'off' }}"
 
     washmachine:
-      value_template: "{{ states.sensor.washmachine_power.state | int > 2 }}"
+      value_template: "{{ states.sensor.washmachine_power.state | int > 3 }}"
+      friendly_name: Washing Machine
+      icon_template: mdi:washing-machine
 
     people_home:
-      entity_id:
-        - device_tracker.paulaiphone
-        - device_tracker.thomasiphone
-        - device_tracker.noahiphone
-        - device_tracker.teodoriphone
+      friendly_name: People Home
+      icon_template: >-
+        {% if is_state('binary_sensor.people_home', 'on') %}
+          mdi:account-group
+        {% else %}
+          mdi:account-off
+        {% endif %}
       delay_off:
-        minutes: 5
+        minutes: 25
       value_template: >-
-        {{ is_state('device_tracker.paulaiphone', 'home')
-           or is_state('device_tracker.thomasiphone', 'home')
-           or is_state('device_tracker.noahiphone', 'home')
-           or is_state('device_tracker.teodoriphone', 'home')
+        {{ is_state('group.alldevices', 'home')
            or is_state('binary_sensor.movement', 'on') }}
 
 - platform: aurora

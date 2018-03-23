@@ -8,6 +8,9 @@
     light.ricelamp: off
     light.mancaveceiling: off
     light.officedesk: off
-    switch.bartable: off
+    switch.sofawindow: off
     switch.diningwindow: off
     switch.barspots: off
+    light.floorlamp: off
+    light.bartable: off
+    switch.kitchenspot: off

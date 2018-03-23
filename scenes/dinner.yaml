@@ -17,7 +17,7 @@
     light.heartlights: 
       state: on
       brightness: 167
-    switch.bartable: on
+    switch.sofawindow: on
     light.ricelamp:
       state: on
       brightness: 255
@@ -30,4 +30,12 @@
       state: on
       brightness: 200
     switch.barspots: on
+    light.floorlamp:
+      state: on
+      brightness: 175
+      color_name: lightyellow
+    light.bartable:
+      state: on
+      brightness: 1
     input_boolean.sleeping: off
+    switch.kitchenspot: on

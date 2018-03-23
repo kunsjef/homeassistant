@@ -13,8 +13,8 @@ default_view:
     - group.scenes
     - group.homestatus
     - group.actions
-    - device_tracker.vyhbzwsp_paula
-    - device_tracker.vyhbzwsp_thomas
+    - device_tracker.paulaiphone
+    - device_tracker.thomasiphone
     - sensor.outside_temperature
     - sensor.yr_symbol
 

@@ -59,6 +59,12 @@
       - service: script.telegram
         data_template:
           message: "{{ trigger.to_state.attributes.friendly_name }} open for 5 minutes!"
+      - service: script.sonos_say
+        data:
+          sonos_entity: media_player.living_room
+          volume: 0.5
+          message: 'Important notice. The {{ trigger.to_state.attributes.friendly_name }} has been open for over 5 minutes.'
+          delay: '00:00:08'
 
 
 #    action:

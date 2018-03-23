@@ -5,11 +5,19 @@
     light.lightballs: on
     light.bridge1: on
     light.heartlights: on
-    switch.bartable: on
+    switch.sofawindow: on
     light.ricelamp: on
     switch.diningwindow: on
     light.mancaveceiling: on
     light.officedesk: on
     switch.barspots: on
     input_boolean.sleeping: off
+    light.floorlamp:
+      state: on
+      brightness: 255
+      color_name: lightyellow
+    light.bartable:
+      state: on
+      brightness: 255
     #switch.lswlivingroomleft: on
+    switch.kitchenspot: on

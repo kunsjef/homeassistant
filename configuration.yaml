@@ -128,51 +128,7 @@ config:
 map:
 
 ### Input booleans ###
-input_boolean:
-  sleeping:
-    name: Sleeping
-    initial: off
-    icon: mdi:sleep
-  house_asleep:
-    initial: off
-  house_awake:
-    initial: on
-  sleep_now:
-    name: Sleep Now
-    initial: off
-    icon: mdi:hotel
-  extend_night:
-    name: Extend Night
-    initial: off
-    icon: mdi:sleep-off
-  away:
-    name: Away
-    initial: off
-    icon: mdi:briefcase
-  alarm_away:
-    name: Alarm Away
-    initial: off
-    icon: mdi:security
-  alarm_home:
-    name: Alarm Home
-    initial: off
-    icon: mdi:security-home
-  alarm_triggered:
-    name: Alarm Triggered
-    initial: off
-  notifications:
-    name: Notifications
-    initial: on
-  tts:
-    name: TTS announcements
-    initial: on
-  test:
-    name: TTS Test
-    initial: off
-  alarm_clock_status:
-    name: Alarm Set
-    icon: mdi:alarm-check
-    initial: off
+input_boolean: !include input_boolean.yaml
 
 ### Input numbers
 input_number:
@@ -238,6 +194,41 @@ history:
 
 ###  Frontend  ###
 frontend:
+  themes:
+    darkred:
+    # Main colors that can be changed
+      dark-primary-color: "#c66900"
+      disabled-text-color: "#545454"
+      divider-color: "rgba(255, 255, 255, 0.12)"
+      light-primary-color: "#e06c6c"
+      paper-card-background-color: "#1d1d1d"
+      paper-grey-200: "#191919"
+      paper-item-icon-color: "#d3d3d3"
+      paper-listbox-background-color: "#202020"
+      primary-background-color: "#303030"
+      primary-color: "#d32f2f"
+      primary-text-color: "#cfcfcf"
+      secondary-background-color: "#131313"
+      sidebar-text_-_background: "#62717b" 
+    # Colors based on variables, see above
+      paper-card-header-color: "var(--paper-item-icon-color)" 
+      paper-item-icon-active-color: "var(--primary-color)"
+      paper-item-icon_-_color: "var(--primary-text-color)"
+      paper-listbox-color: "var(--primary-text-color)"
+      paper-grey-50: "var(--primary-text-color)"
+      paper-slider-active-color: "var(--primary-color)"
+      paper-slider-knob-color: "var(--primary-color)"
+      paper-slider-knob-start-color: "var(--primary-color)"
+      paper-slider-pin-color: "var(--primary-color)"
+      paper-slider-secondary-color: "var(--light-primary-color)"
+      paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-button-color: "var(--primary-color)"
+      paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
+      paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"
+      secondary-text-color: "var(--primary-color)"
+      table-row-background-color: "var(--paper-card-background-color)"
+      table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+
 
 # Discover some devices automatically
 discovery:
@@ -249,11 +240,11 @@ updater:
 conversation:
 
 # Custom iframe panels
-#panel_iframe:
-#  graphs:
-#    title: 'Graphs'
-#    icon: 'mdi:chart-line'
-#    url: 'http://192.168.1.90/stats/'
+panel_iframe:
+  icinga2:
+    title: 'Icinga2'
+    icon: 'mdi:chart-line'
+    url: 'http://192.168.1.90:8008/icingaweb2/'
   router:
     title: 'EdgeRouter'
     icon: 'mdi:router-wireless'
@@ -285,3 +276,29 @@ netatmo:
   secret_key: !secret netatmo_client_secret
   username: !secret netatmo_username
   password: !secret netatmo_password
+
+# Graphs
+history_graph:
+  group01:
+    name: Outside Temperature
+    entities:
+      - sensor.netatmo_outdoor_temperature
+    hours_to_show: 48
+    refresh: 600
+  group02:
+    name: Movement
+    entities:
+      - binary_sensor.movement_stair1
+      - binary_sensor.movement_stair2
+      - binary_sensor.movement_hall
+      - binary_sensor.movement_hall2
+      - binary_sensor.movement_wic
+      - binary_sensor.movement_livingroom
+      - binary_sensor.movement_porch
+      - binary_sensor.movement_kitchen
+      - binary_sensor.movement_diningroom
+      - binary_sensor.movement_ethan
+      - binary_sensor.movement_gym
+      - binary_sensor.movement_kids
+    hours_to_show: 24
+    refresh: 60

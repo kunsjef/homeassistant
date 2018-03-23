@@ -10,6 +10,9 @@
     light.officedesk: off
     switch.diningwindow: off
     switch.barspots: off
-    switch.bartable: off
+    switch.sofawindow: off
     input_boolean.sleeping: off
     #switch.lswlivingroomleft: off
+    light.floorlamp: off
+    light.bartable: off
+    switch.kitchenspot: on

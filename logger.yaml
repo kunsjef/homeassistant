@@ -1,14 +1,4 @@
 default: warning
 logs:
-    requests.packages.urllib3.connectionpool: critical
-    homeassistant.components.mqtt: info
-    homeassistant.components.image_processing: debug
-    homeassistant.components.camera: info
-    homeassistant.components.automation: info
-    homeassistant.components.light: info
-    homeassistant.components.switch: info
-    homeassistant.components.sensor: info
-    homeassistant.components.tts: info
-    homeassistant.components.zwave: info
-    homeassistant.components.telegram_bot: info
-
+  requests.packages.urllib3.connectionpool: critical
+  homeassistant.components.automation: debug

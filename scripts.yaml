@@ -200,5 +200,6 @@ sonos_say: !include scripts/sonos_say.yaml
 #turn_off_tv: !include scripts/turn_off_tv.yaml
 status: !include scripts/status.yaml
 telegram: !include scripts/telegram.yaml
+lgtv: !include scripts/lgtv.yaml
 #lights_on: !include scripts/lights_on.yaml
 #sunrise: !include scripts/sunrise.yaml

@@ -75,3 +75,5 @@ The fix was to set the report type to 16 (for some reason). Now they are working
 * https://community.home-assistant.io/t/presence-detection-with-multiple-devices-multiple-trackers/4335
 * https://community.home-assistant.io/t/alarm-clock-with-sonos-philips-hue/23421
 * https://community.home-assistant.io/t/follow-me-lights-automation-implementation/29139
+* https://community.home-assistant.io/t/turn-off-the-switch-when-power-is-less-than-x-for-given-time/29106
+* https://community.home-assistant.io/t/aeon-labs-z-wave-door-window-sensor/403/24

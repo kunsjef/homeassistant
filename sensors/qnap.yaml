@@ -6,8 +6,12 @@
 #    - status
 #    - cpu_temp
 #    - cpu_usage
-#    - memory_free
-#    - memory_used
+#    - memory_percent_used
+#    - network_rx
+#    - volume_percentage_used
+#    - drive_smart_status
+#    - drive_temp
+#
 #    - memory_percent_used
 #    - network_link_status
 #    - drive_smart_status

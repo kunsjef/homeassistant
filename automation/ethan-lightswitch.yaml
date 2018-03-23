@@ -10,29 +10,29 @@
 # light.ethanceiling_level
 # switch.ethancity_switch
 
-- alias: 'Ethan left lightswitch turned on'
-  trigger:
-    platform: state
-    entity_id: switch.lswethanleft
-    to: 'on'
-  action:
-    - service: 'switch.turn_on'
-      entity_id: 'switch.ethancity_switch'
-    #- service: notify.telegram
-    #  data_template:
-    #    message: "Ethan left lightswitch turned '{{ states.switch.lswethanleft.state }}'"
+#- alias: 'Ethan left lightswitch turned on'
+#  trigger:
+#    platform: state
+#    entity_id: switch.lswethanleft
+#    to: 'on'
+#  action:
+#    - service: 'switch.turn_on'
+#      entity_id: 'switch.ethancity_switch'
+#    #- service: notify.telegram
+#    #  data_template:
+#    #    message: "Ethan left lightswitch turned '{{ states.switch.lswethanleft.state }}'"
 
-- alias: 'Ethan left lightswitch turned off'
-  trigger:
-    platform: state
-    entity_id: switch.lswethanleft
-    to: 'off'
-  action:
-    - service: 'switch.turn_off'
-      entity_id: 'switch.ethancity_switch'
-    #- service: notify.telegram
-    #  data_template:
-    #    message: "Ethan left lightswitch turned '{{ states.switch.lswethanleft.state }}'"
+#- alias: 'Ethan left lightswitch turned off'
+#  trigger:
+#    platform: state
+#    entity_id: switch.lswethanleft
+#    to: 'off'
+#  action:
+#    - service: 'switch.turn_off'
+#      entity_id: 'switch.ethancity_switch'
+#    #- service: notify.telegram
+#    #  data_template:
+#    #    message: "Ethan left lightswitch turned '{{ states.switch.lswethanleft.state }}'"
 
 - alias: 'Ethan right lightswitch turned on'
   trigger:

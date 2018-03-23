@@ -6,4 +6,6 @@
     - service: script.telegram
       data:
         message: 'Home-Assistant has an update.'
-
+    - service: script.lgtv
+      data:
+        message: 'Home-Assistant has an update!'

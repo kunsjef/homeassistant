@@ -7,7 +7,7 @@
       brightness: 200
       color_name: orangered
     light.heartlights: off
-    switch.bartable: off
+    switch.sofawindow: off
     light.ricelamp:
       state: on
       brightness: 200
@@ -20,3 +20,9 @@
     light.officedesk: off
     switch.barspots: off
     switch.diningwindow: off
+    light.floorlamp:
+      state: on
+      brightness: 174
+      color_name: orangered
+    light.bartable: off
+    switch.kitchenspot: on

@@ -15,3 +15,11 @@
 - platform: mqtt
   state_topic: "homeassistant/kitchen/motion_sensor"
   name: "Motion Kitchen"
+
+- platform: mqtt
+  state_topic: "homeassistant/diningroom/motion_sensor"
+  name: "Motion Diningroom"
+
+- platform: mqtt
+  state_topic: "homeassistant/ethan/motion_sensor"
+  name: "Motion Ethan"

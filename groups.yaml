@@ -1,4 +1,5 @@
 default_view:
+  name: Home
   view: yes
   entities:
     - group.homestatus
@@ -14,25 +15,13 @@ default_view:
     - sensor.yr_symbol
     - binary_sensor.people_home
 
-homestatus:
-  name: Home Status
-  entities:
-    #- group.all_devices
-    - binary_sensor.movement
-    - binary_sensor.movement_upstairs
-    - binary_sensor.door_main
-    - binary_sensor.door_back
-    - binary_sensor.door_ebalcony
-    - binary_sensor.door_wbalcony
-    - binary_sensor.sleeping
-    - binary_sensor.washmachine
-    - sensor.external_ip
-    #- sensor.cert_expiry
-
 scenes:
-  name: Scenes
+  name: Light buttons
+  control: hidden
   entities:
     - scene.lights
+    - input_boolean.nightlamps
+    - input_boolean.dim_nightlamps
     #- scene.good_night
     #- scene.romantic
     #- scene.dinner
@@ -47,7 +36,24 @@ actions:
     - input_boolean.away
     - input_boolean.tts
     - input_boolean.notifications
-    - script.status
+    - input_boolean.home_status
+
+homestatus:
+  name: Home Status
+  entities:
+    #- group.all_devices
+    - binary_sensor.movement
+    - binary_sensor.movement_upstairs
+    - binary_sensor.movement_downstairs
+    - binary_sensor.movement_basement
+    - binary_sensor.door_main
+    - binary_sensor.door_back
+    - binary_sensor.door_ebalcony
+    - binary_sensor.door_wbalcony
+    - binary_sensor.sleeping
+    - binary_sensor.washmachine
+    - sensor.external_ip
+    #- sensor.cert_expiry
 
 alarm:
   name: Alarm
@@ -66,20 +72,63 @@ timestamps:
     - sensor.last_main_door
     - sensor.last_movement_upstairs
 
-alarmclock:
-  name: Alarm clocks
+presence:
+  name: Presence
   view: yes
   entities:
-    - group.alarmbedroom
+    - group.generalpresence
+    - group.motionup
+    - group.motiondown
+    - group.motionbasement
+    - group.motionout
+    - group.doorswindows
 
-alarmbedroom:
-  name: Alarm Clock Bedroom
+generalpresence:
+  name: Overview
   entities:
-    - input_boolean.alarm_clock_status
-    - sensor.alarm_clock_time
-    - input_number.alarm_clock_hour
-    - input_number.alarm_clock_minute
-    - input_number.alarm_clock_fade_in_minutes
+    - binary_sensor.movement_upstairs
+    - sensor.last_movement_upstairs
+    - binary_sensor.movement_downstairs
+    - sensor.last_movement_downstairs
+    - binary_sensor.movement_basement
+    - sensor.last_movement_basement
+    - binary_sensor.doors
+
+motionup:
+  name: Motion Sensors Upstairs
+  entities:
+    - binary_sensor.movement_livingroom
+    - binary_sensor.movement_stair1
+    - binary_sensor.movement_stair2
+    - binary_sensor.movement_kitchen
+    - binary_sensor.movement_diningroom
+
+motiondown:
+  name: Motion Sensors Downstairs
+  entities:
+    - binary_sensor.movement_hall
+    - binary_sensor.movement_hall2
+    - binary_sensor.movement_wic
+    - binary_sensor.movement_kids
+    - binary_sensor.movement_ethan
+
+motionbasement:
+  name: Motion Sensors Basement
+  entities:
+    - binary_sensor.movement_gym
+
+motionout:
+  name: Motion Sensors Outside
+  entities:
+    - binary_sensor.movement_porch
+
+doorswindows:
+  name: Doors and Windows
+  entities:
+    - binary_sensor.door_main
+    - binary_sensor.door_back
+    - binary_sensor.door_ebalcony
+    - binary_sensor.door_wbalcony
 
 details:
   name: Details
@@ -87,28 +136,38 @@ details:
   entities:
     - group.outdoors
     - group.livingroom
-    - group.basement
     - group.hall
     - group.hall2
     - group.bedroom
     - group.ethan
     - group.kids
-    - group.attic
+    - group.basement
     - group.weather_yr
     - group.weather_darksky
     - group.heating
     - group.stairs
     - group.battery
     - group.kitchen
+    - group.washroom
     - group.gym
     - group.network
     - group.facedetect
+    - group.alldevices
+    - group.walkincloset
 
 facedetect:
   name: Face Detection
   entities:
     - image_processing.dlib_face_kitchen
     - camera.kitchen
+
+alldevices:
+  name: All Devices
+  entities:
+    - device_tracker.paulaiphone
+    - device_tracker.thomasiphone
+    - device_tracker.teodoriphone
+    - device_tracker.noahiphone
 
 outdoors:
   name: Outdoors
@@ -119,12 +178,9 @@ outdoors:
     - sensor.netatmo_outdoor_humidity
     - sensor.netatmo_outdoor_radio
     - sensor.netatmo_outdoor_temperature
-    - switch.shed_switch
-    - sensor.shed_power
     - binary_sensor.aurora_visibility
     - sensor.moon
     - binary_sensor.movement_porch
-    - sensor.motion_porch
 
 livingroom:
   name: Livingroom
@@ -137,21 +193,29 @@ livingroom:
     - sensor.netatmo_indoor_temperature
     - sensor.livingroom_luminance
     - sensor.livingroom_temperature
-    - binary_sensor.movement_upstairs
+    - binary_sensor.movement_livingroom
+    - binary_sensor.movement_diningroom
+    - binary_sensor.movement_stair1
+    - binary_sensor.movement_stair2
     - binary_sensor.door_ebalcony
     - binary_sensor.door_wbalcony
     - sensor.tvstereo_power
     #- switch.tvstereo_switch
 
-basement:
-  name: Basement
+walkincloset:
+  name: Walk-in Closet
   entities:
-    - sensor.basement_luminance
-    - sensor.basement_temperature
+    - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_3
+    - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_3
+    - binary_sensor.movement_wic
+    - light.wiclight
+    - switch.heatwic
+
+washroom:
+  name: Washroom
+  entities:
     - binary_sensor.washmachine
     - sensor.washmachine_power
-    - binary_sensor.basement_sensor
-    #- switch.washmachine_switch
 
 network:
   name: Network
@@ -161,30 +225,31 @@ network:
     - sensor.speedtest_ping
 
 hall:
-  name: Entrance Hall
+  name: Main Hall
   entities:
     - sensor.hall_luminance
     - sensor.hall_temperature
-    - binary_sensor.hall_sensor
+    - binary_sensor.movement_hall
     - binary_sensor.door_main
 
 hall2:
-  name: Other Hall
+  name: Inner Hall
   entities:
     - sensor.hall2_luminance
     - sensor.hall2_temperature
-    - binary_sensor.hall2_sensor
+    - binary_sensor.movement_hall2
     - binary_sensor.door_back
 
 ethan:
   name: Ethan's Room
   entities:
     - sensor.ethan_temperature
+    - binary_sensor.movement_ethan
 
 kids:
   name: Kids Room
   entities:
-    - sensor.motion_kids
+    - binary_sensor.movement_kids
 
 bedroom:
   name: Master Bedroom
@@ -194,12 +259,6 @@ bedroom:
     - light.nightlightpaula
     - light.nightlightthomas
 
-attic:
-  name: Attic
-  entities:
-    - sensor.attic_temperature
-    - sensor.attic_humidity
-
 kitchen:
   name: Kitchen
   control: hidden
@@ -208,8 +267,7 @@ kitchen:
     - sensor.kitchensafetey_power
     - sensor.kitchen_temperature
     - sensor.kitchen_humidity
-    - sensor.motion_kitchen
-
+    - binary_sensor.movement_kitchen
 
 gym:
   name: Gym
@@ -218,7 +276,7 @@ gym:
     - sensor.gym_temperature  
     - sensor.gym_humidity  
     - sensor.gym_ldr  
-    - sensor.gym_pir  
+    - binary_sensor.movement_gym  
     - light.gym_led
 
 weather_yr:
@@ -250,12 +308,11 @@ battery:
   name: Battery percentages
   entities:
     - sensor.livingroom_battery
-    - sensor.basement_battery
+    #- sensor.walkincloset_battery
     - sensor.ebalcony_battery
     - sensor.hall_battery
     - sensor.hall2_battery
     - sensor.wbalcony_battery
-    #- sensor.main_door_battery
     - sensor.thomas_iphone_battery
     - sensor.paula_iphone_battery
 
@@ -267,6 +324,7 @@ heating:
     - switch.heatnoahlotta_switch
     - sensor.heatnoahlotta_power
     - switch.heatguestroom
+    - switch.heatwic
 
 lights:
   name: Lights
@@ -275,9 +333,9 @@ lights:
     - group.lights_livingroom
     - group.lights_office
     - group.lights_ethan
+    - group.lights_wic
     - group.lights_bedroom
     - group.lights_kitchen
-    - group.lights_outdoor
 
 lights_livingroom:
   name: Lights Livingroom
@@ -290,7 +348,9 @@ lights_livingroom:
     - light.heartlights
     - switch.diningwindow
     - light.ricelamp
-    - switch.bartable
+    - switch.sofawindow
+    - light.bartable
+    - light.floorlamp
 
 lights_office:
   name: Lights Office
@@ -303,8 +363,14 @@ lights_ethan:
   name: Lights Ethan's Room
   control: hidden
   entities:
-    - switch.ethancity_switch
+    #- switch.ethancity_switch
     - light.ethanceiling_level
+
+lights_wic:
+  name: Lights Walk-In Closet
+  control: hidden
+  entities:
+    - light.wiclight
 
 lights_bedroom:
   name: Lights Bedroom
@@ -318,13 +384,8 @@ lights_kitchen:
   entities:
     - switch.KitchenSpot
 
-lights_outdoor:
-  name: Lights Outdoor
-  entities:
-    - switch.shed_switch
-
-Peripherals:
-  name: Peripherals
+irremote:
+  name: IR Remote
   view: yes
   entities:
     - group.tv
@@ -333,11 +394,7 @@ Peripherals:
 tv:
   name: TV
   entities:
-    - media_player.living_room_tv
     - switch.tv
-    - switch.denon
-    - switch.denonquick12
-    - switch.denonmute
 
 ac:
   name: A/C
@@ -349,37 +406,30 @@ ac:
     - switch.samsungac23
     - switch.samsungac24
 
-security:
-  name: Security
+cameras:
+  name: Cameras
   view: yes
   entities:
-    - group.cameras
+    - group.allcameras
 
-cameras:
+allcameras:
   name: Cameras
   entities:
     - camera.porch
     - camera.kitchen
     - camera.ethan
     - camera.livingroom
+    - camera.tvroom
     - camera.bedroom
     - camera.office
 
-other:
-  name: Other Stuff
+mediaplayers:
+  name: Media Players
   view: yes
   entities:
-    - group.binaries
-    - group.mediaplayers
+    - group.allmediaplayers
 
-binaries:
-  name: Doors, Windows and Movement
-  entities:
-    - binary_sensor.movement_upstairs
-    - binary_sensor.main_door
-    - binary_sensor.back_door
-
-mediaplayers:
+allmediaplayers:
   name: Media Players
   entities:
     - media_player.lgtv
@@ -390,3 +440,24 @@ mediaplayers:
     - media_player.living_room
     - media_player.apple_tv
 
+alarmclock:
+  name: Alarm clocks
+  view: yes
+  entities:
+    - group.alarmbedroom
+
+alarmbedroom:
+  name: Alarm Clock Bedroom
+  entities:
+    - input_boolean.alarm_clock_status
+    - sensor.alarm_clock_time
+    - input_number.alarm_clock_hour
+    - input_number.alarm_clock_minute
+    - input_number.alarm_clock_fade_in_minutes
+
+graphs:
+  name: Graphs
+  view: yes
+  entities:
+    - history_graph.movement
+    - history_graph.outside_temperature

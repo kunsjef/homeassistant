@@ -11,22 +11,12 @@ sensor.bedroom_temperature:
 sensor.bedroom_humidity:
   icon: mdi:water-percent
   friendly_name: Bedroom Humidity
-sensor.attic_temperature:
-  icon: mdi:thermometer
-  friendly_name: Attic Temperature
-sensor.attic_humidity:
-  icon: mdi:water-percent
-  friendly_name: Attic Humidity
 sensor.ethan_temperature:
   icon: mdi:thermometer
   friendly_name: Ethan's Room Temperature
 sensor.livingroom_mean:
   icon: mdi:thermometer
   friendly_name: Livingroom Mean Temperature
-
-#climate.ethan:
-#  icon: mdi:thermometer
-#  friendly_name: Ethan's Room Temperature Target
 
 # Living Room Lights
 light.star:
@@ -39,7 +29,7 @@ light.lightballs:
   friendly_name: Balls
   icon: mdi:google-circles
 light.bridge1:
-  friendly_name: Bridge No1
+  friendly_name: Bridge #1
   icon: mdi:alarm-light
 #light.trio:
 #  friendly_name: Triple
@@ -53,9 +43,15 @@ switch.diningwindow:
 light.ricelamp:
   friendly_name: Ricelamp
   icon: mdi:glass-stange
-switch.bartable:
-  friendly_name: Bar Table
+switch.sofawindow:
+  friendly_name: TV Window
   icon: mdi:lightbulb
+light.bartable:
+  friendly_name: Bar Table
+  icon: mdi:lava-lamp
+light.floorlammp:
+  friendly_name: Floor Lamp
+  icon: mdi:lamp
 
 # Bedroom lights
 light.nightlightpaula:   
@@ -76,10 +72,15 @@ switch.barspots:
   friendly_name: Bar Spotlights
   icon: mdi:flask
 
+# Walk-In Closet
+light.wiclight:
+  friendly_name: Walk-In Closet
+  icon: mdi:spotlight-beam
+
 # Ethan's Room Lights
-switch.ethancity_switch:
-  friendly_name: Ethan City Light
-  icon: mdi:city
+#switch.ethancity_switch:
+#  friendly_name: Ethan City Light
+#  icon: mdi:city
 light.ethanceiling_level:
   friendly_name: Ethan Ceiling Light
   icon: mdi:lightbulb
@@ -88,11 +89,6 @@ light.ethanceiling_level:
 switch.KitchenSpot:
   friendly_name: Kitchen Spot
   icon: mdi:spotlight
-
-# Garage Lights
-#switch.garagelights:
-#  friendly_name: Garage Lights
-#  icon: mdi:spotlight
 
 # Heating
 switch.heatteodor_switch:
@@ -104,17 +100,13 @@ switch.heatnoahlotta_switch:
 switch.heatguestroom:
   friendly_name: Heat Guestroom
   icon: mdi:radiator
+switch.heatwic:
+  friendly_name: Heat Walk-In Closet
+  icon: mdi:radiator
 
 # Conditions / Outside
 sun.sun:
   icon: mdi:weather-sunny
-
-sensor.outside_humidity:
-  icon: mdi:water-percent
-  friendly_name: Outside Humidity
-sensor.outside_temperature:
-  icon: mdi:thermometer
-  friendly_name: Outside Temperature
 
 # YR
 sensor.yr_temperature:
@@ -147,27 +139,20 @@ sensor.tvstereo_power:
 sensor.washmachine_power:
   icon: mdi:power-plug
   friendly_name: Washing Machine Power Usage
-binary_sensor.hall_sensor:
-  icon: mdi:walk
-  friendly_name: Hall Movement
-binary_sensor.hall2_sensor:
-  icon: mdi:walk
-  friendly_name: Hall2 Movement
-binary_sensor.basement_sensor:
-  icon: mdi:walk
-  friendly_name: Basement Movement
-switch.shed_switch:
-  icon: mdi:white-balance-incandescent
-  friendly_name: Shed Outdoor Lights
-sensor.shed_power:
-  icon: mdi:power-plug
-  friendly_name: Shed Outdoor Lights Power Usage
 switch.kitchensafetey_switch:
   icon: mdi:kettle
   friendly_name: Kitchen Safety Switch
 sensor.kitchensafetey_power:
   icon: mdi:power-plug
   friendly_name: Kitchen Appliances Power Usage
+
+sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_3:
+  icon: mdi:eye
+  friendly_name: Walk-In Closet Luminance
+sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_3:
+  icon: mdi:thermometer
+  friendly_name: Walk-In Closet Temperature
+
 
 # Booleans
 input_boolean.sleeping:
@@ -187,49 +172,17 @@ input_boolean.tts:
 input_boolean.notifications:
   icon: mdi:speaker-wireless
   friendly_name: Telegram Notifications
-
-# Hide switches
-switch.motionsensor:
-  hidden: true
-switch.motionsensor2:
-  hidden: true
-switch.lswlivingroomleft:
-  hidden: true
-switch.lswlivingroomright:
-  hidden: true
-switch.lswblueroomleft:
-  hidden: true
-switch.lswblueroomright:
-  hidden: true
-
-# Hide scripts
-script.livingroom_nightlight:
-  hidden: true
-script.nightlight_timer:
-  hidden: true
-#script.lights_on:
-#  hidden: true
-#script.sunrise:
-#  hidden: true
-#script.goodnight-off:
-#  hidden: true
-#script.goodnight:
-#  hidden: true
-
-
-# Hide scenes
-scene.nightlight:
-   hidden: true
-scene.away_lights_on:
-  hidden: true
-scene.away_lights_off:
-  hidden: true
-scene.sunrise:
-  hidden: true
+input_boolean.nightlamps:
+  icon: mdi:lava-lamp
+  friendly_name: Nightlamps
+input_boolean.dim_nightlamps:
+  icon: mdi:contrast-circle
+  friendly_name: Dim Nightlamps
 
 # Scenes
 scene.lights:
   icon: mdi:lightbulb
+  friendly_name: Lights On
 scene.good_night:
   icon: mdi:sleep
 scene.romantic:
@@ -251,57 +204,6 @@ switch.maindoor:
   hidden: true
 switch.backdoor:
   hidden: true
-binary_sensor.door_main:
-  friendly_name: Main Door
-  icon: mdi:checkbox-blank
-binary_sensor.door_back:
-  friendly_name: Back Door
-  icon: mdi:checkbox-blank
-binary_sensor.door_ebalcony:
-  friendly_name: East Balcony Door
-  icon: mdi:glassdoor
-binary_sensor.door_wbalcony:
-  friendly_name: West Balcony Door
-  icon: mdi:glassdoor
-
-# Misc Binary sensors
-binary_sensor.movement:
-  friendly_name: Movement
-  icon: mdi:walk
-binary_sensor.movement_upstairs:
-  friendly_name: Movement Upstairs
-  icon: mdi:walk
-binary_sensor.movement_stair1:
-  friendly_name: Movement Main Stairs
-  icon: mdi:walk
-binary_sensor.movement_stair2:
-  friendly_name: Movement Office/Stairs
-  icon: mdi:walk
-binary_sensor.movement_porch:
-  friendly_name: Movement Porch
-  icon: mdi:walk
-sensor.motion_porch:
-  icon: mdi:walk
-sensor.motion_kids:
-  icon: mdi:walk
-sensor.motion_kitchen:
-  icon: mdi:walk
-
-binary_sensor.sleeping:
-  friendly_name: Sleeping
-  icon: mdi:sleep
-binary_sensor.washmachine:
-  friendly_name: Washing Machine
-  icon: mdi:washing-machine
-sensor.last_back_door:
-  friendly_name: Back door last opened
-  icon: mdi:checkbox-blank
-sensor.last_main_door:
-  friendly_name: Main door last opened
-  icon: mdi:checkbox-blank
-sensor.last_movement_upstairs:
-  friendly_name: Last movement upstairs
-  icon: mdi:walk
 
 # All devices group
 group.all_devices:
@@ -312,15 +214,6 @@ group.all_devices:
 switch.tv:
   friendly_name: TV On/Off
   icon: mdi:power
-switch.denon:
-  friendly_name: Receiver On/Off
-  icon: mdi:power
-switch.denonquick12:
-  friendly_name: Kodi/Shield
-  icon: mdi:movie
-switch.denonmute:
-  friendly_name: Mute
-  icon: mdi:volume-off
 
 # A/C
 switch.samsungac:
@@ -344,30 +237,3 @@ switch.samsungac24:
 switch.samsungac25:
   friendly_name: AC 25 heat
   icon: mdi:air-conditioner
-
-# Battery
-sensor.livingroom_battery:
-  friendly_name: Sensor Livingroom Battery
-sensor.basement_battery:
-  friendly_name: Sensor Basement Battery
-sensor.ebalcony_battery:
-  friendly_name: Sensor East Balcony Door Battery
-sensor.hall_battery:
-  friendly_name: Sensor Hall Battery
-sensor.hall2_battery:
-  friendly_name: Sensor Hall2 Battery
-sensor.wbalcony_battery:
-  friendly_name: Sensor West Balcony Door Battery
-sensor.thomas_iphone_battery:
-  friendly_name: Sensor Thomas iPhone Battery
-sensor.paula_iphone_battery:
-  friendly_name: Sensor Paula iPhone Battery
-
-# House state
-sensor.house_asleep_timestamp:
-  friendly_name: House fell alseep
-  icon: mdi:sleep
-sensor.house_awake_timestamp:
-  friendly_name: House awoke
-  icon: mdi:sleep-off
-

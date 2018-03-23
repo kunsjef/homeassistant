@@ -109,7 +109,7 @@ livingroom:
     - light.heartlights
     - switch.diningwindow
     - switch.ricelamp
-    - switch.bartable
+    - switch.sofawindow
 
 office:
   name: Office

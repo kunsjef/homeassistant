@@ -26,5 +26,9 @@
         type: rgbww
         name: Ricelamp
         fade: on
+      - number: 3
+        type: rgbww
+        name: Floorlamp
+        fade: on
 
 

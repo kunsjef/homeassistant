@@ -10,7 +10,7 @@
       state: on
       brightness: 255
     switch.barspots: on
-    switch.bartable: on
+    switch.sofawindow: on
     switch.diningwindow: on
     light.ricelamp: on
     light.star: off
@@ -18,4 +18,9 @@
     light.diningtable: off
     input_boolean.sleeping: off
     light.mancaveceiling: off
+    light.floorlamp: off
+    light.bartable:
+      state: on
+      brightness: 1
+    switch.kitchenspot: on
     input_boolean.away: on

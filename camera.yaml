@@ -39,6 +39,12 @@
   password: !secret camera_password
   authentication: basic
 
+# TV-stue
+- platform: generic
+  still_image_url: http://192.168.1.61/snap.jpeg
+  name: TVRoom
+  #scan_interval: 2
+
 # Bedroom
 - platform: mjpeg
   mjpeg_url: http://192.168.1.63/mjpeg.cgi
