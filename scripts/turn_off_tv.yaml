@@ -1,0 +1,9 @@
+alias: "Turn off TV if on"
+sequence:
+  - condition: template
+    value_template: '{{ states.sensor.tvstereo_power.attributes.power_consumption > 100 }}'
+  - service: switch.turn_off
+    entity_id: switch.denon
+  - service: switch.turn_off
+    entity_id: switch.tv
+

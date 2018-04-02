@@ -57,7 +57,7 @@ My current home-assistant configuration. This is a work in progress, and the con
 - [ ] Unlock door if both bluetooth tracker detected and facial recognition positive
 
 ## Notes
-### OZWCP
+### OZWCP (Obsolete)
 ```
 service hassd stop
 cd ~/open-zwave-control-panel

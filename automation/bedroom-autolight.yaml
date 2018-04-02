@@ -1,0 +1,96 @@
+# light.nightlightpaula
+# light.nightlightthomas
+
+- alias: 'Turn off nighlights in the daytime'
+  trigger:
+    - platform: time
+      at: '11:00:00'
+  action:
+    - service: 'light.turn_off'
+      entity_id: 'group.lights_bedroom'
+    - delay: '00:00:02'
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.nightlamps
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.dim_nightlamps
+
+- alias: 'Turn on nighlights at night'
+  trigger:
+    - platform: time
+      at: '20:00:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'off'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'group.lights_bedroom'
+      data:
+        brightness: 200
+    - delay: '00:00:02'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.nightlamps
+
+- alias: 'Nightlamp button on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.nightlamps
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.lights_bedroom
+      state: 'off'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'group.lights_bedroom'
+      data:
+        brightness: 200
+
+- alias: 'Nightlamp button off'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.nightlamps
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: group.lights_bedroom
+      state: 'on'
+  action:
+    - service: 'light.turn_off'
+      entity_id: 'group.lights_bedroom'
+    - delay: '00:00:02'
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.dim_nightlamps
+
+- alias: 'Nightlamp DIM button on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dim_nightlamps
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.lights_bedroom
+      state: 'on'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'group.lights_bedroom'
+      data:
+        brightness: 10
+
+- alias: 'Nightlamp DIM button off'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dim_nightlamps
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: group.lights_bedroom
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.nightlamps
+      state: 'on'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'group.lights_bedroom'
+      data:
+        brightness: 200

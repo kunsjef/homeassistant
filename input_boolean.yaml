@@ -1,0 +1,69 @@
+sleeping:
+  name: Sleeping
+  initial: off
+  icon: mdi:sleep
+
+house_asleep:
+  initial: off
+
+dark_theme:
+  name: darktheme
+  initial: off
+
+nightlamps:
+  name: nightlamps
+  initial: off
+
+dim_nightlamps:
+  name: dim_nightlamps
+  initial: off
+
+house_awake:
+  initial: on
+
+sleep_now:
+  name: Sleep Now
+  initial: off
+  icon: mdi:hotel
+
+extend_night:
+  name: Extend Night
+  initial: off
+  icon: mdi:sleep-off
+
+away:
+  name: Away
+  initial: off
+  icon: mdi:briefcase
+
+alarm_away:
+  name: Alarm Away
+  initial: off
+  icon: mdi:security
+
+alarm_home:
+  name: Alarm Home
+  initial: off
+  icon: mdi:security-home
+
+alarm_triggered:
+  name: Alarm Triggered
+  initial: off
+
+notifications:
+  name: Notifications
+  initial: on
+
+tts:
+  name: TTS announcements
+  initial: on
+
+home_status:
+  name: Home Status
+  initial: off
+  icon: mdi:home-assistant
+
+alarm_clock_status:
+  name: Alarm Set
+  icon: mdi:alarm-check
+  initial: off

@@ -1,0 +1,53 @@
+- alias: 'Porch movement'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.movement_porch
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: time
+      after: '19:00:00'
+      before: '23:59:00'
+  action:
+    - service: script.lgtv
+      data:
+        message: 'Somebody is at the door!'
+
+- alias: 'Movement when nobody home'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.movement
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.people_home
+      state: 'off'
+      for:
+        minutes: 30
+  action:
+    - service: script.telegram
+      data:
+        message: 'There is movement at home, but supposedly the house is empty!'
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.living_room
+        volume: 0.5
+        message: 'Excuse me, but is there somebody here? Please call Thomas.'
+        delay: '00:00:05'
+
+- alias: 'Ethan crying'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.movement_ethan
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: time
+      after: '19:30:00'
+      before: '23:59:00'
+  action:
+    - service: script.lgtv
+      data:
+        message: 'Ethan is making noise!'
+

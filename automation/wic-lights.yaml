@@ -1,0 +1,20 @@
+- alias: 'WIC lights on'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.movement_wic
+    to: 'on'
+  action:
+    - service: 'light.turn_on'
+      entity_id: 'light.wiclight'
+
+- alias: 'WIC lights off'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.movement_wic
+    to: 'off'
+    for:
+      minutes: 15
+  action:
+    - service: 'light.turn_off'
+      entity_id: 'light.wiclight'
+
